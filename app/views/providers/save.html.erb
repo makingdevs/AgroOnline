@@ -1,0 +1,19 @@
+<h1>Listing Books</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Last Name</th>
+    <th>Country</th>
+  </tr>
+
+  <% @providers.each do |provider| %>
+    <tr>
+      <td><%= provider.name %></td>
+      <td><%= provider.lastName %></td>
+      <td><%= provider.country %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
