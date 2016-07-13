@@ -1,3 +1,5 @@
+require 'readXlsManager/read_xls_manager'
+
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +12,20 @@ class ProvidersController < ApplicationController
   # GET /providers/1
   # GET /providers/1.json
   def show
+  end
+
+  def multi
+  end
+
+  def save
+    @readXls = ReadXlsManager.instance
+    providers = []
+    file = params['providers']
+    result = @readXls.readExcel(params['providers'].tempfile)
+    result.each { | providerRow |
+      providers << Provider.createProvider(providerRow)
+    }
+    @providers = providers
   end
 
   # GET /providers/new
