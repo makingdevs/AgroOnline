@@ -20,10 +20,12 @@ class ProvidersController < ApplicationController
   def save
     @readXls = ReadXlsManager.instance
     providers = []
-    file = params['providers']
     result = @readXls.readExcel(params['providers'].tempfile)
     result.each { | providerRow |
-      providers << Provider.createProvider(providerRow)
+      provider = Provider.find_by nickname: "#{providerRow[2]}"
+      if !provider
+        providers << Provider.createProvider(providerRow)
+      end
     }
     @providerList = providers
     @providerList
