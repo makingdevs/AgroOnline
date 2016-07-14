@@ -6,5 +6,6 @@ class Provider < ApplicationRecord
     provider.lastName = params[1]
     provider.country = "Mexico"
     provider.save
+    provider
   end
 end
