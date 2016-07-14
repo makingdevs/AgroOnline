@@ -1,5 +1,7 @@
 class Provider < ApplicationRecord
 
+  validates :nickname, presence: true
+
   def self.createProvider(params)
     provider = Provider.new()
     provider.name = params[0]
