@@ -25,7 +25,8 @@ class ProvidersController < ApplicationController
     result.each { | providerRow |
       providers << Provider.createProvider(providerRow)
     }
-    @providers = providers
+    @providerList = providers
+    @providerList
   end
 
   # GET /providers/new
