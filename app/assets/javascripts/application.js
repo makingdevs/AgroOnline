@@ -13,4 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require modernizr.custom.js
+//= require waypoints.min.js
+//= require jquery.mobile.menu.js
+//= require ./third-party/jquery/dist/jquery.min.js
+//= require ./third-party/bootstrap/dist/js/bootstrap.min.js
+//= require ./third-party/swiper/dist/js/swiper.min.js
+//= require ./third-party/rs-plugin/js/jquery.themepunch.revolution.min.js
+//= require ./third-party/raty/lib/jquery.raty.js
+//= require custom.js
+//= require form.js
+//= require_self
