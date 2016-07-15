@@ -1,0 +1,26 @@
+{
+  "name": "AgroOnline",
+  "version": "0.0.0",
+  "homepage": "https://github.com/makingdevs/AgroOnline",
+  "authors": [
+    "says <says.rodriguez@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "swiper": "~3.3.1",
+    "malihu-custom-scrollbar-plugin": "~3.1.5",
+    "Font-Awesome": "~4.6.3",
+    "rs-plugin": "*",
+    "raty": "~2.7.0",
+    "modernizr": "~3.3.1",
+    "jquery": "~3.1.0",
+    "bootstrap": "~3.3.6"
+  }
+}
