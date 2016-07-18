@@ -1,0 +1,14 @@
+{
+  "name": "agroonline",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  },
+  "scripts": {
+    "postInstall": "./node_modules/bower/bin/bower install"
+  },
+  "author": "says33 (sergio@mkaingdevs.com)",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
+}
