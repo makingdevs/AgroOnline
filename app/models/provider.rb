@@ -1,5 +1,7 @@
 class Provider < ApplicationRecord
 
+  has_many :products
+
   validates :nickname, presence: true
 
   def self.createProvider(params)
