@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery/jquery
-//= require jquery_ujs
+//= require jquery-ujs/js/rails
 //= require turbolinks
 //= require AgroOnline-theme/js/modernizr.custom
 //= require AgroOnline-theme/js/waypoints.min
