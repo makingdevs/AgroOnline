@@ -20,8 +20,6 @@ gem 'rubyXL', '~> 3.3', '>= 3.3.21'
 #Use the postgres db
 gem 'pg', '~> 0.18.4'
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -32,9 +30,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'sprockets', '~> 3.6', '>= 3.6.3'
-
-#Use bower gem
-gem 'bower'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
