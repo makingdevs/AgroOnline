@@ -10,17 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery/jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require modernizr.custom.js
-//= require waypoints.min.js
-//= require jquery.mobile.menu.js
-//= require ./third-party/jquery/dist/jquery.min.js
-//= require ./third-party/bootstrap/dist/js/bootstrap.min.js
-//= require ./third-party/swiper/dist/js/swiper.min.js
-//= require ./third-party/rs-plugin/js/jquery.themepunch.revolution.min.js
-//= require ./third-party/raty/lib/jquery.raty.js
-//= require custom.js
-//= require form.js
-//= require_self
+//= require AgroOnline-theme/js/modernizr.custom
+//= require AgroOnline-theme/js/waypoints.min
+//= require AgroOnline-theme/js/jquery.mobile.menu
+//= require bootstrap/dist/js/bootstrap
+//= require swiper/dist/js/swiper
+//= require rs-plugin/js/jquery.themepunch.revolution.min
+//= require raty/lib/jquery.raty
+//= require AgroOnline-theme/js/custom
+//= require AgroOnline-theme/js/form
+//= require_tree .
