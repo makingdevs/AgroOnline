@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714150831) do
+ActiveRecord::Schema.define(version: 20160718214012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20160714150831) do
     t.string   "min_order_quantity"
     t.string   "origin"
     t.string   "packaging"
+    t.integer  "category_id"
+    t.integer  "provider_id"
+    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
+    t.index ["provider_id"], name: "index_products_on_provider_id", using: :btree
   end
 
   create_table "providers", force: :cascade do |t|
@@ -44,4 +48,6 @@ ActiveRecord::Schema.define(version: 20160714150831) do
     t.index ["nickname"], name: "index_providers_on_nickname", unique: true, using: :btree
   end
 
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "providers"
 end
