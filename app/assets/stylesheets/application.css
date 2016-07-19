@@ -1,10 +1,10 @@
-@import 'third-party/bootstrap/dist/css/bootstrap.min.css';
-@import 'third-party/Font-Awesome/css/font-awesome.min.css';
-@import 'third-party/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
-@import 'third-party/swiper/dist/css/swiper.min.css';
-@import 'z-nav/z-nav.css';
-@import 'style.css?v=1';
-@import 'touch.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'Font-Awesome/css/font-awesome.min.css';
+@import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
+@import 'swiper/dist/css/swiper.min.css';
+@import 'AgroOnline-theme/css/z-nav/z-nav.css';
+@import 'AgroOnline-theme/css/style.css?v=1';
+@import 'AgroOnline-theme/css/touch.css';
 
 
 /*
