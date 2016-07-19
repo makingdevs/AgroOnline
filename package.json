@@ -1,13 +1,24 @@
 {
-  "name": "agroonline",
+  "name": "agro-online",
   "version": "1.0.0",
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   },
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install"
   },
-  "author": "says33 (sergio@mkaingdevs.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makingdevs/AgroOnline.git"
+  },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makingdevs/AgroOnline/issues"
+  },
+  "homepage": "https://github.com/makingdevs/AgroOnline#readme",
   "dependencies": {
     "bower": "^1.7.9"
   }
