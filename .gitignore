@@ -1,6 +1,5 @@
 # Created by https://www.gitignore.io/api/rails
 
-
 ### Rails ###
 *.rbc
 capybara-*.html
