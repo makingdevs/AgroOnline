@@ -186,7 +186,7 @@ DEPENDENCIES
   bower
   byebug
   coffee-rails (~> 4.2)
-  compass-rails (~> 3.0, >= 3.0.2)
+  compass-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
