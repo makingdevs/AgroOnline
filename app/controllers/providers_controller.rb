@@ -1,4 +1,6 @@
 require 'readXlsManager/read_xls_manager'
+require 'providerManager/provider_manager'
+require 'productManager/product_manager'
 
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
@@ -19,15 +21,12 @@ class ProvidersController < ApplicationController
 
   def save
     @readXls = ReadXlsManager.instance
-    providers = []
-    result = @readXls.readExcel(params['providers'].tempfile)
-    result.each { | providerRow |
-      provider = Provider.find_by nickname: "#{providerRow[2]}"
-      if !provider
-        providers << Provider.createProvider(providerRow)
-      end
-    }
-    @providerList = providers
+    @providerManager = ProviderManager.new
+    @productManager = ProductManager.new
+    resultProviders = @readXls.readExcel(params['providers'].tempfile)
+    resultProducts = @readXls.readExcel(params['products'].tempfile)
+    @providerList = @providerManager.createProviders(resultProviders)
+    @productManager.createProduct(resultProducts)
     @providerList
   end
 
