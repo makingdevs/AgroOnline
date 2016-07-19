@@ -16,15 +16,15 @@
   "dependencies": {
     "swiper": "~3.3.1",
     "malihu-custom-scrollbar-plugin": "~3.1.5",
-    "Font-Awesome": "~4.6.3",
     "rs-plugin": "*",
     "raty": "~2.7.0",
     "modernizr": "~3.3.1",
     "jquery": "1.9.1",
     "bootstrap": "~3.3.6",
-    "AgroOnline-theme": "https://github.com/makingdevs/AgroOnline-theme.git"
+    "AgroOnline-theme": "https://github.com/makingdevs/AgroOnline-theme.git",
+    "fontawesome": "~4.6.3"
   },
   "resolutions": {
-        "jquery": "1.9.1"
-          }
+    "jquery": "1.9.1"
+  }
 }
