@@ -20,7 +20,11 @@
     "rs-plugin": "*",
     "raty": "~2.7.0",
     "modernizr": "~3.3.1",
-    "jquery": "~3.1.0",
-    "bootstrap": "~3.3.6"
-  }
+    "jquery": "1.9.1",
+    "bootstrap": "~3.3.6",
+    "AgroOnline-theme": "git@github.com:makingdevs/AgroOnline-theme.git"
+  },
+  "resolutions": {
+        "jquery": "1.9.1"
+          }
 }
