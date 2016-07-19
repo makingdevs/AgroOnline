@@ -1,12 +1,3 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
-@import 'Font-Awesome/css/font-awesome.min.css';
-@import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
-@import 'swiper/dist/css/swiper.min.css';
-@import 'AgroOnline-theme/css/z-nav/z-nav.css';
-@import 'AgroOnline-theme/css/style.css';
-@import 'AgroOnline-theme/css/touch.css';
-
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -22,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'Font-Awesome/css/font-awesome.min.css';
+@import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
+@import 'swiper/dist/css/swiper.min.css';
+@import 'AgroOnline-theme/css/z-nav/z-nav.css';
+@import 'AgroOnline-theme/css/style.css';
+@import 'AgroOnline-theme/css/touch.css';
+
