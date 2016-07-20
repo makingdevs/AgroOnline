@@ -17,7 +17,7 @@
 //= require AgroOnline-theme/js/waypoints.min
 //= require AgroOnline-theme/js/jquery.mobile.menu
 //= require bootstrap/dist/js/bootstrap
-//= require swiper/dist/js/swiper
+//= require AgroOnline-theme/js/idangerous.swiper
 //= require rs-plugin/js/jquery.themepunch.revolution.min
 //= require raty/lib/jquery.raty
 //= require AgroOnline-theme/js/custom
