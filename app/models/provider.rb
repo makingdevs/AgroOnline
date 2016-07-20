@@ -13,4 +13,8 @@ class Provider < ApplicationRecord
     provider.save
     provider
   end
+
+  def to_s
+     name + " " + lastName
+   end
 end
