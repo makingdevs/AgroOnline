@@ -61,6 +61,12 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def search
+    @category = Category.find_by name: "bovina"
+    @products = Product.where(:category =>"#{@category.id}")
+    @products
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
