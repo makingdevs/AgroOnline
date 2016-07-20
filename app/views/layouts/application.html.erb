@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="utf-8">
-  <title>Agro Online</title>
+  <title>Nos Unimos</title>
   <meta name="description" content="A Template by Congruity Hub team">
   <meta name="keywords" content="HTML, CSS, JavaScript">
   <meta name="author" content="Congruity Hub team">
@@ -33,13 +33,13 @@
         </div>
         <div class="fixed-top header-down">
           <div class="container">
-            <a class="logo" href="">
+            <a class="logo" href="/">
               <svg class="logo__svg" width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
                 <g>
                   <path class="logo__svg-path" d="m18.8,14c-1.2,-0.2 -2.3,0.1 -3.2,0.6c-0.8,0.5 -1.8,0.2 -2.4,-0.7c-0.4,-0.8 -0.2,-1.8 0.7,-2.3c1.4,-0.7 3,-1.2 4.7,-1.1c-0.2,-0.1 -0.4,-0.2 -0.6,-0.4c-0.8,-0.7 -1.8,-1.3 -3,-1.4c-2.6,-0.3 -5.1,1.5 -5.4,4s1.6,4.9 4.2,5.2c1.2,0.1 2.3,-0.1 3.2,-0.6c0.8,-0.5 1.8,-0.2 2.4,0.7c0.4,0.8 0.2,1.8 -0.7,2.3c-1.3,0.7 -3,1.2 -4.7,1.1c0.2,0.1 0.4,0.2 0.6,0.4c0.8,0.7 1.8,1.3 3,1.4c2.6,0.3 5.1,-1.5 5.4,-4c0.4,-2.4 -1.5,-4.8 -4.2,-5.2zm-2.8,-14c-8.8,0 -16,7.2 -16,16s7.2,16 16,16c8.8,0 16,-7.2 16,-16s-7.2,-16 -16,-16zm10.5,19.7c-0.6,4.5 -4.8,7.5 -9.4,7c-2,-0.3 -3.7,-1.2 -4.9,-2.4c-0.7,-0.7 -0.7,-1.8 0,-2.4c0.3,-0.3 0.7,-0.4 1,-0.5c-4.4,-0.6 -7.6,-4.7 -7.1,-9c0.6,-4.5 4.8,-7.5 9.3,-7c2,0.2 3.7,1.2 5,2.4c0.7,0.7 0.7,1.8 0,2.4c-0.3,0.3 -0.7,0.4 -1,0.5c4.5,0.6 7.7,4.6 7.1,9z" fill="#ffffff">
                   </g>
                 </svg>
-                <h1 class="logo__text">Agro Online</h1>
+                <h1 class="logo__text">Nos Unimos</h1>
               </a>
               <nav class="z-nav">
                 <a href="#" class="z-nav__toggle">
@@ -55,20 +55,36 @@
                       <div class="col-sm-3 col-md-2">
                       </div>
                       <div class="col-sm-3 col-md-2">
-                        <li class="z-nav__item"><a class="z-nav__link" href="maps.html"><i class="fa fa-map-marker"></i>Bovino</a></li>
-                        <li class="z-nav__item"><a class="z-nav__link" href="icons.html"><i class="fa fa-user"></i> Ovino</a></li>
+                        <li class="z-nav__item">
+                          <%= link_to '<i class="fa fa-map-marker"></i> Bovino'.html_safe, {:controller => "categories",:action=> "search",:id => "bovino"},{ :class=> "z-nav__link"  }%>
+                        </li>
+                        <li class="z-nav__item">
+                          <%= link_to '<i class="fa fa fa-user"></i> Ovino'.html_safe, {:controller => "categories",:action=> "search",:id => "ovino"},{ :class=> "z-nav__link"  }%>
+                        </li>
                       </div>
                       <div class="col-sm-3 col-md-2">
-                        <li class="z-nav__item"><a class="z-nav__link" href="notifications.html"><i class="fa fa-flag"></i>Porcino</a></li>
-                        <li class="z-nav__item"><a class="z-nav__link" href="paginations.html"><i class="fa fa-chevron-circle-right"></i>Caprino</a></li>
+                        <li class="z-nav__item">
+                          <%= link_to '<i class="fa fa fa-flag"></i> Porcino'.html_safe, {:controller => "categories",:action=> "search",:id => "porcino"},{ :class=> "z-nav__link"  }%>
+                        </li>
+                        <li class="z-nav__item">
+                          <%= link_to '<i class="fa fa fa-chevron-circle-right"></i> Caprino'.html_safe, {:controller => "categories",:action=> "search",:id => "caprino"},{ :class=> "z-nav__link"  }%>
+                        </li>
                       </div>
                       <div class="col-sm-3 col-md-2">
-                        <li class="z-nav__item"><a class="z-nav__link" href="sequences.html"><i class="fa fa-ellipsis-h"></i>Avicultura</a></li>
-                        <li class="z-nav__item"><a class="z-nav__link" href="sliders.html"><i class="fa fa-cogs"></i> Picicultura</a></li>
+                        <li class="z-nav__item">
+                          <%= link_to '<i class="fa fa fa-ellipsis-h"></i> Avicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "avicultura"},{ :class=> "z-nav__link"  }%>
+                        </li>
+                        <li class="z-nav__item">
+                          <%= link_to '<i class="fa fa fa-cogs"></i> Picicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "picicultura"},{ :class=> "z-nav__link"  }%>
+                        </li>
                       </div>
                       <div class="col-sm-3 col-md-2">
-                        <li class="z-nav__item"><a class="z-nav__link" href="testimonials.html"><i class="fa fa-comments"></i>Apicultura</a></li>
-                        <li class="z-nav__item"><a class="z-nav__link" href="tooltips.html"><i class="fa fa-bookmark"></i>Cunicultura</a></li>
+                        <li class="z-nav__item">
+                          <%= link_to '<i class="fa fa fa-comments"></i> Apicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "apicultura"},{ :class=> "z-nav__link"  }%>
+                        </li>
+                        <li class="z-nav__item">
+                          <%= link_to '<i class="fa fa fa-bookmark"></i> Cunicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "cunicultura"},{ :class=> "z-nav__link"  }%>
+                        </li>
                       </div>
                     </ul>
                   </li>
