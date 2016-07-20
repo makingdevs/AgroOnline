@@ -1,3 +1,156 @@
+<div class="staff-container" id="team">
+    <section class="container">
+        <h2 class="block-title block-title--top-larger">Estados</h2>
+        <div class="swiper-container staff-slider">
+            <div class="swiper-wrapper">
+              <% @estados.each do | mapa | %>
+              <div class="swiper-slide">
+                  <div class="row">
+                    <% mapa.each_with_index do | (name, description), index | %>
+                      <div class="col-sm-12 col-md-6">
+                          <article>
+                              <a class="post post--preview-link staff" href="#">
+                                  <div class="row">
+                                      <% if [0,1,4,5,8,9].include?(index) then %>
+                                      <div class="one-column col-xs-6 col-md-5 col-lg-6">
+                                          <h3 class="staff__name"><%= name %></h3>
+
+                                          <p class="post__text"> <%= description %>fdf</p>
+                                      </div>
+                                      <!-- end col -->
+                                      <div class="one-column col-xs-6 col-md-7 col-lg-6">
+                                          <div class="image-container image-container--max image--border-hover">
+                                              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{name.downcase}.jpg" ,size: "526x220"%>
+                                          </div>
+                                      </div>
+                                      <!-- end col -->
+                                      <% else %>
+                                      <div class="one-column col-xs-6 col-md-7 col-lg-6">
+                                          <div class="image-container image-container--max image--border-hover">
+                                            <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{name.downcase}.jpg" ,size: "526x220"%>
+                                          </div>
+                                      </div>
+                                      <!-- end col -->
+                                      <div class="one-column col-xs-6 col-md-5 col-lg-6">
+                                          <h3 class="staff__name"><%= name %></h3>
+
+                                          <p class="post__text"> <%= description %>fdf</p>
+                                      </div>
+                                      <!-- end col -->
+                                      <% end %>
+                                  </div>
+                              </a>
+                          </article>
+                        </div>
+                  <% end %>
+                  </div>
+              </div>
+              <% end %>
+            </div>
+        </div>
+        <div class="divider-brand top-space"></div>
+    </section>
+    <div class="staff-slider-control">
+        <a class="prev-arrow" href="#"><i class="fa fa-angle-left"></i></a>
+        <a class="next-arrow" href="#"><i class="fa fa-angle-right"></i></a>
+    </div>
+    <!-- end slider controls-->
+</div>
+<div class="swiper-container fading-slider">
+    <div class="swiper-wrapper">
+        <!--Slide-->
+        <div class="swiper-slide swiper-no-swiping">
+            <!-- Sevrice preview -->
+            <div class="service">
+                <div class="icon icon--strips">
+                    <i class="icon__item fa fa-credit-card">&nbsp;</i>
+                </div>
+                <a class="service__link" href="single-service.html">
+                    <h3 class="service__heading">Reasonable Price</h3>
+                </a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in lacinia quam. Fusce quis nulla tincidunt, interdum magna vitae, viverra est. Nunc eu sodales turpis, varius viverra mauris.</p>
+            </div>
+            <!-- end sevrice preview -->
+        </div>
+        <!-- Slide-->
+        <div class="swiper-slide swiper-no-swiping">
+            <!-- Sevrice preview -->
+            <div class="service">
+                <div class="icon icon--strips">
+                    <i class="icon__item fa fa-heart">&nbsp;</i>
+                </div>
+                <a class="service__link" href="single-service.html">
+                    <h3 class="service__heading">Made with Love</h3>
+                </a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in lacinia quam. Fusce quis nulla tincidunt, interdum magna vitae, viverra est. Nunc eu sodales turpis, varius viverra mauris.</p>
+            </div>
+            <!-- end sevrice preview -->
+        </div>
+        <!--Slide-->
+        <div class="swiper-slide swiper-no-swiping">
+            <!-- Sevrice preview -->
+            <div class="service">
+                <div class="icon icon--strips">
+                    <i class="icon__item fa fa-cogs">&nbsp;</i>
+                </div>
+                <a class="service__link" href="single-service.html">
+                    <h3 class="service__heading">Fully Customizable</h3>
+                </a>
+                <p>Nullam lacinia nibh et nisi luctus rhoncus. Cras vitae purus volutpat, rhoncus mauris quis, elementum neque. In cursus magna eget consequat placerat. Nulla facilisi. </p>
+            </div>
+            <!-- end sevrice preview -->
+        </div>
+        <!-- Slide-->
+        <div class="swiper-slide swiper-no-swiping">
+            <!-- Sevrice preview -->
+            <div class="service">
+                <div class="icon icon--strips">
+                    <i class="icon__item fa fa-phone">&nbsp;</i>
+                </div>
+                <a class="service__link" href="single-service.html">
+                    <h3 class="service__heading">Premium-class Support</h3>
+                </a>
+                <p>Sed eget placerat arcu. Nullam porta faucibus ligula, egestas tempus tellus dapibus tincidunt. Nunc vitae interdum massa. Nam in augue quis elit sagittis accumsan.</p>
+            </div>
+            <!-- end sevrice preview -->
+        </div>
+        <!--Slide-->
+        <div class="swiper-slide swiper-no-swiping">
+            <!-- Sevrice preview -->
+            <div class="service">
+                <div class="icon icon--strips">
+                    <i class="icon__item fa fa-dashboard">&nbsp;</i>
+                </div>
+                <a class="service__link" href="single-service.html">
+                    <h3 class="service__heading">Efficient Workflow</h3>
+                </a>
+                <p>Sed eget placerat arcu. Nullam porta faucibus ligula, egestas tempus tellus dapibus tincidunt. Nunc vitae interdum massa. Nam in augue quis elit sagittis accumsan.</p>
+            </div>
+            <!-- end sevrice preview -->
+        </div>
+        <!--Slide-->
+        <div class="swiper-slide swiper-no-swiping">
+            <!-- Sevrice preview -->
+            <div class="service">
+                <div class="icon icon--strips">
+                    <i class="icon__item fa fa-magic">&nbsp;</i>
+                </div>
+                <a class="service__link" href="single-service.html">
+                    <h3 class="service__heading">Innovative Technologies</h3>
+                </a>
+                <p>Sed eget placerat arcu. Nullam porta faucibus ligula, egestas tempus tellus dapibus tincidunt. Nunc vitae interdum massa. Nam in augue quis elit sagittis accumsan.</p>
+            </div>
+            <!-- end sevrice preview -->
+        </div>
+    </div>
+    <div class="fade-slider-control">
+        <a class="prev-arrow" href="#"><i class="fa fa-angle-left"></i></a>
+        <a class="next-arrow" href="#"><i class="fa fa-angle-right"></i></a>
+    </div>
+    <!-- end slider controls-->
+    <div class="clearfix"></div>
+    <div class="product-slider-pagination fade-pagination"></div>
+</div>
 <section class="forum--alt">
   <div class="forum">
     <h2 class="forum__heading">El pasaje estándar Lorem Ipsum, usado desde el año 1500.</h2>
@@ -10,3 +163,35 @@
     </button>
   </form>
 </section>
+<script>
+$(document).ready(function() {
+
+    fadingSlider();
+    staffSlider();
+
+        $('.achivement-item').one('inview', function(event, visible) {
+            if (visible == true) {
+                $('.achivement-item__marker.start-1').addClass('zoomIn');
+                $('.achivement-item__marker.start-2').addClass('zoomIn stage2');
+                $('.achivement-item__marker.start-3').addClass('zoomIn stage3');
+            }
+        });
+
+        $('.promo__btn').one('inview', function(event, visible) {
+            if (visible == true) {
+                $('.promo__btn').addClass('fadeInUp');
+
+                setTimeout(function() {
+                    $('.promo__btn').removeClass('fadeInUpStart');
+                }, 1000);
+            }
+        });
+
+        $('.about ').one('inview', function(event, visible) {
+            if (visible == true) {
+                $('.about-img').addClass('fadeInUp');
+            }
+        });
+
+});
+</script>
