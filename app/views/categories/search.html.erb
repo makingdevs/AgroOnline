@@ -1,0 +1,38 @@
+<div  clas="row">
+  <h1>Products</h1>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Sku</th>
+          <th>Price</th>
+          <th>Weight</th>
+          <th>Min order Quantity</th>
+          <th>Origin</th>
+          <th>Packaging</th>
+          <th>Category</th>
+          <th>Provider</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= link_to "#{product.name}", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %></td>
+            <td><%= product.sku %></td>
+            <td><%= product.price %></td>
+            <td><%= product.weight %></td>
+            <td><%= product.min_order_quantity %></td>
+            <td><%= product.origin %></td>
+            <td><%= product.packaging %></td>
+            <td><%= product.category.to_s %></td>
+            <td><%= product.provider.to_s %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
