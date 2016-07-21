@@ -9,7 +9,7 @@
                     <% mapa.each_with_index do | (name, description), index | %>
                       <div class="col-sm-12 col-md-6">
                           <article>
-                              <a class="post post--preview-link staff" href="#">
+                            <%= link_to provider_search_path(name.downcase), :class=> "post post--preview-link staff" do %>
                                   <div class="row">
                                       <% if [0,1,4,5,8,9].include?(index) then %>
                                       <div class="one-column col-xs-6 col-md-5 col-lg-6">
@@ -39,7 +39,7 @@
                                       <!-- end col -->
                                       <% end %>
                                   </div>
-                              </a>
+                              <% end %>
                           </article>
                         </div>
                   <% end %>
