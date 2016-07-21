@@ -1,54 +1,56 @@
 <div class="row">
-  <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-  <div class="col-xs-6 col-sm-3">
-  <p id="notice"><%= notice %></p>
+  <div class="col-xs-6 col-md-4" align="center">
+    <br />
+    <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg" ,size: "400x220"%>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <p id="notice"><%= notice %></p>
+    <p>
+      <strong>Name:</strong>
+      <%= @product.name %>
+    </p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @product.name %>
-  </p>
+    <p>
+      <strong>Sku:</strong>
+      <%= @product.sku %>
+    </p>
 
-  <p>
-    <strong>Sku:</strong>
-    <%= @product.sku %>
-  </p>
+    <p>
+      <strong>Price:</strong>
+      <%= @product.price %>
+    </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= @product.price %>
-  </p>
+    <p>
+      <strong>Weight:</strong>
+      <%= @product.weight %>
+    </p>
 
-  <p>
-    <strong>Weight:</strong>
-    <%= @product.weight %>
-  </p>
+    <p>
+      <strong>Min order cuantity:</strong>
+      <%= @product.min_order_quantity %>
+    </p>
 
-  <p>
-    <strong>Min order cuantity:</strong>
-    <%= @product.min_order_quantity %>
-  </p>
+    <p>
+      <strong>Origin:</strong>
+      <%= @product.origin %>
+    </p>
 
-  <p>
-    <strong>Origin:</strong>
-    <%= @product.origin %>
-  </p>
+    <p>
+      <strong>Packaging:</strong>
+      <%= @product.packaging %>
+    </p>
 
-  <p>
-    <strong>Packaging:</strong>
-    <%= @product.packaging %>
-  </p>
+    <p>
+      <strong>Category:</strong>
+      <%= @product.category %>
+    </p>
 
-  <p>
-    <strong>Category:</strong>
-    <%= @product.category %>
-  </p>
+    <p>
+      <strong>Provider:</strong>
+      <%= @product.provider %>
+    </p>
 
-  <p>
-    <strong>Provider:</strong>
-    <%= @product.provider %>
-  </p>
-
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-  <%= link_to 'Back', products_path %>
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+    <%= link_to 'Back', products_path %>
   </div>
 </div>
