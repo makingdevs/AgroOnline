@@ -1,32 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Providers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Lastname</th>
-      <th>Nickname</th>
-      <th>Country</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @providers.each do |provider| %>
-      <tr>
-        <td><%= provider.name %></td>
-        <td><%= provider.lastName %></td>
-        <td><%= provider.nickname %></td>
-        <td><%= provider.country %></td>
-        <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2 class="block-title block-title--top-larger">Providers</h2>
+<section class="container">
+    <h3 class="not-visible">Main conrainer</h3>
+    <!-- end row -->
+    <div class="row testimonial-area">
+      <% @providers.each do |provider| %>
+        <div class="col-sm-3 col-md-3">
+            <div class="testimonial testimonial--centered">
+                <div class="testimonial__images">
+                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/user_unknow.jpg"%>
+                </div>
+                <p class="testimonial__author"><%= provider.name %> <%= provider.lastName %></p>
+                <p class="testimonial__info"><%= provider.nickname %></p>
+                <br />
+                <p class="testimonial__text"><%= link_to 'Show', provider %></p>
+            </div>
+        </div>
+      <% end %>
+    </div>
+    <!-- end row -->
+</section>
 
 <br>
 
