@@ -51,6 +51,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search
+    @products = Product.where(:origin => params[:id])
+    @products
+    render 'index'
+  end
+
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
