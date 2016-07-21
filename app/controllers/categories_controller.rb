@@ -62,7 +62,7 @@ class CategoriesController < ApplicationController
   end
 
   def search
-    @category = Category.find_by name: "bovina"
+    @category = Category.find_by name: params[:id]
     @products = Product.where(:category =>"#{@category.id}")
     @products
   end
