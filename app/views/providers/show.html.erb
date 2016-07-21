@@ -1,24 +1,131 @@
-<p id="notice"><%= notice %></p>
+<div class="person-wrap">
+    <!-- Section show current page and breadcrumb -->
+    <section class="page-indecator">
+        <div class="container">
+            <h2 class="heading">Provider</h2>
+            <!-- Breadcrumb pattern -->
+            <ol class="breadcrumb">
+                <li>Nos Unimos</li>
+                <li>Sobre</li>
+                <li class="active">Providers</li>
+            </ol>
+            <!-- Default one color divider -->
+            <div class="divider divider--bottom-md"></div>
+        </div>
+    </section>
+    <!-- end section show current page and breadcrumb -->
+    <!-- Section with bace info about employee -->
+    <section class="container">
+        <div class="person">
+            <div class="image-container image-container--max image-container--border-inner person__image">
+                <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/user_unknow.jpg"%>
+            </div>
+            <h2 class="person__name"><%= @provider.name %> <%= @provider.lastName %></h2>
+            <p class="person__position"><%= @provider.nickname %></p>
+            <div class="social social--primary person__social">
+              <%= link_to 'Back', providers_path %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @provider.name %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @provider.lastName %>
-</p>
-
-<p>
-  <strong>Nickname:</strong>
-  <%= @provider.nickname %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @provider.country %>
-</p>
-
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <h2 class="block-title block-title--top-large">Contact</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div>
+                    <h3 class="heading-helper heading-helper--thin">Skills</h3>
+                    <!-- Secondary progress bar with white space -->
+                    <div class="progress-container progress--secondary progress-cut" id="progress-start">
+                        <div class="progress-quantity">UX/UI: <span class="progress-value">0</span>%</div>
+                        <div class="progress" data-level="86">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <!-- Secondary progress bar with white space -->
+                    <div class="progress-container progress--secondary progress-cut">
+                        <div class="progress-quantity">Visual Hierarchy: <span class="progress-value">0</span>%</div>
+                        <div class="progress" data-level="95">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <!-- Secondary progress bar with white space -->
+                    <div class="progress-container progress--secondary progress-cut">
+                        <div class="progress-quantity">Psycology: <span class="progress-value">0</span>%</div>
+                        <div class="progress" data-level="90">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <!-- Secondary progress bar with white space -->
+                    <div class="progress-container progress--secondary progress-cut">
+                        <div class="progress-quantity">Photoshop: <span class="progress-value">0</span>%</div>
+                        <div class="progress" data-level="83">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <!-- Secondary progress bar with white space -->
+                    <div class="progress-container progress--secondary progress-cut">
+                        <div class="progress-quantity">Illustrator: <span class="progress-value">0</span>%</div>
+                        <div class="progress" data-level="89">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+            <div class="col-sm-6 opposite-block">
+                <h3 class="heading-helper heading-helper--thin">Stats</h3>
+                <div id="number-start">
+                    <!-- Default stat view -->
+                    <div class="stat-row">
+                        <div class="stat stat--additional">
+                            <span class="stat__number" data-result="5" data-value="5">5555-5555</span>
+                            <p class="stat__dimension">Telephone</p>
+                        </div>
+                        <div class="stat stat--additional">
+                            <span class="stat__number" data-result="7" data-value="7">0</span>
+                            <i class="stat__icon fa fa-trophy"></i>
+                            <p class="stat__dimension">awards</p>
+                        </div>
+                        <div class="stat stat--clean">
+                            <span class="stat__number" data-result="91" data-value="91">0</span>
+                            <i class="stat__icon fa fa-folder"></i>
+                            <p class="stat__dimension">projects</p>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat stat--additional">
+                            <span class="stat__number" data-result="239" data-value="239">0</span>
+                            <i class="stat__icon fa fa-book"></i>
+                            <p class="stat__dimension">read books</p>
+                        </div>
+                        <div class="stat stat--clean">
+                            <span class="stat__number" data-result="83" data-value="83">0</span>
+                            <i class="stat__icon fa fa-file-text-o"></i>
+                            <p class="stat__dimension">published posts</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="stat">
+                            <span class="stat__number" data-result="8" data-value="8">0</span>
+                            <i class="stat__icon fa fa-globe"></i>
+                            <p class="stat__dimension">visited countries</p>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-result="1, 235, 546" data-value="">1, 235, 546</span>
+                            <p class="stat__dimension">pixels created</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+        <div class="divider-brand divider--top2x"></div>
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="short-text">
+                <h4>Nullam lacinia nibh et nisi luctus rhoncus. Cras vitae purus volutpat, rhoncus mauris quis, elementum neque. </h4>
+                <p>In cursus magna eget consequat placerat. Nulla facilisi. Ut pretium quis lacus quis mollis. Aenean justo mi, adipiscing a ligula id, lobortis porttitor arcu. Cras tincidunt tempus est a scelerisque. Maecenas adipiscing nulla sapien, non laoreet orci accumsan tempus. Vestibulum cursus nisi ut purus lobortis, non aliquet mauris pulvinar.</p>
+            </div>
+        </div>
+    </section>
+</div>
