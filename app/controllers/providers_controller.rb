@@ -79,6 +79,11 @@ class ProvidersController < ApplicationController
     end
   end
 
+  def search
+    @providers = Provider.includes(:products).where(products: {origin: params[:id]})
+    render 'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
