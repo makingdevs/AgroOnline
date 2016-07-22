@@ -59,12 +59,23 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active" id="one">
-                <p><%= @product.provider %>. </p>
-                <p><%= @product.provider.country %>.</p>
+              <div class="col-md-2">
+                <div class="image-container image-container--max image-container--border-inner person__image">
+                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/user_unknow.jpg" %>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <p><b>Name:</b> <%= @product.provider %>. </p>
+                <p><b>Country:</b> <%= @product.provider.country %>.</p>
+                <p><b>Telephone:</b> 5555-5555</p>
+                <p><b>Email:</b> provider@nos-unimos.com</p>
                 <p>Sed tincidunt libero sit amet atnte molestie eu faucibus ante auctor. In a diam lorem, quis ornare arcu. Nunc vel turpis sit </p>
+              </div>
             </div>
         </div>
     </div>
+    <br />
+    <br />
     <!-- end tabs -->
     <h2 class="block-title block-title--top-large-s block-title--bottom">Other Products Provider</h2>
     <div class="row product-wrapper">
