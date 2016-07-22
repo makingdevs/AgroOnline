@@ -1,56 +1,87 @@
-<div class="row">
-  <div class="col-xs-6 col-md-4" align="center">
-    <br />
-    <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg" ,size: "400x220"%>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-8">
-    <p id="notice"><%= notice %></p>
-    <p>
-      <strong>Name:</strong>
-      <%= @product.name %>
-    </p>
+<section class="page-indecator">
+    <div class="container">
+        <h2 class="heading">Product</h2>
+        <!-- Breadcrumb pattern -->
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Shop</li>
+        </ol>
+        <!-- Default one color divider -->
+        <div class="divider divider--bottom-md"></div>
+    </div>
+</section>
+<section class="container">
+    <div class="product product--single">
+        <div class="row">
+            <div class="col-sm-4">
+                <!-- Preview slider main area -->
+                <div id="slideshow" class="slideshow slidershow-large">
+                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg", width: "100%" %>
+                </div>
 
-    <p>
-      <strong>Sku:</strong>
-      <%= @product.sku %>
-    </p>
+            </div>
+            <!-- end col -->
+            <div class="col-sm-8">
+                <div class="product__decribe product__decribe--full">
+                    <span class="product__price"><%= @product.name %></span>
+                    <h3 class="product__title">$ <%= @product.price %></h3>
+                    <p class="product__info">
+                      <%= @product.min_order_quantity %>
+                      <%= @product.origin %>
+                      <%= @product.packaging %>
+                      <%= @product.category %>
+                    </p>
+                    <div class="product-rating">
+                        <div class="score"></div>
+                    </div>
+                    <div class="product__more">
+                        <a class="link product__link scroll-link" href="#"><i class="fa fa-comment"></i><%= @product.category %></a>
+                    </div>
+                    <!-- Quantity select -->
+                    <p class="sub-header divider--middle mobile--divider"><h2>Sending Method:</h2></p>
+                      <div class="col-md-12">
+                        <div class="col-md-3"><h4><i class="fa fa-plane" aria-hidden="true"></i> Plane</h4> Aeromexico</div>
+                        <div class="col-md-3"><h4><i class="fa fa-subway" aria-hidden="true"></i> Train</h4> Ferrocarriles Mexicanos</div>
+                        <div class="col-md-3"><h4><i class="fa fa-truck" aria-hidden="true"></i> Truck</h4> Estafeta, Fedex</div>
+                      </div>
 
-    <p>
-      <strong>Price:</strong>
-      <%= @product.price %>
-    </p>
-
-    <p>
-      <strong>Weight:</strong>
-      <%= @product.weight %>
-    </p>
-
-    <p>
-      <strong>Min order cuantity:</strong>
-      <%= @product.min_order_quantity %>
-    </p>
-
-    <p>
-      <strong>Origin:</strong>
-      <%= @product.origin %>
-    </p>
-
-    <p>
-      <strong>Packaging:</strong>
-      <%= @product.packaging %>
-    </p>
-
-    <p>
-      <strong>Category:</strong>
-      <%= @product.category %>
-    </p>
-
-    <p>
-      <strong>Provider:</strong>
-      <%= @product.provider %>
-    </p>
-
-    <%= link_to 'Edit', edit_product_path(@product) %> |
-    <%= link_to 'Back', products_path %>
-  </div>
-</div>
+                </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <div class="tabs tabs--minimal divider--middle">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#one" data-toggle="tab">Provider</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="one">
+                <p><%= @product.provider %>. </p>
+                <p><%= @product.provider.country %>.</p>
+                <p>Sed tincidunt libero sit amet atnte molestie eu faucibus ante auctor. In a diam lorem, quis ornare arcu. Nunc vel turpis sit </p>
+            </div>
+        </div>
+    </div>
+    <!-- end tabs -->
+    <h2 class="block-title block-title--top-large-s block-title--bottom">Other Products Provider</h2>
+    <div class="row product-wrapper">
+      <% @product.provider.products.each do | productProvider |%>
+      <div class="col-sm-6 col-md-3">
+          <!-- Product preview -->
+          <div class="product product--round product--flow">
+              <div class="product__marker">new</div>
+              <div class="product__control">
+              </div>
+              <div class="product__photo">
+                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{productProvider.category.name.downcase}.jpg", width: "100%" %>
+              </div>
+              <span class="product__title"><%= productProvider.name %></span>
+          </div>
+      </div>
+      <% end %>
+    </div>
+    <!-- end row -->
+</section>
