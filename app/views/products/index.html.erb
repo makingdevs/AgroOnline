@@ -1,42 +1,107 @@
-<p id="notice"><%= notice %></p>
-
-<h2 class="block-title block-title--top-larger">Products</h2>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Sku</th>
-      <th>Price</th>
-      <th>Weight</th>
-      <th>Min order Quantity</th>
-      <th>Origin</th>
-      <th>Packaging</th>
-      <th>Category</th>
-      <th>Provider</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% if @products %>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.sku %></td>
-        <td><%= product.price %></td>
-        <td><%= product.weight %></td>
-        <td><%= product.min_order_quantity %></td>
-        <td><%= product.origin %></td>
-        <td><%= product.packaging %></td>
-        <td><%= product.category %></td>
-        <td><%= product.provider %></td>
-        <td><%= link_to 'Show', product %></td>
-      </tr>
-    <% end %>
-  <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<section class="page-indecator">
+    <div class="container">
+        <h2 class="heading">Catalog</h2>
+        <!-- Default one color divider -->
+        <div class="divider divider--bottom-md"></div>
+    </div>
+</section>
+<section class="container">
+    <h3 class="not-visible">Main conrainer</h3>
+    <div class="row product-wrapper">
+        <div class="col-sm-9">
+            <div class="shop-view">
+                <span class="shop-view__results"><%= @products ? @products.size() : 0 %> results</span>
+            </div>
+            <form class="select select--thin select--size pull-right" name="select" method="get" action="#">
+                <select class="select-box" id="select-box" name="select-box" tabindex="0">
+                    <option value="default" selected="selected">default sorting</option>
+                    <option value="popular">by popularity</option>
+                    <option value="arrival">by arrival</option>
+                    <option value="rating">by rating</option>
+                    <option value="low">by price: low to high</option>
+                    <option value="high">by price: high to low</option>
+                </select>
+            </form>
+            <% if @products %>
+              <% @products.each do |product| %>
+                <div class="product product--list">
+                    <div class="row">
+                        <div class="col-sm-10 col-md-11 separate-block">
+                            <div class="product__photo product__photo--bordered">
+                              <div class="product__marker product__marker--sm">new</div>
+                                <div class="product__control">
+                                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.category.name.downcase}.jpg", size: "720x350"%></i>
+                                </div>
+                            </div>
+                            <a class="product__title" href="#"><%= product.name %> </a>
+                            <div class="product-rating">
+                                <div class="score"></div>
+                            </div>
+                            <p class="product__info">
+                              <small>weight <%= product.weight %></small>
+                              <small>min order quantity <%= product.min_order_quantity %></small>
+                              <small>origin <%= product.origin %></small>
+                              <small>packaging <%= product.packaging %></small>
+                            </p>
+                            <%= link_to '<i class="fa fa-plus-circle"></i>Show'.html_safe, product, :class => "link product__link"%>
+                        </div>
+                        <!-- end col -->
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+        <!-- end col -->
+        <aside class="col-sm-3">
+            <div class="sidebar">
+                <h2 class="heading heading--section heading--first">Categories</h2>
+                <ul class="list list--marker">
+                    <li class="list__item"><a class="list__link" href="#">Webdesign (345)</a></li>
+                    <li class="list__item"><a class="list__link" href="#">Prototyping (12)</a></li>
+                    <li class="list__item"><a class="list__link" href="#">App Design (43)</a></li>
+                    <li class="list__item"><a class="list__link" href="#">Webdevelopment (98)</a></li>
+                    <li class="list__item"><a class="list__link" href="#">WordPress themes (209)</a></li>
+                </ul>
+                <h2 class="heading heading--section-list">Price</h2>
+                <div class="range-slider"></div>
+                <div class="slider-value">
+                    <span class="slider-value__item slider-value--min" id="range-min"></span>
+                    <span class="slider-value__item slider-value--max" id="range-max"></span>
+                </div>
+                <h2 class="heading heading--section-short">Display Size</h2>
+                <ul class="list list--marker">
+                    <li class="list__item"><a class="list__link" href="#">11 inches</a></li>
+                    <li class="list__item"><a class="list__link" href="#">13 inches</a></li>
+                    <li class="list__item"><a class="list__link" href="#">15 inches</a></li>
+                    <li class="list__item"><a class="list__link" href="#">17 inches</a></li>
+                </ul>
+                <h2 class="heading heading--section-list">Brands</h2>
+                <ul class="list list--marker">
+                    <li class="list__item"><a class="list__link" href="#">Apple</a></li>
+                    <li class="list__item"><a class="list__link" href="#">Dell</a></li>
+                    <li class="list__item"><a class="list__link" href="#">Lenovo</a></li>
+                    <li class="list__item"><a class="list__link" href="#">Samsung</a></li>
+                </ul>
+                <h2 class="heading heading--section-list">Tags</h2>
+                <div class="tags tags--display">
+                    <a class="tags__link" href="#">app</a>
+                    <a class="tags__link" href="#">apple</a>
+                    <a class="tags__link" href="#">black</a>
+                    <a class="tags__link" href="#">blue</a>
+                    <a class="tags__link" href="#">button</a>
+                    <a class="tags__link" href="#">calendar</a>
+                    <a class="tags__link" href="#">clean</a>
+                    <a class="tags__link" href="#">dark</a>
+                    <a class="tags__link" href="#">dropdown</a>
+                    <a class="tags__link" href="#">flat</a>
+                    <a class="tags__link" href="#">form</a>
+                    <a class="tags__link" href="#">free</a>
+                </div>
+            </div>
+        </aside>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+</section>
