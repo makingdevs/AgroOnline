@@ -22,7 +22,8 @@
     "bootstrap": "~3.3.6",
     "AgroOnline-theme": "https://github.com/makingdevs/AgroOnline-theme.git",
     "fontawesome": "~4.6.3",
-    "jquery-ujs": "~1.2.1"
+    "jquery-ujs": "~1.2.1",
+    "galleriffic": "*"
   },
   "resolutions": {
     "jquery": "1.9.1"
