@@ -13,8 +13,9 @@
 //= require jquery/jquery
 //= require jquery-ujs/src/rails
 //= require turbolinks
-//= require AgroOnline-theme/js/modernizr.custom
+//= require galleriffic/js/jquery.galleriffic
 //= require AgroOnline-theme/js/waypoints.min
+//= require AgroOnline-theme/js/modernizr.custom
 //= require AgroOnline-theme/js/jquery.mobile.menu
 //= require bootstrap/dist/js/bootstrap
 //= require AgroOnline-theme/js/idangerous.swiper
@@ -22,4 +23,5 @@
 //= require raty/lib/jquery.raty
 //= require AgroOnline-theme/js/custom
 //= require AgroOnline-theme/js/form
+//= require_self
 //= require_tree .
