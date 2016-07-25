@@ -1,107 +1,41 @@
 <section class="page-indecator">
     <div class="container">
-        <h2 class="heading">Catalog</h2>
+        <h2 class="heading">Products</h2>
         <!-- Default one color divider -->
         <div class="divider divider--bottom-md"></div>
     </div>
 </section>
-<section class="container">
-    <h3 class="not-visible">Main conrainer</h3>
-    <div class="row product-wrapper">
-        <div class="col-sm-9">
-            <div class="shop-view">
-                <span class="shop-view__results"><%= @products ? @products.size() : 0 %> results</span>
-            </div>
-            <form class="select select--thin select--size pull-right" name="select" method="get" action="#">
-                <select class="select-box" id="select-box" name="select-box" tabindex="0">
-                    <option value="default" selected="selected">default sorting</option>
-                    <option value="popular">by popularity</option>
-                    <option value="arrival">by arrival</option>
-                    <option value="rating">by rating</option>
-                    <option value="low">by price: low to high</option>
-                    <option value="high">by price: high to low</option>
-                </select>
-            </form>
-            <% if @products %>
-              <% @products.each do |product| %>
-                <div class="product product--list">
-                    <div class="row">
-                        <div class="col-sm-10 col-md-11 separate-block">
-                            <div class="product__photo product__photo--bordered">
-                              <div class="product__marker product__marker--sm">new</div>
-                                <div class="product__control">
-                                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.category.name.downcase}.jpg", size: "720x350"%></i>
-                                </div>
-                            </div>
-                            <a class="product__title" href="#"><%= product.name %> </a>
-                            <div class="product-rating">
-                                <div class="score"></div>
-                            </div>
-                            <p class="product__info">
-                              <small>weight <%= product.weight %></small>
-                              <small>min order quantity <%= product.min_order_quantity %></small>
-                              <small>origin <%= product.origin %></small>
-                              <small>packaging <%= product.packaging %></small>
-                            </p>
-                            <%= link_to '<i class="fa fa-plus-circle"></i>Show'.html_safe, product, :class => "link product__link"%>
-                        </div>
-                        <!-- end col -->
-                        <!-- end col -->
-                    </div>
-                    <!-- end row -->
-                </div>
-            <% end %>
-          <% end %>
+<section class="container product-wrapper">
+  <% @products.each do |product| %>
+  <div class="product product--list">
+    <div class="row">
+      <div class="col-sm-8 col-md-9 separate-block">
+        <div class="product__photo product__photo--bordered">
+          <div class="product__marker">new</div>
+          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.category.name.downcase}.jpg", size: "620x250"%></i>
         </div>
-        <!-- end col -->
-        <aside class="col-sm-3">
-            <div class="sidebar">
-                <h2 class="heading heading--section heading--first">Categories</h2>
-                <ul class="list list--marker">
-                    <li class="list__item"><a class="list__link" href="#">Webdesign (345)</a></li>
-                    <li class="list__item"><a class="list__link" href="#">Prototyping (12)</a></li>
-                    <li class="list__item"><a class="list__link" href="#">App Design (43)</a></li>
-                    <li class="list__item"><a class="list__link" href="#">Webdevelopment (98)</a></li>
-                    <li class="list__item"><a class="list__link" href="#">WordPress themes (209)</a></li>
-                </ul>
-                <h2 class="heading heading--section-list">Price</h2>
-                <div class="range-slider"></div>
-                <div class="slider-value">
-                    <span class="slider-value__item slider-value--min" id="range-min"></span>
-                    <span class="slider-value__item slider-value--max" id="range-max"></span>
-                </div>
-                <h2 class="heading heading--section-short">Display Size</h2>
-                <ul class="list list--marker">
-                    <li class="list__item"><a class="list__link" href="#">11 inches</a></li>
-                    <li class="list__item"><a class="list__link" href="#">13 inches</a></li>
-                    <li class="list__item"><a class="list__link" href="#">15 inches</a></li>
-                    <li class="list__item"><a class="list__link" href="#">17 inches</a></li>
-                </ul>
-                <h2 class="heading heading--section-list">Brands</h2>
-                <ul class="list list--marker">
-                    <li class="list__item"><a class="list__link" href="#">Apple</a></li>
-                    <li class="list__item"><a class="list__link" href="#">Dell</a></li>
-                    <li class="list__item"><a class="list__link" href="#">Lenovo</a></li>
-                    <li class="list__item"><a class="list__link" href="#">Samsung</a></li>
-                </ul>
-                <h2 class="heading heading--section-list">Tags</h2>
-                <div class="tags tags--display">
-                    <a class="tags__link" href="#">app</a>
-                    <a class="tags__link" href="#">apple</a>
-                    <a class="tags__link" href="#">black</a>
-                    <a class="tags__link" href="#">blue</a>
-                    <a class="tags__link" href="#">button</a>
-                    <a class="tags__link" href="#">calendar</a>
-                    <a class="tags__link" href="#">clean</a>
-                    <a class="tags__link" href="#">dark</a>
-                    <a class="tags__link" href="#">dropdown</a>
-                    <a class="tags__link" href="#">flat</a>
-                    <a class="tags__link" href="#">form</a>
-                    <a class="tags__link" href="#">free</a>
-                </div>
-            </div>
-        </aside>
-        <!-- end col -->
+        <a class="product__title" href="#"><%= product.name %></a>
+        <div class="product-rating">
+          <div class="score"></div>
+        </div>
+        <p class="product__info">Usually ships in 2 to 4 weeks FREE Shipping. Pellentesque in lacinia quam. Fusce quis nulla tincidunt, interdum magna vitae, viverra est. Nunc eu sodales turpis, varius viverra mauris.</p>
+        <%= link_to "Show", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %>
+      </div>
+      <!-- end col -->
+      <div class="col-sm-4 col-md-3">
+        <div class="product__action">
+          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/user_unknow.jpg", width:"20%" %>
+
+          <b><%= product.provider %></b>
+          <i><%= product.provider.country %></i>
+          <p><%= product.provider.nickname %></p>
+          <p>(01 55)5555-55555<p>
+          <p>user@nos-unimos.com</p>
+        </div>
+      </div>
+      <!-- end col -->
     </div>
     <!-- end row -->
+  </div>
+  <% end %>
 </section>
