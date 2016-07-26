@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
+<section class="page-indecator">
+    <div class="container">
+        <h2 class="block-title block-title--top-larger">Categories</h2>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="gallery-wrapper">
+          <% @categories.each do | category | %>
+            <div class="col-sm-4">
+                <div class="gallery-item">
+                    <div class="image-container image-container--border-inner">
+                      <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",size: "1110x240" %>
 
-<h1>Categories</h1>
+                    </div>
+                    <div class="gallery-item__info desktop-middle">
+                        <h3 class="gallery-item__heading"><%= category.name %></h3>
+                        <%= link_to 'Show', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
+                    </div>
+                </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Subcategory</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.subcategory %></td>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+</section>
