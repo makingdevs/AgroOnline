@@ -4,12 +4,10 @@
     <h2 class="forum__heading">El pasaje estándar Lorem Ipsum, usado desde el año 1500.</h2>
     <h3 class="forum__describe">Sección 1.10.32 de "de Finibus Bonorum et Malorum", escrito por Cicero en el 45 antes de Cristo</h3>
   </div>
-  <form class="search search--light search--large" id="search-domen" name="search-domen" method="get" action="#">
-    <input class="search__field" name="search-request" type="search" placeholder="Busqueda de Categorias" value="">
-    <button class="search__btn" type="submit">
-      <span class="btn btn-info btn--decorated">Buscar </span>
-    </button>
-  </form>
+  <%= form_tag("/product/category/state", method: "post", class:"search search--light search--large") do %>
+    <%= text_field_tag 'search', nil, class:"search__field ", placeholder:"Busqueda de Categorias" %>
+    <%= submit_tag 'Buscar', class:"btn btn-info btn--decorated" %>
+  <% end %>
 </section>
 <div class="staff-container" id="team">
     <section class="container">
