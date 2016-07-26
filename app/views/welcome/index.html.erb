@@ -11,6 +11,23 @@
     </button>
   </form>
 </section>
+<div class="staff-container" id="team">
+    <section class="container">
+        <h2 class="block-title block-title--top-larger">Estados</h2>
+          <div class="row">
+              <% @estados.each do | mapa | %>
+                    <% mapa.each_with_index do | (name, description), index | %>
+                            <%= link_to product_search_path(name.downcase), :class=> "post" do %>
+                                  <div class="col-sm-3">
+                                          <h5 class="staff__name"><%= name %></h5>
+                                  </div>
+                              <% end %>
+                    <% end %>
+              <% end %>
+            </div>
+        <div class="divider-brand top-space"></div>
+    </section>
+</div>
 <section class="page-indecator">
     <div class="container">
         <h2 class="block-title block-title--top-larger">Categories</h2>
@@ -38,23 +55,7 @@
 
 </section>
 
-<div class="staff-container" id="team">
-    <section class="container">
-        <h2 class="block-title block-title--top-larger">Estados</h2>
-          <div class="row">
-              <% @estados.each do | mapa | %>
-                    <% mapa.each_with_index do | (name, description), index | %>
-                            <%= link_to product_search_path(name.downcase), :class=> "post" do %>
-                                  <div class="col-sm-3">
-                                          <h5 class="staff__name"><%= name %></h5>
-                                  </div>
-                              <% end %>
-                    <% end %>
-              <% end %>
-            </div>
-        <div class="divider-brand top-space"></div>
-    </section>
-</div>
+
 <div class="swiper-container fading-slider">
     <div class="swiper-wrapper">
         <!--Slide-->
