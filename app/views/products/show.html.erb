@@ -81,50 +81,7 @@
     </div>
     <br />
     <br />
-    <section class="page-indecator">
-        <div class="container">
-            <h2 class="heading">Contact</h2>
-            <!-- Breadcrumb pattern -->
-            <ol class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li class="active">Contact</li>
-            </ol>
-            <!-- Default one color divider -->
-            <div class="divider"></div>
-            <div class="form-error form-error--line alert alert-danger">
-                <span class="alert-market">
-            <i class="fa fa-ban"></i>
-          </span>
-                <div class="form-error__holder"></div>
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
-            </div>
-            <div class="divider--bottom-md"></div>
-        </div>
-    </section>
-    <!-- end section show current page and breadcrumb -->
-    <section class="container">
-        <div class="row">
-            <div class="one-column col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
-                  <%= form_tag("/provider/contact/#{@product.id}", method: "post", class:"contact contact--clean contact--icon") do %>
-                    <%= hidden_field(:product,:id) %>
-                    <h3 class="heading-helper heading-helper--large">Contactar</h3>
-                    <div class="contact__field-container contact__field--name">
-                      <%= text_field_tag 'name', nil, class:"contact__field ", placeholder:"full name:" %>
-                    </div>
-                    <div class="contact__field-container contact__field--email">
-                        <%= text_field_tag 'email', nil, class:"contact__field contact__field--email ", placeholder:"email:" %>
-                    </div>
-                    <div class="contact__field-container contact__field--area">
-                        <%= text_area_tag 'message', nil, class:"contact__field contact__area", placeholder:"message: " %>
-                    </div>
-                    <%= submit_tag 'Send message', class:"btn btn--decorated btn-warning btn-submit" %>
-                <% end %>
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
-    </section>
+    <%= render 'contact' %>
     <!-- end tabs -->
     <h2 class="block-title block-title--top-large-s block-title--bottom">Other Products Provider</h2>
     <div class="row product-wrapper">
