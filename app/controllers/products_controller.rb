@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    @articles = Product.search('michoacan').records
+    puts @articles
     @products = Product.all
   end
 
