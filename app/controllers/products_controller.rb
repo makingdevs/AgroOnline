@@ -1,5 +1,8 @@
+require 'utilities/unidades'
+
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_unidades, only: [:show, :contact]
 
   # GET /products
   # GET /products.json
@@ -10,6 +13,10 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+  end
+
+  def contact
+    @product = Product.find(params[:id])
   end
 
   # GET /products/new
@@ -77,4 +84,9 @@ class ProductsController < ApplicationController
     def product_params
       params.fetch(:product, {})
     end
+
+    def set_unidades
+      @unidades = Unidades.unidades
+    end
+
 end
