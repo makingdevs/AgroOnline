@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/product/search/:id", to: 'products#search', as: 'product_search'
   post "/provider/contact/:id", to: 'mailer#contact', as: 'provider_contact'
   post "/product/category/state", to: 'welcome#search', as: 'state_search_categories'
+  get "/product/contact", to: 'products#contact', as: 'product_provider_contact'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
