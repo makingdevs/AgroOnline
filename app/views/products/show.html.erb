@@ -13,92 +13,173 @@
 <section class="container">
     <div class="product product--single">
         <div class="row">
-            <div class="col-sm-4">
-                <!-- Preview slider main area -->
-                <div id="slideshow" class="slideshow slidershow-large">
-                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg", width: "100%" %>
-                </div>
-
+          <div class="col-md-12">
+            <div class="col-md-4">
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg", width: "100%" %>
             </div>
-            <!-- end col -->
-            <div class="col-sm-8">
-                <div class="product__decribe product__decribe--full">
-                    <span class="product__price"><%= @product.name %></span>
-                    <h3 class="product__title">$ <%= @product.price %></h3>
-                    <p class="product__info">
-                      <%= @product.min_order_quantity %>
-                      <%= @product.origin %>
-                      <%= @product.packaging %>
-                      <%= @product.category %>
-                    </p>
-                    <div class="product-rating">
-                        <div class="score"></div>
-                    </div>
-                    <div class="product__more">
-                        <a class="link product__link scroll-link" href="#"><i class="fa fa-comment"></i><%= @product.category %></a>
-                    </div>
-                    <!-- Quantity select -->
-                    <p class="sub-header divider--middle mobile--divider"><h2>Sending Method:</h2></p>
-                      <div class="col-md-12">
-                        <div class="col-md-12">
-                          <h4><i class="fa fa-truck" aria-hidden="true"></i> Truck</h4>
-                          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/pckgua1.jpg" %>
-                          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/pckgua2.jpg" %>
-                          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/pckgua3.jpg" %>
-                          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/pckgua4.jpg" %>
-                          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/pckgua5.jpg" %>
-                        </div>
-                      </div>
-
-                </div>
+            <div class="col-md-6">
+              <font size="5"><%= @product.name %></font>
+              <dl class="dl-horizontal">
+                <dt>Precio:</dt>
+                <dd><font color="#1E90FF"><%= @product.price %></font> / TON</dd>
+                <dt>Cantidad Min por Orden:</dt>
+                <dd><%= @product.min_order_quantity %></dd>
+                <dt>Capacida de Suministro:</dt>
+                <dd>150 Toneladas</dd>
+                <dt>Estado:</dt>
+                <dd><%= @product.origin %></dd>
+                <dt>Metodos de Pago:</dt>
+                <dd>Efec/Transf/TDD/TDC</dd>
+              </dl>
+              <pre>
+                <%= link_to "<button class='btn btn-warning'>Contact Provider</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+              </pre>
             </div>
-            <!-- end col -->
+            <div class="col-md-2" style="border: thin solid black">
+              <p><font size="3">3<b><i class="fa fa-star-o" aria-hidden="true"></i></b> <%= @product.provider %></font> </p>
+              <br>
+              <p>Estado:<%= @product.provider.country %>.</p>
+              <hr>
+              <p>Transacciones: <i class="fa fa-diamond" aria-hidden="true"></i><i class="fa fa-diamond" aria-hidden="true"></i>
+            </div>
+          </div>
         </div>
-        <!-- end row -->
     </div>
     <div class="tabs tabs--minimal divider--middle">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#one" data-toggle="tab">Provider</a></li>
+          <li class="active"><a href="#details" data-toggle="tab">Detalles</a></li>
+          <li ><a href="#company" data-toggle="tab">Compañia</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
-            <div class="tab-pane active" id="one">
-              <div class="col-md-2">
-                <div class="image-container image-container--max image-container--border-inner person__image">
-                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/user_unknow.jpg" %>
-                </div>
+            <div class="tab-pane active" id="details">
+              <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                  <dt>Style:	</dt>
+                  <dd>Frozen</dd>
+                  <dt>Type:	</dt>
+                  <dd>Jackfruit</dd>
+                  <dt>Shape:	</dt>
+                  <dd>Whole, All shapes available</dd>
+                  <dt>Freezing Process:	</dt>
+                  <dd>BQF</dd>
+                  <dt>Preservation Process:	</dt>
+                  <dd>Water</dd>
+                </dl>
               </div>
-              <div class="col-md-10">
-                <p><b>Name:</b> <%= @product.provider %>. </p>
-                <p><b>Country:</b> <%= @product.provider.country %>.</p>
-                <p><b>Telephone:</b> 5555-5555</p>
-                <p><b>Email:</b> provider@nos-unimos.com</p>
-                <p>Sed tincidunt libero sit amet atnte molestie eu faucibus ante auctor. In a diam lorem, quis ornare arcu. Nunc vel turpis sit </p>
+              <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                  <dt>Cultivation Type:	</dt>
+                  <dd>Common</dd>
+                  <dt>Packaging:	</dt>
+                  <dd>Bulk</dd>
+                  <dt>Certification:	</dt>
+                  <dd>BRC</dd>
+                  <dt>Shelf Life:	</dt>
+                  <dd>24 Months</dd>
+                  <dt>Weight (kg):	</dt>
+                  <dd>10</dd>
+                </dl>
               </div>
+              <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                  <dt>Place of Origin:	</dt>
+                  <dd>Zhejiang, China (Mainland)</dd>
+                  <dt>Brand Name:	</dt>
+                  <dd>OEM</dd>
+                  <dt>Model Number:	</dt>
+                  <dd>OEM</dd>
+                  <dt>Color:	</dt>
+                  <dd>All colors available</dd>
+                  <dt>Size:	</dt>
+                  <dd>All sizes available</dd>
+                </dl>
+              </div>
+            </div>
+            <div class="tab-pane" id="company">
+              <div class="col-md-6" style="border-right: solid silver;">
+                <dl class="dl-horizontal">
+                  <dt>Business Type:</dt>
+                  <dd>Trading Company</dd>
+                  <br>
+                  <dt>Main Products:</dt>
+                  <dd>candle holder,bottle,plate,christmas,cup</dd>
+                  <br>
+                  <dt>Total Annual Revenue:</dt>
+                  <dd>US$5 Million - US$10 Million</dd>
+                </dl>
+              </div>
+              <div class="col-md-6">
+                <dl class="dl-horizontal">
+                  <dt>Location:</dt>	<dd>Liaoning, China (Mainland)</dd><br>
+                  <dt>Total Employees:</dt>	<dd>11 - 50 People	</dd><br>
+                  <dt>Year Established:</dt>	<dd>2013	</dd>
+                </dl>
             </div>
         </div>
     </div>
-    <br />
-    <br />
-    <%= render 'contact' %>
+      <%= render 'contact' %>
+
     <!-- end tabs -->
     <h2 class="block-title block-title--top-large-s block-title--bottom">Other Products Provider</h2>
-    <div class="row product-wrapper">
-      <% @product.provider.products.each do | productProvider |%>
-      <div class="col-sm-6 col-md-3">
-          <!-- Product preview -->
-          <div class="product product--round product--flow">
-              <div class="product__marker">new</div>
-              <div class="product__control">
-              </div>
-              <div class="product__photo">
-                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{productProvider.category.name.downcase}.jpg", width: "100%" %>
-              </div>
-              <span class="product__title"><%= productProvider.name %></span>
-          </div>
-      </div>
-      <% end %>
+
+    <div class="swiper-container fading-slider">
+        <div class="swiper-wrapper">
+          <% @product.provider.products.each do | productProvider |%>
+            <!--Slide-->
+            <div class="swiper-slide swiper-no-swiping">
+                <div class="product product--round product--flow">
+                    <div class="product__marker">new</div>
+                    <div class="product__control">
+                    </div>
+                    <div class="product__photo">
+                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{productProvider.category.name.downcase}.jpg", width: "100%" %>
+                    </div>
+                    <span class="product__title"><%= productProvider.name %></span>
+                </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="fade-slider-control">
+            <a class="prev-arrow" href="#"><i class="fa fa-angle-left"></i></a>
+            <a class="next-arrow" href="#"><i class="fa fa-angle-right"></i></a>
+        </div>
+        <!-- end slider controls-->
+        <div class="clearfix"></div>
+        <div class="product-slider-pagination fade-pagination"></div>
     </div>
     <!-- end row -->
 </section>
+<script>
+$(document).ready(function() {
+
+    fadingSlider();
+    staffSlider();
+
+        $('.achivement-item').one('inview', function(event, visible) {
+            if (visible == true) {
+                $('.achivement-item__marker.start-1').addClass('zoomIn');
+                $('.achivement-item__marker.start-2').addClass('zoomIn stage2');
+                $('.achivement-item__marker.start-3').addClass('zoomIn stage3');
+            }
+        });
+
+        $('.promo__btn').one('inview', function(event, visible) {
+            if (visible == true) {
+                $('.promo__btn').addClass('fadeInUp');
+
+                setTimeout(function() {
+                    $('.promo__btn').removeClass('fadeInUpStart');
+                }, 1000);
+            }
+        });
+
+        $('.about ').one('inview', function(event, visible) {
+            if (visible == true) {
+                $('.about-img').addClass('fadeInUp');
+            }
+        });
+
+});
+</script>
