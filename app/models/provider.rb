@@ -1,4 +1,8 @@
+require 'elasticsearch/model'
+
 class Provider < ApplicationRecord
+   include Elasticsearch::Model
+   include Elasticsearch::Model::Callbacks
 
   has_many :products
 
