@@ -1,34 +1,33 @@
 
 <section class="forum--alt">
   <div class="forum">
-    <h2 class="forum__heading">El pasaje estándar Lorem Ipsum, usado desde el año 1500.</h2>
-    <h3 class="forum__describe">Sección 1.10.32 de "de Finibus Bonorum et Malorum", escrito por Cicero en el 45 antes de Cristo</h3>
+    <h2 class="forum__heading">Creamos los vínculos entre productores y distribuidores mexicanos</h2>
+    <h3 class="forum__describe">Encuentra el producto ques estás buscando, encuentra al comprador que estás buscando</h3>
   </div>
   <%= form_tag("/product/category/state", method: "post", class:"search search--light search--large") do %>
-    <%= text_field_tag 'search', nil, class:"search__field ", placeholder:"Busqueda de Categorias" %>
+    <%= text_field_tag 'search', nil, class:"search__field ", placeholder:"Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)" %>
     <%= submit_tag 'Buscar', class:"btn btn-info btn--decorated" %>
   <% end %>
 </section>
 <div class="staff-container" id="team">
     <section class="container">
-        <h2 class="block-title block-title--top-larger">Estados</h2>
+        <h2 class="block-title block-title--top-larger">Nuestra presencia en...</h2>
           <div class="row">
               <% @estados.each do | mapa | %>
                     <% mapa.each_with_index do | (name, description), index | %>
                             <%= link_to product_search_path(name.downcase), :class=> "post" do %>
                                   <div class="col-sm-3">
-                                          <h5 class="staff__name"><%= name %></h5>
+                                          <h5 class="staff__name"><%= (name.to_s.include?('_') ? name.to_s.gsub!('_', ' ') : name.to_s) %></h5>
                                   </div>
                               <% end %>
                     <% end %>
               <% end %>
             </div>
-        <div class="divider-brand top-space"></div>
     </section>
 </div>
 <section class="page-indecator">
     <div class="container">
-        <h2 class="block-title block-title--top-larger">Categories</h2>
+        <h2 class="block-title block-title--top-larger">Grupos Agropecuarios</h2>
     </div>
 </section>
 <section class="container">
@@ -43,7 +42,7 @@
                     </div>
                     <div class="gallery-item__info desktop-middle">
                         <h3 class="gallery-item__heading"><%= category.name %></h3>
-                        <%= link_to 'Show', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
+                        <%= link_to 'Ver los productos', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
                     </div>
                 </div>
             </div>
@@ -54,6 +53,11 @@
 </section>
 
 
+<section class="page-indecator">
+    <div class="container">
+        <h2 class="block-title block-title--top-larger">Productores destacados</h2>
+    </div>
+</section>
 <div class="swiper-container fading-slider">
     <div class="swiper-wrapper">
         <!--Slide-->
