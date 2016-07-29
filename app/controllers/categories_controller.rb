@@ -64,7 +64,7 @@ class CategoriesController < ApplicationController
   def search
     @category = Category.find_by name: params[:id]
     @products = Product.where(:category =>"#{@category.id}")
-    @products
+    render :template => "/products/index"
   end
 
   private
