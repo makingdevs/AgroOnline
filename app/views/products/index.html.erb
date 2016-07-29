@@ -1,6 +1,6 @@
 <section class="page-indecator">
   <div class="container">
-    <h2 class="heading">Products</h2>
+    <h2 class="heading">La búsqueda <span class="text-primary">[<%= params[:id] %>]</span> tiene estos resultados:</h2>
     <!-- Default one color divider -->
     <div class="divider divider--bottom-md"></div>
   </div>
@@ -11,55 +11,58 @@
       <div class="row">
         <div class="col-sm-8 col-md-9 separate-block">
           <div class="product__photo product__photo--bordered">
-            <div class="product__marker">new</div>
             <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.category.name.downcase}.jpg", size:"200x150" %></i>
           </div>
-          <%= link_to "<font size='5'>#{ product.name }</font>".html_safe, {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %>
-          <div class="product-rating">
-            <div class="score"></div>
+          <%= link_to "<font size='5'>#{ product.name.capitalize }</font>".html_safe, {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %>
+          <div class="row">
+            <div class="col-md-3">
+              <dl>
+                <dt><i class="fa fa-money" aria-hidden="true"></i> Precio </dt>
+                <dd>$ <%= product.price %> MXN por Tonelada</dd>
+                <dt><i class="fa fa-truck" aria-hidden="true"></i> Orden mínima </dt>
+                <dd><%= product.min_order_quantity %></dd>
+              </dl>
+            </div>
+            <div class="col-md-6">
+              <dl>
+                <dt><i class="fa fa-train" aria-hidden="true"></i> Medios de envío </dt>
+                <dd>Terrestre</dd>
+                <dt><i class="fa fa-square" aria-hidden="true"></i> Empaquetado </dt>
+                <dd>Cajas</dd>
+              </dl>
+            </div>
           </div>
-          <p class="product__info">
-          <div class="col-sm-4"><b>MXN $ <%= product.price %> / Ton</b></div>
-          <div class="col-sm-4"><b><%= product.min_order_quantity %> (Min Order)</b></div>
-          </p>
           <br />
-          <p class="product__info">
-          <div class="col-sm-4">
-            MXN $ <%= product.price %> / Ton
-            <br />
-            MXN $ <%= product.price %> / Ton
-          </div>
-          <div class="col-sm-4">
-            <%= product.min_order_quantity %> (Min Order)
-            <br />
-            <%= product.min_order_quantity %>
-          </div>
-          </p>
         </div>
         <!-- end col -->
         <div class="col-sm-4 col-md-3">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="col-sm-3">
-                <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/user_unknow.jpg", width:"100%" %>
-              </div>
-              <div class="col-sm-9">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <i class="fa fa-user" aria-hidden="true"></i>
                 <%= product.provider %>
-              </div>
+              </h3>
             </div>
-            <br /><br />
-            <div class="col-sm-12">
-              <div class="col-sm-6">
-                <i><%= product.provider.country %></i>
+            <div class="panel-body">
+              <div class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/user_unknow.jpg",style:"width: 32px; height: 32px;", class:"img-rounded media-object" %>
+                  </a>
+                </div>
+                <div class="media-body">
+                  <i class="fa fa-location-arrow" aria-hidden="true"></i> <%= product.provider.country %><br>
+                  <i class="fa fa-phone" aria-hidden="true"></i> (01 55)5555-55555
+                  <hr>
+                  <i class="fa fa-credit-card" aria-hidden="true"></i> Medios de pago: Transferencia, efectivo
+                  <br>
+                  <br>
+                  <%= link_to "<button class='btn btn-primary'>Contactar</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{product.id}", :email => "email@emial.com"}, {} %>
+                </div>
               </div>
-              <div class="col-sm-6">
-                <%= product.provider.nickname %>
-              </div>
-              <p>(01 55)5555-55555<p>
-              <%= link_to "<button class='btn btn-warning'>Contact Provider</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{product.id}", :email => "email@emial.com"}, {} %>
-
             </div>
           </div>
+
         </div>
         <!-- end col -->
       </div>
