@@ -1,6 +1,6 @@
 <section class="page-indecator">
     <div class="container">
-        <h2 class="heading">Product</h2>
+      <h2 class="heading"><span class="text-primary"><%= @product.name.capitalize %></span> de <span class="text-primary"><%= @product.origin.capitalize %></span> producido por <span class="text-primary"><%= @product.provider.to_s %></span></h2>
         <!-- Breadcrumb pattern -->
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
