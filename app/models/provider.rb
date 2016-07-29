@@ -19,6 +19,6 @@ class Provider < ApplicationRecord
   end
 
   def to_s
-     name + " " + lastName
+     name.capitalize + " " + lastName.capitalize
    end
 end
