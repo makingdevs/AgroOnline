@@ -10,10 +10,8 @@ class WelcomeController < ApplicationController
   end
 
   def search
-    products = Product.where("origin LIKE ?", "%#{params[:search]}%")
-    productList = products.group_by { |d| d[:category_id] }
-    @categories = Category.where( id: productList.keys)
-    render :template => "/categories/index"
+    @products = Product.search(params[:search]).records
+    render :template => "/products/index"
   end
 
 end
