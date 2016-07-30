@@ -1,11 +1,10 @@
 <section class="page-indecator">
   <div class="container">
-    <h2 class="heading">Contact</h2>
+    <h2 class="heading">&nbsp;</h2>
     <!-- Breadcrumb pattern -->
-    <ol class="breadcrumb">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li class="active">Contact</li>
+    <ol class="breadcrumb heading">
+      <li><a href="#">Inicio</a></li>
+      <li class="active">Contacto</li>
     </ol>
     <!-- Default one color divider -->
     <div class="divider"></div>
@@ -26,13 +25,16 @@
       <%= form_tag("/provider/contact/#{@product.id}", method: "post", class:"contact contact--clean contact--icon") do %>
         <h3 class="heading-helper heading-helper--large">Escríbenos si necesitas algo en especial...</h3>
         <div class="contact__field-container contact__field--name">
-          <%= text_field_tag 'name', nil, class:"contact__field ", placeholder:"full name:" %>
+          <%= text_field_tag 'name', nil, class:"contact__field ", placeholder:"Nombre Completo:" %>
         </div>
         <div class="contact__field-container contact__field--email">
-          <%= text_field_tag 'email', nil, class:"contact__field contact__field--email ", placeholder:"email:" %>
+          <%= text_field_tag 'email', nil, class:"contact__field contact__field--email ", placeholder:"Correo Electronico:" %>
+        </div>
+        <div class="contact__field-container contact__field--email">
+          <%= text_field_tag 'phone', nil, class:"contact__field contact__field--email ", placeholder:"Telefono:" %>
         </div>
         <div class="contact__field-container contact__field--area">
-          <%= text_area_tag 'message', nil, class:"contact__field contact__area", placeholder:"message: " %>
+          <%= text_area_tag 'message', nil, class:"contact__field contact__area", placeholder:"Mensaje: " %>
         </div>
         <div class="col-md-12">
           <div class="col-md-1">Quantity</div>
@@ -43,7 +45,7 @@
             <%= select_tag "unidad", options_for_select(@unidades), {:class => "selectpicker form-control"} %>
           </div>
         </div>
-        <%= submit_tag 'Send message', class:"btn btn--decorated btn-warning btn-submit" %>
+        <%= submit_tag 'Enviar Mensaje', class:"btn btn--decorated btn-warning btn-submit" %>
       <% end %>
       <br />
     </div>
