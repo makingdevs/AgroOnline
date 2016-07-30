@@ -3,8 +3,8 @@
       <h2 class="heading"><span class="text-primary"><%= @product.name.capitalize %></span> de <span class="text-primary"><%= @product.origin.capitalize %></span> producido por <span class="text-primary"><%= @product.provider.to_s %></span></h2>
         <!-- Breadcrumb pattern -->
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active">Shop</li>
+            <li><a href="#">Inicio</a></li>
+            <li class="active">Producto</li>
         </ol>
         <!-- Default one color divider -->
         <div class="divider divider--bottom-md"></div>
@@ -14,8 +14,12 @@
     <div class="product product--single">
         <div class="row">
           <div class="col-md-12">
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <% if @product.category.name == 'Frutas' %>
+                <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",width: "100%" %>
+              <% else %>
               <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg", width: "100%" %>
+              <% end %>
             </div>
             <div class="col-md-6">
               <font size="5"><%= @product.name %></font>
@@ -32,18 +36,39 @@
                 <dd>Efec/Transf/TDD/TDC</dd>
               </dl>
               <pre>
-                <%= link_to "<button class='btn btn-warning'>Contact Provider</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+                <%= link_to "<button class='btn btn-warning'>Contactar Proveedor</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
               </pre>
             </div>
-            <div class="col-md-2" style="border: thin solid black">
-              <p><font size="3">3<b><i class="fa fa-star-o" aria-hidden="true"></i></b> <%= @product.provider %></font> </p>
-              <br>
-              <p>Estado:<%= @product.provider.country %>.</p>
-              <hr>
-              <p>Transacciones: <i class="fa fa-diamond" aria-hidden="true"></i><i class="fa fa-diamond" aria-hidden="true"></i>
-            </div>
+            <div class="col-sm-4 col-md-3">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <%= @product.provider %>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <div class="media">
+                    <div class="media-left">
+                      <a href="#">
+                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/user_unknow.jpg",style:"width: 32px; height: 32px;", class:"img-rounded media-object" %>
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <i class="fa fa-location-arrow" aria-hidden="true"></i> <%= @product.provider.country %><br>
+                      <i class="fa fa-phone" aria-hidden="true"></i> (01 55)5555-55555
+                      <hr>
+                      <i class="fa fa-credit-card" aria-hidden="true"></i> Medios de pago: Transferencia, efectivo
+                      <br>
+                      <br>
+                      <%= link_to "<button class='btn btn-primary'>Contactar</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
+          </div>
+
     </div>
     <div class="tabs tabs--minimal divider--middle">
         <!-- Nav tabs -->
@@ -56,73 +81,73 @@
             <div class="tab-pane active" id="details">
               <div class="col-sm-4">
                 <dl class="dl-horizontal">
-                  <dt>Style:	</dt>
-                  <dd>Frozen</dd>
-                  <dt>Type:	</dt>
-                  <dd>Jackfruit</dd>
-                  <dt>Shape:	</dt>
-                  <dd>Whole, All shapes available</dd>
-                  <dt>Freezing Process:	</dt>
-                  <dd>BQF</dd>
-                  <dt>Preservation Process:	</dt>
-                  <dd>Water</dd>
+                  <dt>Estilo:	</dt>
+                  <dd>Natural</dd>
+                  <dt>Tipo:	</dt>
+                  <dd>Fruta</dd>
+                  <dt>Forma:	</dt>
+                  <dd>Enteros, Todas las formas disponibles</dd>
+                  <dt>Proceso de preservación:	</dt>
+                  <dd>Agua</dd>
                 </dl>
               </div>
               <div class="col-sm-4">
                 <dl class="dl-horizontal">
-                  <dt>Cultivation Type:	</dt>
-                  <dd>Common</dd>
-                  <dt>Packaging:	</dt>
-                  <dd>Bulk</dd>
-                  <dt>Certification:	</dt>
+                  <dt>Tipo de cultivo:	</dt>
+                  <dd>Comun</dd>
+                  <dt>Empacado:	</dt>
+                  <dd>Caja</dd>
+                  <dt>Certificación:	</dt>
                   <dd>BRC</dd>
-                  <dt>Shelf Life:	</dt>
-                  <dd>24 Months</dd>
-                  <dt>Weight (kg):	</dt>
-                  <dd>10</dd>
+                  <dt>Duración:	</dt>
+                  <dd>2 semanas</dd>
+                  <dt>Peso (kg):	</dt>
+                  <dd>20</dd>
                 </dl>
               </div>
               <div class="col-sm-4">
                 <dl class="dl-horizontal">
-                  <dt>Place of Origin:	</dt>
-                  <dd>Zhejiang, China (Mainland)</dd>
-                  <dt>Brand Name:	</dt>
-                  <dd>OEM</dd>
-                  <dt>Model Number:	</dt>
-                  <dd>OEM</dd>
-                  <dt>Color:	</dt>
-                  <dd>All colors available</dd>
-                  <dt>Size:	</dt>
-                  <dd>All sizes available</dd>
+                  <dt>Lugar de Origen:	</dt>
+                  <dd><%= @product.origin.capitalize %></dd>
+                  <dt>Nombre de la Marca:	</dt>
+                  <% if @product.name == 'Mango' %>
+                    <dd> Carlos Jauregui </dd>
+                  <% else %>
+                    <dd>Productores Mexicanos</dd>
+                  <% end %>
                 </dl>
               </div>
             </div>
             <div class="tab-pane" id="company">
               <div class="col-md-6" style="border-right: solid silver;">
                 <dl class="dl-horizontal">
-                  <dt>Business Type:</dt>
-                  <dd>Trading Company</dd>
+                  <dt>Tipo de Negocio:</dt>
+                  <dd>Empresa Comercial</dd>
                   <br>
-                  <dt>Main Products:</dt>
-                  <dd>candle holder,bottle,plate,christmas,cup</dd>
+                  <dt>Productos Principales:</dt>
+                  <% if @product.name == 'Mango' %>
+                    <dd>Mangos y derivados</dd>
+                  <% else %>
+                    <dd>Productos Alimenticios</dd>
+                  <% end %>
                   <br>
-                  <dt>Total Annual Revenue:</dt>
-                  <dd>US$5 Million - US$10 Million</dd>
+                  <dt>Ingresos Anuales:</dt>
+                  <dd>MXN $ 5 Millones - MXN $10 Millones</dd>
                 </dl>
               </div>
               <div class="col-md-6">
                 <dl class="dl-horizontal">
-                  <dt>Location:</dt>	<dd>Liaoning, China (Mainland)</dd><br>
-                  <dt>Total Employees:</dt>	<dd>11 - 50 People	</dd><br>
-                  <dt>Year Established:</dt>	<dd>2013	</dd>
+                  <dt>Ubicación:</dt>	<dd><%= @product.origin.capitalize %></dd><br>
+                  <dt>Numeros de Empleados:</dt>	<dd>11 - 50 Personas	</dd><br>
+                  <dt>Año Establecido:</dt>	<dd>2013	</dd>
                 </dl>
             </div>
         </div>
-    </div>
+    </div>&nbsp;&nbsp;&nbsp;
       <%= render 'contact' %>
 
     <!-- end tabs -->
-    <h2 class="block-title block-title--top-large-s block-title--bottom">Other Products Provider</h2>
+    <h2 class="block-title block-title--top-large-s block-title--bottom">Otros Productos del Proveedor</h2>
 
     <div class="swiper-container fading-slider">
         <div class="swiper-wrapper">
@@ -130,11 +155,15 @@
             <!--Slide-->
             <div class="swiper-slide swiper-no-swiping">
                 <div class="product product--round product--flow">
-                    <div class="product__marker">new</div>
+                    <div class="product__marker">nuevo</div>
                     <div class="product__control">
                     </div>
                     <div class="product__photo">
-                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{productProvider.category.name.downcase}.jpg", width: "100%" %>
+                      <% if productProvider.category.name == 'Frutas' %>
+                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",width: "100%" %>
+                      <% else %>
+                      <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{productProvider.category.name.downcase}.jpg", width: "100%" %>
+                      <% end %>
                     </div>
                     <span class="product__title"><%= productProvider.name %></span>
                 </div>
