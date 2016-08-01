@@ -37,8 +37,11 @@
             <div class="col-sm-4">
                 <div class="gallery-item">
                     <div class="image-container image-container--border-inner">
-                      <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",size: "1110x240" %>
-
+                      <% if category.name == 'Frutas' %>
+                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/frutas.jpg",size: "1110x240" %>
+                      <% else %>
+                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",size: "1110x240" %>
+                      <% end %>
                     </div>
                     <div class="gallery-item__info desktop-middle">
                         <h3 class="gallery-item__heading"><%= category.name %></h3>
@@ -60,90 +63,19 @@
 </section>
 <div class="swiper-container fading-slider">
     <div class="swiper-wrapper">
-        <!--Slide-->
+      <%= Provider.find_each do | provider | %>
         <div class="swiper-slide swiper-no-swiping">
-            <!-- Sevrice preview -->
             <div class="service">
                 <div class="icon icon--strips">
-                    <i class="icon__item fa fa-credit-card">&nbsp;</i>
+                  <i class="fa fa-users" aria-hidden="true">&nbsp;</i>
                 </div>
                 <a class="service__link" href="single-service.html">
-                    <h3 class="service__heading">Reasonable Price</h3>
+                  <h3 class="service__heading"><%= provider.to_s %></h3>
                 </a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in lacinia quam. Fusce quis nulla tincidunt, interdum magna vitae, viverra est. Nunc eu sodales turpis, varius viverra mauris.</p>
+                <p><%= provider.country %></p>
             </div>
-            <!-- end sevrice preview -->
-        </div>
-        <!-- Slide-->
-        <div class="swiper-slide swiper-no-swiping">
-            <!-- Sevrice preview -->
-            <div class="service">
-                <div class="icon icon--strips">
-                    <i class="icon__item fa fa-heart">&nbsp;</i>
-                </div>
-                <a class="service__link" href="single-service.html">
-                    <h3 class="service__heading">Made with Love</h3>
-                </a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in lacinia quam. Fusce quis nulla tincidunt, interdum magna vitae, viverra est. Nunc eu sodales turpis, varius viverra mauris.</p>
-            </div>
-            <!-- end sevrice preview -->
-        </div>
-        <!--Slide-->
-        <div class="swiper-slide swiper-no-swiping">
-            <!-- Sevrice preview -->
-            <div class="service">
-                <div class="icon icon--strips">
-                    <i class="icon__item fa fa-cogs">&nbsp;</i>
-                </div>
-                <a class="service__link" href="single-service.html">
-                    <h3 class="service__heading">Fully Customizable</h3>
-                </a>
-                <p>Nullam lacinia nibh et nisi luctus rhoncus. Cras vitae purus volutpat, rhoncus mauris quis, elementum neque. In cursus magna eget consequat placerat. Nulla facilisi. </p>
-            </div>
-            <!-- end sevrice preview -->
-        </div>
-        <!-- Slide-->
-        <div class="swiper-slide swiper-no-swiping">
-            <!-- Sevrice preview -->
-            <div class="service">
-                <div class="icon icon--strips">
-                    <i class="icon__item fa fa-phone">&nbsp;</i>
-                </div>
-                <a class="service__link" href="single-service.html">
-                    <h3 class="service__heading">Premium-class Support</h3>
-                </a>
-                <p>Sed eget placerat arcu. Nullam porta faucibus ligula, egestas tempus tellus dapibus tincidunt. Nunc vitae interdum massa. Nam in augue quis elit sagittis accumsan.</p>
-            </div>
-            <!-- end sevrice preview -->
-        </div>
-        <!--Slide-->
-        <div class="swiper-slide swiper-no-swiping">
-            <!-- Sevrice preview -->
-            <div class="service">
-                <div class="icon icon--strips">
-                    <i class="icon__item fa fa-dashboard">&nbsp;</i>
-                </div>
-                <a class="service__link" href="single-service.html">
-                    <h3 class="service__heading">Efficient Workflow</h3>
-                </a>
-                <p>Sed eget placerat arcu. Nullam porta faucibus ligula, egestas tempus tellus dapibus tincidunt. Nunc vitae interdum massa. Nam in augue quis elit sagittis accumsan.</p>
-            </div>
-            <!-- end sevrice preview -->
-        </div>
-        <!--Slide-->
-        <div class="swiper-slide swiper-no-swiping">
-            <!-- Sevrice preview -->
-            <div class="service">
-                <div class="icon icon--strips">
-                    <i class="icon__item fa fa-magic">&nbsp;</i>
-                </div>
-                <a class="service__link" href="single-service.html">
-                    <h3 class="service__heading">Innovative Technologies</h3>
-                </a>
-                <p>Sed eget placerat arcu. Nullam porta faucibus ligula, egestas tempus tellus dapibus tincidunt. Nunc vitae interdum massa. Nam in augue quis elit sagittis accumsan.</p>
-            </div>
-            <!-- end sevrice preview -->
-        </div>
+          </div>
+      <% end %>
     </div>
     <div class="fade-slider-control">
         <a class="prev-arrow" href="#"><i class="fa fa-angle-left"></i></a>

@@ -61,10 +61,10 @@
                     <a class="z-nav__link z-nav__link--active menu-item" href="#">
                       Grupos agropecuarios
                     </a>
-                    <ul class="z-nav__list-secondary mega-menu">
-                      <div class="col-sm-3 col-md-2">
+                    <ul class="z-nav__list-secondary mega-menu">>
+                      <div class="col-sm-2 col-md-1">
                       </div>
-                      <div class="col-sm-3 col-md-2">
+                      <div class="col-sm-2 col-md-2">
                         <li class="z-nav__item">
                           <%= link_to '<b class="text-farm fa-lg">></b> Bovino'.html_safe, {:controller => "categories",:action=> "search",:id => "Bovino"},{ :class=> "z-nav__link menu-item"  }%>
                         </li>
@@ -72,7 +72,7 @@
                           <%= link_to '<b class="text-farm fa-lg">|</b> Ovino'.html_safe, {:controller => "categories",:action=> "search",:id => "Ovino"},{ :class=> "z-nav__link menu-item"  }%>
                         </li>
                       </div>
-                      <div class="col-sm-3 col-md-2">
+                      <div class="col-sm-2 col-md-2">
                         <li class="z-nav__item">
                           <%= link_to '<b class="text-farm fa-lg">Z</b> Porcino'.html_safe, {:controller => "categories",:action=> "search",:id => "Porcino"},{ :class=> "z-nav__link menu-item"  }%>
                         </li>
@@ -80,7 +80,7 @@
                           <%= link_to '<b class="text-farm fa-lg">C</b> Caprino'.html_safe, {:controller => "categories",:action=> "search",:id => "Caprino"},{ :class=> "z-nav__link menu-item"  }%>
                         </li>
                       </div>
-                      <div class="col-sm-3 col-md-2">
+                      <div class="col-sm-2 col-md-2">
                         <li class="z-nav__item">
                           <%= link_to '<b class="text-farm fa-lg">H</b> Avicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Avicultura"},{ :class=> "z-nav__link menu-item"  }%>
                         </li>
@@ -88,12 +88,19 @@
                           <%= link_to '<b class="text-farm fa-lg">+</b> Piscicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Picicultura"},{ :class=> "z-nav__link menu-item"  }%>
                         </li>
                       </div>
-                      <div class="col-sm-3 col-md-2">
+                      <div class="col-sm-2 col-md-2">
                         <li class="z-nav__item">
                           <%= link_to '<b class="text-farm fa-lg">9</b> Apicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Apicultura"},{ :class=> "z-nav__link menu-item"  }%>
                         </li>
                         <li class="z-nav__item">
                           <%= link_to '<b class="text-farm fa-lg">∞</b> Cunicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Cunicultura"},{ :class=> "z-nav__link menu-item"  }%>
+                        </li>
+                      </div>
+                      <div class="col-sm-2 col-md-2">
+                        <li class="z-nav__item">
+                          <%= link_to '<b class="text-farm fa-lg">2</b> Frutas'.html_safe, {:controller => "categories",:action=> "search",:id => "Frutas"},{ :class=> "z-nav__link menu-item"  }%>
+                        </li>
+                        <li class="z-nav__item">
                         </li>
                       </div>
                     </ul>
@@ -109,36 +116,13 @@
     <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4">
-            <h3 class="heading-info">Latest from blog:</h3>
-            <div class="row">
-              <div class="col-xs-6 col-sm-12 one-column">
-                <article class="post post--latest">
-                  <h3 class="not-visible">Latest post</h3>
-                  <a class="post__images" href="single-post.html">
-                  </a>
-                  <a class="post__text" href="single-post.html">Mauris orci purus, ultrices dapibus justo non, eleifend consequat lorem. </a>
-                  <time datetime="2015-07-17" class="post__date">July 17, 2015</time>
-                </article>
-              </div>
-              <div class="col-xs-6 col-sm-12 one-column">
-                <article class="post post--latest">
-                  <h3 class="not-visible">Latest post</h3>
-                  <a class="post__images" href="single-post.html">
-                  </a>
-                  <a class="post__text" href="single-post.html">Pellentesque et magna malesuada, scelerisque elit ac, convallis lacus. </a>
-                  <time datetime="2015-07-16" class="post__date">July 16, 2015</time>
-                </article>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <h3 class="heading-info heading-info--mobile">Contact info:</h3>
+          <div class="col-sm-5">
+            <h3 class="heading-info heading-info--mobile">Información de Contacto:</h3>
             <address class="contact-info contact-info--list">
               <div class="row">
                 <div class="col-xs-6 col-sm-12 one-column">
                   <a href="http://maps.google.com/?q=101 West Street, New York, NY 10014" class="contact-info__item" target="_blank">
-                    <i class="fa fa-location-arrow"></i> 101 West Street, New York, NY 10014
+                    <i class="fa fa-location-arrow"></i> Monterrey NL. México.
                   </a>
                   <a class="contact-info__item" href="tel://1-888-555-5555">
                     <i class="fa fa-mobile"></i> +1-888-555-5555
@@ -146,34 +130,32 @@
                 </div>
                 <div class="col-xs-6 col-sm-12 one-column">
                   <a class="contact-info__item" href="mailto:info@allec.com,sales@allec.com?subject=Email from website">
-                    <i class="fa fa-envelope"></i> info@allec.com / sales@allec.com
-                  </a>
-                  <a href="skype:allec-support?call" class="contact-info__item">
-                    <i class="fa fa-skype"></i> allec-support
+                    <i class="fa fa-envelope"></i> info@nos-unimos.com / ventas@nos-unimos.com
                   </a>
                 </div>
               </div>
             </address>
           </div>
-          <div class="col-sm-4">
-            <h3 class="heading-info heading-info--mobile">We’re social:</h3>
+          <div class="col-sm-2"></div>
+          <div class="col-sm-5">
+            <h3 class="heading-info heading-info--mobile">Redes Sociales</h3>
             <div class="social social--default">
               <ul>
-                <li class="social__item"><a class="social__link" href="https://twitter.com/OliaGozha" target="_blank"><i class="social__icon fa fa-twitter"></i></a></li>
-                <li class="social__item"><a class="social__link" href="https://www.facebook.com/olia.gozha" target="_blank"><i class="social__icon fa fa-facebook"></i></a></li>
-                <li class="social__item"><a class="social__link" href="https://plus.google.com/u/0/+OliaGozha/posts" target="_blank"><i class="social__icon fa fa-google-plus"></i></a></li>
+                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-twitter"></i></a></li>
+                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-facebook"></i></a></li>
+                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-google-plus"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-pinterest"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-tumblr"></i></a></li>
-                <li class="social__item"><a class="social__link" href="http://www.linkedin.com/pub/olia-gozha/49/b91/268" target="_blank"><i class="social__icon fa fa-linkedin"></i></a></li>
+                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-linkedin"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-youtube"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-github-alt"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-flickr"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-vimeo-square"></i></a></li>
-                <li class="social__item"><a class="social__link" href="http://dribbble.com/OliaGozha" target="_blank"><i class="social__icon fa fa-dribbble"></i></a></li>
+                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-dribbble"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-stumbleupon"></i></a></li>
-                <li class="social__item"><a class="social__link" href="http://instagram.com/olechka_dumka#" target="_blank"><i class="social__icon fa fa-instagram"></i></a></li>
+                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-instagram"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-soundcloud"></i></a></li>
-                <li class="social__item"><a class="social__link" href="http://www.behance.net/olia_gozha" target="_blank"><i class="social__icon fa fa-behance"></i></a></li>
+                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-behance"></i></a></li>
                 <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-vine"></i></a></li>
               </ul>
             </div>
