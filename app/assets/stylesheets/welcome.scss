@@ -11,6 +11,17 @@
 @import 'AgroOnline-theme/css/style';
 @import 'AgroOnline-theme/css/touch';
 
+@font-face {
+  font-family: 'farm';
+  src: font-url('AgroOnline-theme/font/Farm.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-farm {
+  font-family: 'farm';
+}
+
 .menu-item {
   font-size:20px !important;
 }
