@@ -13,6 +13,7 @@
 //= require jquery/jquery
 //= require jquery-ujs/src/rails
 //= require turbolinks
+//= require welcome
 //= require galleriffic/js/jquery.galleriffic
 //= require AgroOnline-theme/js/waypoints.min
 //= require AgroOnline-theme/js/modernizr.custom
