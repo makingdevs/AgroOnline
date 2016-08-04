@@ -36,15 +36,15 @@
     <p class="stroke search-subtitle-font-size"><b>Encuentra el producto ques estás buscando, encuentra al comprador que estás buscando</b></p>
   </div>
   <div class="col-md-12 forum" id="searchForm">
-  <%= form_tag("/product/category/state", method: "post", class:"search search--light search--large") do %>
-    <div class="form-group">
-      <div class="input-group  center-block">
-        <%= text_field_tag 'search', nil, class:"search__field", placeholder:"Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)" %>
-        <%= submit_tag 'Buscar', class:"btn btn-info btn--decorated" %>
+    <%= form_tag("/product/category/state", method: "post", class:"search search--light search--large") do %>
+      <div class="form-group">
+        <div class="input-group  center-block">
+          <%= text_field_tag 'search', nil, class:"search__field", placeholder:"Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)" %>
+          <%= submit_tag 'Buscar', class:"btn btn-info btn--decorated" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
   <!-- Controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -54,58 +54,72 @@
   </a>
 </div>
 <section class="container">
-   <h2 class="block-title">Grupos Agropecuarios</h2>
-   <div class="row">
-        <div class="gallery-wrapper">
-          <%= Category.find_each do | category | %>
-            <div class="col-sm-4">
-                <div class="gallery-item">
-                    <div class="image-container image-container--border-inner">
-                      <% if category.name == 'Frutas' %>
-                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/frutas.jpg",size: "1110x240" %>
-                      <% else %>
-                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",size: "1110x240" %>
-                      <% end %>
-                    </div>
-                    <div class="gallery-item__info desktop-middle">
-                        <h3 class="gallery-item__heading"><%= category.name %></h3>
-                        <%= link_to 'Ver los productos', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
-                    </div>
-                </div>
-            </div>
-          <% end %>
+  <h2 class="block-title">Nuestra presencia en</h2>
+  <div class="row">
+    <% @estados.each do | mapa | %>
+      <% mapa.each_with_index do | (name, description), index | %>
+        <%= link_to product_search_path(name.downcase), :class=> "post" do %>
+          <div class="col-sm-3">
+            <h5 class="staff__name"><%= (name.to_s.include?('_') ? name.to_s.gsub!('_', ' ') : name.to_s) %></h5>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+<section class="container">
+<h2 class="block-title">Grupos Agropecuarios</h2>
+<div class="row">
+  <div class="gallery-wrapper">
+    <%= Category.find_each do | category | %>
+      <div class="col-sm-4">
+        <div class="gallery-item">
+          <div class="image-container image-container--border-inner">
+            <% if category.name == 'Frutas' %>
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/frutas.jpg",size: "1110x240" %>
+            <% else %>
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",size: "1110x240" %>
+            <% end %>
+          </div>
+          <div class="gallery-item__info desktop-middle">
+            <h3 class="gallery-item__heading"><%= category.name %></h3>
+            <%= link_to 'Ver los productos', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
+          </div>
         </div>
-    </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 </section>
 
 
 <section class="page-indecator">
-    <div class="container">
-        <h2 class="block-title block-title--top-larger">Productores destacados</h2>
-    </div>
+<div class="container">
+  <h2 class="block-title">Productores destacados</h2>
+</div>
 </section>
 <div class="swiper-container fading-slider">
-    <div class="swiper-wrapper">
-      <%= Provider.find_each do | provider | %>
-        <div class="swiper-slide swiper-no-swiping">
-            <div class="service">
-                <div class="icon icon--strips">
-                  <i class="fa fa-users" aria-hidden="true">&nbsp;</i>
-                </div>
-                <a class="service__link" href="single-service.html">
-                  <h3 class="service__heading"><%= provider.to_s %></h3>
-                </a>
-                <p><%= provider.country %></p>
-            </div>
+  <div class="swiper-wrapper">
+    <%= Provider.find_each do | provider | %>
+      <div class="swiper-slide swiper-no-swiping">
+        <div class="service">
+          <div class="icon icon--strips">
+            <i class="fa fa-users" aria-hidden="true">&nbsp;</i>
           </div>
-      <% end %>
-    </div>
-    <div class="fade-slider-control">
-        <a class="prev-arrow" href="#"><i class="fa fa-angle-left"></i></a>
-        <a class="next-arrow" href="#"><i class="fa fa-angle-right"></i></a>
-    </div>
-    <!-- end slider controls-->
-    <div class="clearfix"></div>
-    <div class="product-slider-pagination fade-pagination"></div>
+          <a class="service__link" href="single-service.html">
+            <h3 class="service__heading"><%= provider.to_s %></h3>
+          </a>
+          <p><%= provider.country %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="fade-slider-control">
+    <a class="prev-arrow" href="#"><i class="fa fa-angle-left"></i></a>
+    <a class="next-arrow" href="#"><i class="fa fa-angle-right"></i></a>
+  </div>
+  <!-- end slider controls-->
+  <div class="clearfix"></div>
+  <div class="product-slider-pagination fade-pagination"></div>
 </div>
