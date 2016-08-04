@@ -14,4 +14,7 @@ class WelcomeController < ApplicationController
     render :template => "/products/index"
   end
 
+  def our
+  end
+
 end
