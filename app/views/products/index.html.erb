@@ -12,7 +12,7 @@
         <div class="col-sm-8 col-md-9 separate-block">
           <div class="product__photo product__photo--bordered">
             <% if product.category.name == 'Frutas' %>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",size: "2000x240" %>
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",size: "2500x240" %>
             <% else %>
             <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.category.name.downcase}.jpg", size:"200x150" %></i>
             <% end %>
@@ -27,7 +27,7 @@
                 <dd><%= product.min_order_quantity %></dd>
               </dl>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
               <dl>
                 <dt><i class="fa fa-train" aria-hidden="true"></i> Medios de envío </dt>
                 <dd>Terrestre</dd>
