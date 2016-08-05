@@ -35,9 +35,13 @@
                 <dt>Metodos de Pago:</dt>
                 <dd>Efec/Transf/TDD/TDC</dd>
               </dl>
-              <pre>
-                <%= link_to "<button class='btn btn-warning'>Contactar Proveedor</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
-              </pre>
+              <div class="row" style="background-color:#E0E0E0;">
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-sm-6 col-sm-offset-3">
+                  <%= link_to "<button class='btn btn-warning'>Contactar Proveedor</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+              </div>
             </div>
             <div class="col-sm-4 col-md-3">
               <div class="panel panel-default">
