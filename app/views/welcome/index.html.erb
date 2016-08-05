@@ -106,11 +106,9 @@
       <div class="swiper-slide swiper-no-swiping">
         <div class="service">
           <div class="icon icon--strips">
-            <i class="fa fa-users" aria-hidden="true">&nbsp;</i>
+            <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{provider.name.capitalize}.jpg",size: "100x100" %>
           </div>
-          <a class="service__link" href="#">
             <h3 class="service__heading"><%= provider.to_s %></h3>
-          </a>
           <p><%= provider.country %></p>
         </div>
       </div>
