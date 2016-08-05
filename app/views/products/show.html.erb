@@ -1,51 +1,136 @@
 <section class="page-indecator">
-    <div class="container">
-      <h2 class="heading"><span class="text-primary"><%= @product.name.capitalize %></span> de <span class="text-primary"><%= @product.origin.capitalize %></span> producido por <span class="text-primary"><%= @product.provider.to_s %></span></h2>
-        <!-- Breadcrumb pattern -->
-        <ol class="breadcrumb">
-            <li><a href="#">Inicio</a></li>
-            <li class="active">Producto</li>
-        </ol>
-        <!-- Default one color divider -->
-        <div class="divider divider--bottom-md"></div>
-    </div>
+<div class="container">
+  <h2 class="heading"><span class="text-primary"><%= @product.name.capitalize %></span> de <span class="text-primary"><%= @product.origin.capitalize %></span> producido por <span class="text-primary"><%= @product.provider.to_s %></span></h2>
+  <!-- Breadcrumb pattern -->
+  <ol class="breadcrumb">
+    <li><a href="#">Inicio</a></li>
+    <li class="active">Producto</li>
+  </ol>
+  <!-- Default one color divider -->
+  <div class="divider divider--bottom-md"></div>
+</div>
 </section>
 <section class="container">
-    <div class="product product--single">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="col-md-3">
-              <% if @product.category.name == 'Frutas' %>
-                <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",width: "100%" %>
-              <% else %>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg", width: "100%" %>
-              <% end %>
-            </div>
-            <div class="col-md-6">
-              <font size="5"><%= @product.name %></font>
-              <dl class="dl-horizontal">
-                <dt>Precio:</dt>
-                <dd><font color="#1E90FF"><%= @product.price %></font> / TON</dd>
-                <dt>Cantidad Min por Orden:</dt>
-                <dd><%= @product.min_order_quantity %></dd>
-                <dt>Capacida de Suministro:</dt>
-                <dd>150 Toneladas</dd>
-                <dt>Estado:</dt>
-                <dd><%= @product.origin %></dd>
-                <dt>Metodos de Pago:</dt>
-                <dd>Efec/Transf/TDD/TDC</dd>
-              </dl>
-              <div class="row" style="background-color:#E0E0E0;">
-                <div class="col-md-12">&nbsp;</div>
-                <div class="col-sm-3 col-sm-offset-1">
-                  <%= link_to "<button class='btn btn-warning'><i class='fa fa-envelope' aria-hidden='true'></i> Contactar Proveedor</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+<div class="product product--single">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-3">
+        <% if @product.category.name == 'Frutas' %>
+          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",width: "100%" %>
+        <% else %>
+          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg", width: "100%" %>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <font size="5"><%= @product.name %></font>
+        <dl class="dl-horizontal">
+          <dt>Precio:</dt>
+          <dd><font color="#1E90FF"><%= @product.price %></font> / TON</dd>
+          <dt>Cantidad Min por Orden:</dt>
+          <dd><%= @product.min_order_quantity %></dd>
+          <dt>Capacida de Suministro:</dt>
+          <dd>150 Toneladas</dd>
+          <dt>Estado:</dt>
+          <dd><%= @product.origin %></dd>
+          <dt>Metodos de Pago:</dt>
+          <dd>Efec/Transf/TDD/TDC</dd>
+        </dl>
+        <div class="row" style="background-color:#E0E0E0;">
+          <div class="col-md-12">&nbsp;</div>
+          <div class="col-sm-3 col-sm-offset-1">
+            <%= link_to "<button class='btn btn-warning'><i class='fa fa-envelope' aria-hidden='true'></i> Contactar Proveedor</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+          </div>
+          <div class="col-sm-3 col-sm-offset-3">
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments-o" aria-hidden="true"></i> Chat</button>
+          </div>
+          <div class="col-md-12">&nbsp;</div>
+        </div>
+        <div class="collapse" id="collapseExample">
+          <div class="well">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <i class="fa fa-comment" aria-hidden="true"></i> Chat
+                    </div>
+                    <div class="panel-body">
+                      <ul class="chat">
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                          <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                        </span>
+                        <div class="chat-body clearfix">
+                          <div class="header">
+                            <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                              <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                          </div>
+                          <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                          dolor, quis ullamcorper ligula sodales.
+                          </p>
+                        </div>
+                        </li>
+                        <li class="right clearfix"><span class="chat-img pull-right">
+                          <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+                        </span>
+                        <div class="chat-body clearfix">
+                          <div class="header">
+                            <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                          </div>
+                          <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                          dolor, quis ullamcorper ligula sodales.
+                          </p>
+                        </div>
+                        </li>
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                          <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                        </span>
+                        <div class="chat-body clearfix">
+                          <div class="header">
+                            <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                              <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+                          </div>
+                          <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                          dolor, quis ullamcorper ligula sodales.
+                          </p>
+                        </div>
+                        </li>
+                        <li class="right clearfix"><span class="chat-img pull-right">
+                          <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+                        </span>
+                        <div class="chat-body clearfix">
+                          <div class="header">
+                            <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
+                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                          </div>
+                          <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                          dolor, quis ullamcorper ligula sodales.
+                          </p>
+                        </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="panel-footer">
+                      <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                          <button class="btn btn-warning btn-sm" id="btn-chat">
+                            Send</button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-sm-3 col-sm-offset-3">
-                  <button class="btn btn-primary"><i class="fa fa-comments-o" aria-hidden="true"></i> Chat</button>
-                </div>
-                <div class="col-md-12">&nbsp;</div>
               </div>
             </div>
+
+          </div>
+        </div>
+      </div>
             <div class="col-sm-4 col-md-3">
               <div class="panel panel-default">
                 <div class="panel-heading">
