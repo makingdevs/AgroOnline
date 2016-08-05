@@ -37,7 +37,7 @@
           <%= text_area_tag 'message', nil, class:"contact__field contact__area", placeholder:"Mensaje: " %>
         </div>
         <div class="col-md-12">
-          <div class="col-md-1">Quantity</div>
+          <div class="col-md-1">Cantidad</div>
           <div class="col-md-5">
             <%= text_field_tag 'cantidad', nil, class:"contact__field " %>
           </div>
@@ -45,6 +45,7 @@
             <%= select_tag "unidad", options_for_select(@unidades), {:class => "selectpicker form-control"} %>
           </div>
         </div>
+        <p>&nbsp;</p>
         <%= submit_tag 'Enviar Mensaje', class:"btn btn--decorated btn-warning btn-submit" %>
       <% end %>
       <br />
