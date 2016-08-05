@@ -37,8 +37,11 @@
               </dl>
               <div class="row" style="background-color:#E0E0E0;">
                 <div class="col-md-12">&nbsp;</div>
-                <div class="col-sm-6 col-sm-offset-3">
-                  <%= link_to "<button class='btn btn-warning'>Contactar Proveedor</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+                <div class="col-sm-3 col-sm-offset-1">
+                  <%= link_to "<button class='btn btn-warning'><i class='fa fa-envelope' aria-hidden='true'></i> Contactar Proveedor</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+                </div>
+                <div class="col-sm-3 col-sm-offset-3">
+                  <button class="btn btn-primary"><i class="fa fa-comments-o" aria-hidden="true"></i> Chat</button>
                 </div>
                 <div class="col-md-12">&nbsp;</div>
               </div>
