@@ -11,10 +11,12 @@
       <div class="row">
         <div class="col-sm-8 col-md-9 separate-block">
           <div class="product__photo product__photo--bordered">
-            <% if product.category.name == 'Frutas' %>
+            <% if product.name == 'Mango' %>
               <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",size: "2500x240" %>
+            <% elsif product.origin == 'michoacán' %>
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg", size:"200x150" %></i>
             <% else %>
-            <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.category.name.downcase}.jpg", size:"200x150" %></i>
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.category.name.downcase}.jpg", size:"200x150" %></i>
             <% end %>
           </div>
           <%= link_to "<font size='5'>#{ product.name.capitalize }</font>".html_safe, {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %>
