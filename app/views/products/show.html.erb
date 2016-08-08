@@ -25,7 +25,7 @@
       </div>
       <div class="col-md-6">
         <font size="5"><%= @product.name %></font>
-        <dl class="dl-horizontal">
+        <dl>
           <dt>Precio:</dt>
           <dd><font color="#1E90FF"><%= @product.price %></font> / TON</dd>
           <dt>Cantidad Min por Orden:</dt>
@@ -150,7 +150,7 @@
                     </div>
                     <div class="media-body">
                       <i class="fa fa-location-arrow" aria-hidden="true"></i> <%= @product.provider.country %><br>
-                      <i class="fa fa-phone" aria-hidden="true"></i> (01 55)5555-55555
+                      <i class="fa fa-phone" aria-hidden="true"></i> (01 55)5563638147
                       <hr>
                       <i class="fa fa-credit-card" aria-hidden="true"></i> Medios de pago: Transferencia, efectivo
                       <br>
@@ -174,7 +174,7 @@
         <div class="tab-content">
             <div class="tab-pane active" id="details">
               <div class="col-sm-4">
-                <dl class="dl-horizontal">
+                <dl>
                   <dt>Estilo:	</dt>
                   <dd>Natural</dd>
                   <dt>Tipo:	</dt>
@@ -186,7 +186,7 @@
                 </dl>
               </div>
               <div class="col-sm-4">
-                <dl class="dl-horizontal">
+                <dl>
                   <dt>Tipo de cultivo:	</dt>
                   <dd>Comun</dd>
                   <dt>Empacado:	</dt>
@@ -200,7 +200,7 @@
                 </dl>
               </div>
               <div class="col-sm-4">
-                <dl class="dl-horizontal">
+                <dl>
                   <dt>Lugar de Origen:	</dt>
                   <dd><%= @product.origin.capitalize %></dd>
                   <dt>Nombre de la Marca:	</dt>
@@ -214,7 +214,7 @@
             </div>
             <div class="tab-pane" id="company">
               <div class="col-md-6" style="border-right: solid silver;">
-                <dl class="dl-horizontal">
+                <dl>
                   <dt>Tipo de Negocio:</dt>
                   <dd>Empresa Comercial</dd>
                   <br>
@@ -230,7 +230,7 @@
                 </dl>
               </div>
               <div class="col-md-6">
-                <dl class="dl-horizontal">
+                <dl>
                   <dt>Ubicación:</dt>	<dd><%= @product.origin.capitalize %></dd><br>
                   <dt>Numeros de Empleados:</dt>	<dd>11 - 50 Personas	</dd><br>
                   <dt>Año Establecido:</dt>	<dd>2013	</dd>
