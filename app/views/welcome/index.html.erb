@@ -1,3 +1,6 @@
+
+<script src="https://code.highcharts.com/mapdata/countries/mx/mx-all.js"></script>
+
 <section>
 <div id="myCarousel" class="carousel slide">
   <!-- Indicators -->
@@ -54,19 +57,11 @@
 </div>
 </section>
 
-<section class="container">
-  <h2 class="block-title">Nuestra presencia en</h2>
-  <div class="row">
-    <% @estados.each do | mapa | %>
-      <% mapa.each_with_index do | (name, description), index | %>
-        <%= link_to product_search_path(name.downcase), :class=> "post" do %>
-          <div class="col-sm-3">
-            <h5 class="staff__name"><%= (name.to_s.include?('_') ? name.to_s.gsub!('_', ' ') : name.to_s) %></h5>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
+
+<%= link_to "mexico",product_search_path("mexico"), :class=>"hidden mapLink"%>
+<div id="container">
+</div>
+
 </section>
 <section class="container">
 <h2 class="block-title">Grupos Agropecuarios</h2>
@@ -108,7 +103,7 @@
           <div class="icon icon--strips">
             <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{provider.name.capitalize}.jpg",size: "100x100" %>
           </div>
-            <h3 class="service__heading"><%= provider.to_s %></h3>
+          <h3 class="service__heading"><%= provider.to_s %></h3>
           <p>México</p>
         </div>
       </div>
