@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  console.log("document")
   $('.carousel').carousel interval: 3000
   fadingSlider()
   staffSlider()
@@ -32,7 +31,6 @@ $(document).ready ->
 
 
   $ ->
-    console.log("mapa")
   # Prepare demo data
   data = [
     {
@@ -190,6 +188,4 @@ $(document).ready ->
         format: '{point.name}'
     } ]
   return
-
-  $(".highcharts-button").hide()
   return
