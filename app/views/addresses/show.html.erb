@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @address.street %>
+</p>
+
+<p>
+  <strong>Street number:</strong>
+  <%= @address.street_number %>
+</p>
+
+<p>
+  <strong>Suite:</strong>
+  <%= @address.suite %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @address.zip_code %>
+</p>
+
+<p>
+  <strong>Colony:</strong>
+  <%= @address.colony %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @address.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @address.city %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @address.town %>
+</p>
+
+<p>
+  <strong>Federal entity:</strong>
+  <%= @address.federal_entity %>
+</p>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>
