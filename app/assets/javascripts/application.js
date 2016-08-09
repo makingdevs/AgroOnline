@@ -12,7 +12,6 @@
 //
 //= require jquery/jquery
 //= require jquery-ujs/src/rails
-//= require turbolinks
 //= require welcome
 //= require galleriffic/js/jquery.galleriffic
 //= require AgroOnline-theme/js/waypoints.min
@@ -24,5 +23,7 @@
 //= require raty/lib/jquery.raty
 //= require AgroOnline-theme/js/custom
 //= require AgroOnline-theme/js/form
+//= require highcharts/highmaps
+//= require highcharts/modules/exporting
 //= require_self
 //= require_tree .
