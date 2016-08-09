@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where(:origin => params[:id])
+    @products = Product.where(:origin => params[:id].downcase)
     @products
     render 'index'
   end
