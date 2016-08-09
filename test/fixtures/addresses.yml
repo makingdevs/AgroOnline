@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  street: 
+  street_number: 
+  suite: 
+  zip_code: 
+  colony: 
+  country: 
+  city: 
+  town: 
+  federal_entity: MyString
+
+two:
+  street: 
+  street_number: 
+  suite: 
+  zip_code: 
+  colony: 
+  country: 
+  city: 
+  town: 
+  federal_entity: MyString
