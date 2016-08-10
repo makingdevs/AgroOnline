@@ -1,3 +1,5 @@
+require 'addressManager/address_manager'
+
 class ProviderManager
 
   def createProviders(paramsProviders)
@@ -5,7 +7,8 @@ class ProviderManager
     paramsProviders.each { | providerRow |
       providerExist = Provider.find_by nickname: "#{providerRow[2]}"
       if !providerExist
-        providers << Provider.createProvider(providerRow)
+        address = @addressManager.createAddress(providerRow)
+        provider = Provider.createProvider(providerRow,address)
       end
 
     }
