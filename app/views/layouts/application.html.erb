@@ -24,88 +24,35 @@
   <div class="wrapper" id="top">
     <header class="header header--dark">
       <div class="header-fixed">
-        <div class="header-line waypoint" data-animate-down="header-up" data-animate-up="header-down">
-          <div class="container">
-            <address class="contact-info pull-left hidden-lower">
-              <br/>
-            </address>
-          </div>
-        </div>
+        <div class="header-line waypoint" data-animate-down="header-up" data-animate-up="header-down"></div>
+
         <div class="fixed-top header-down">
           <div class="container">
-            <a class="logo" href="/">
-              <img src="http://com.agroonline.s3.amazonaws.com/agroonline/logo-nos-unimos.png" />
+            <div class="col-md-3">
+              <a class="logo" href="/">
+                <img src="http://com.agroonline.s3.amazonaws.com/agroonline/logo-nos-unimos.png" />
               </a>
-              <nav class="z-nav">
-                <a href="#" class="z-nav__toggle">
-                  <span class="menu-icon"></span>
-                  <span class="menu-text">navigation</span>
-                  <div class="menu-head"></div>
-                </a>
-                <ul class="z-nav__list">
-                  <li class="z-nav__item skip-element">
-                    <%= link_to 'Nosotros', { :controller => "welcome", :action => "our" }, { :class => "z-nav__link z-nav__link--active menu-item"} %>
-                  </li>
-                  <li class="z-nav__item skip-element">
-                    <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span>
-                    <a class="z-nav__link z-nav__link--active menu-item" href="#">
-                      Grupos agropecuarios
-                    </a>
-                    <ul class="z-nav__list-secondary mega-menu">>
-                      <div class="col-sm-2 col-md-1">
-                      </div>
-                      <div class="col-sm-2 col-md-2">
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">></b> Bovino'.html_safe, {:controller => "categories",:action=> "search",:id => "Bovino"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">|</b> Ovino'.html_safe, {:controller => "categories",:action=> "search",:id => "Ovino"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-                      </div>
-                      <div class="col-sm-2 col-md-2">
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">Z</b> Porcino'.html_safe, {:controller => "categories",:action=> "search",:id => "Porcino"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">C</b> Caprino'.html_safe, {:controller => "categories",:action=> "search",:id => "Caprino"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-                      </div>
-                      <div class="col-sm-2 col-md-2">
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">H</b> Avicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Avicultura"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">+</b> Piscicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Picicultura"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-                      </div>
-                      <div class="col-sm-2 col-md-2">
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">9</b> Apicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Apicultura"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">∞</b> Cunicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Cunicultura"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-                      </div>
-                      <div class="col-sm-2 col-md-2">
-                        <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">2</b> Frutas'.html_safe, {:controller => "categories",:action=> "search",:id => "Frutas"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                          </li>
-                          <li class="z-nav__item">
-                          <%= link_to '<b class="text-farm ">7</b> Verduras'.html_safe, {:controller => "categories",:action=> "search",:id => "Verduras"},{ :class=> "z-nav__link menu-item-categories"  }%>
-                        </li>
-
-                        <li class="z-nav__item">
-                        </li>
-                      </div>
-                    </ul>
-                  </li>
-                </ul>
-              </nav>
             </div>
-            <div class="divider-color"></div>
+            <div class="col-md-7">
+              <%= form_tag("/product/category/state", method: "post",class:"form margin-20") do %>
+                <div class="input-group input-group-sm">
+                  <input type="text" name="search" class="form-control" placeholder="Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)" aria-describedby="basic-addon2">
+                  <span class="input-group-btn">
+                      <button class="btn btn-info btn-sm-rect btn-sm" type="submit">Buscar</button>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-md-2">
+              <p><i class="fa fa-user fa-lg" aria-hidden="true"></i> <small>Bienvenido</small> <b>cJauregui</b></p>
+              <p><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> 0 Carrito</p>
+            </div>
           </div>
         </div>
-      </header>
+        <div class="divider-color"></div>
+      </div>
+    </header>
+  </div>
     <%= yield %>
     <footer class="footer">
             <div class="divider-color"></div>
