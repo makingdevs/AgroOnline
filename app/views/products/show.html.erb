@@ -133,36 +133,35 @@
           </div>
         </div>
       </div>
-            <div class="col-sm-4 col-md-3">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <%= @product.provider %>
-                  </h3>
+      <div class="col-sm-4 col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <%= @product.provider %>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div class="media">
+                <div class="media-left">
+                  <a href="#">
+                <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.provider.name.capitalize}.jpg", size:"70x70",  class:"img-rounded media-object"%></i>
+                  </a>
                 </div>
-                <div class="panel-body">
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#">
-                    <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.provider.name.capitalize}.jpg", size:"70x70",  class:"img-rounded media-object"%></i>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <i class="fa fa-location-arrow" aria-hidden="true"></i>México <br>
-                      <i class="fa fa-phone" aria-hidden="true"></i> (01 55)5563638147
-                      <hr>
-                      <i class="fa fa-credit-card" aria-hidden="true"></i> Medios de pago: Transferencia, efectivo
-                      <br>
-                      <br>
-                      <%= link_to "<button class='btn btn-primary'>Contactar</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
-                    </div>
-                  </div>
+                <div class="media-body">
+                  <i class="fa fa-location-arrow" aria-hidden="true"></i>México <br>
+                  <i class="fa fa-phone" aria-hidden="true"></i> (01 55)5563638147
+                  <hr>
+                  <i class="fa fa-credit-card" aria-hidden="true"></i> Medios de pago: Transferencia, efectivo
+                  <br>
+                  <br>
+                  <%= link_to "<button class='btn btn-primary'>Contactar</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
                 </div>
               </div>
+            </div>
           </div>
-          </div>
-
+        </div>
+      </div>
     </div>
     <div class="tabs tabs--minimal divider--middle">
         <!-- Nav tabs -->
