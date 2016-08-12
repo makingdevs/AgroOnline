@@ -3,8 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  $('.carousel').carousel interval: 3000
-  fadingSlider()
+  $('.carousel-products').carousel interval: 8000
+  $(".products-carousel").first().addClass('active');
+  $(".categories-carousel").first().addClass('active');
+  $('.carousel-principal').carousel interval: 5000
   staffSlider()
   $('.achivement-item').one 'inview', (event, visible) ->
     if visible == true
