@@ -2,118 +2,253 @@
 <script src="https://code.highcharts.com/mapdata/countries/mx/mx-all.js"></script>
 
 <section>
-<div id="myCarousel" class="carousel slide">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="http://com.agroonline.s3.amazonaws.com/agroonline/Frutas-y-verduras.jpg">
-      <div class="container">
-        <div class="carousel-caption">
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-md-2">
+      <table class="margin-10" width="100%">
+        <tbody>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm fa-lg">></b> Bovino'.html_safe, {:controller => "categories",:action=> "search",:id => "Bovino"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm fa-lg">|</b> Ovino'.html_safe, {:controller => "categories",:action=> "search",:id => "Ovino"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm ">Z</b> Porcino'.html_safe, {:controller => "categories",:action=> "search",:id => "Porcino"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm fa-lg">C</b> Caprino'.html_safe, {:controller => "categories",:action=> "search",:id => "Caprino"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm ">H</b> Avicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Avicultura"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm fa-lg">+</b> Piscicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Picicultura"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm fa-lg">9</b> Apicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Apicultura"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm fa-lg">∞</b> Cunicultura'.html_safe, {:controller => "categories",:action=> "search",:id => "Cunicultura"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm ">2</b> Frutas'.html_safe, {:controller => "categories",:action=> "search",:id => "Frutas"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm fa-lg">7</b> Verduras'.html_safe, {:controller => "categories",:action=> "search",:id => "Verduras"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+          <tr style="border-bottom:2pt solid #A4CA6B;">
+            <td><%= link_to '<b class="text-farm fa-lg">g</b> Materias Primas'.html_safe, {:controller => "categories",:action=> "search",:id => "Materias primas"},{ :class=> "menu-item-categories"  }%></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="item">
-      <img src="http://com.agroonline.s3.amazonaws.com/agroonline/carnicerias.jpg">
-      <div class="container">
-        <div class="carousel-caption">
+    <div class="col-md-10">
+      <div id="carousel-example-generic" class="carousel slide carousel-principal" data-ride="carousel">
+        <!-- Indicators -->
 
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <img src="http://com.agroonline.s3.amazonaws.com/agroonline/cereales.jpg">
-      <div class="container">
-        <div class="carousel-caption">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
 
+        <div class="carousel-inner " role="listbox">
+          <div class="item sizing-div-image active">
+            <img class="principal" src="http://com.agroonline.s3.amazonaws.com/agroonline/frutas_r.png" >
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item sizing-div-image">
+            <img class="principal" src="http://com.agroonline.s3.amazonaws.com/agroonline/carnicero_r.png">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item sizing-div-image">
+            <img class="principal" src="http://com.agroonline.s3.amazonaws.com/agroonline/cereales_r.png">
+            <div class="carousel-caption">
+            </div>
+          </div>
         </div>
+        <div class="col-md-12 forum" id="slider-principal">
+          <h2 class="forum__heading stroke ">Creamos los vínculos entre productores y consumidores mexicanos</h2>
+          <h3 class="forum__describe stroke">Encuentra el producto ques estás buscando, encuentra al comprador que estás buscando</h3>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+
     </div>
   </div>
-  <div class="col-md-12 forum" id="searchForm">
-    <h2 class="forum__heading stroke ">Creamos los vínculos entre productores y distribuidores mexicanos</h2>
-    <h3 class="forum__describe stroke">Encuentra el producto ques estás buscando, encuentra al comprador que estás buscando</h3>
-
-    <%= form_tag("/product/category/state", method: "post", class:"search search--light search--large") do %>
-      <div class="form-group">
-        <div class="input-group  center-block">
-          <%= text_field_tag 'search', nil, class:"search__field", placeholder:"Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)" %>
-          <%= submit_tag 'Buscar', class:"btn btn-info btn--decorated" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <!-- Controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-  </a>
-</div>
 </section>
+<section class="margin-10">
+  <div class="row">
+    <div class="col-lg-10">
+      <section>
+        <h3 class="block-title">Los más vendidos en Jalisco</h3>
+        <div id="carousel-product-generic" class="carousel slide carousel-products" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-product-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-product-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-product-generic" data-slide-to="2"></li>
+          </ol>
 
-
-<%= link_to "mexico",product_search_path("mexico"), :class=>"hidden mapLink"%>
-<div id="container">
-</div>
-
-</section>
-<section class="container">
-<h2 class="block-title">Grupos Agropecuarios</h2>
-<div class="row">
-  <div class="gallery-wrapper">
-    <%= Category.find_each do | category | %>
-      <div class="col-sm-4">
-        <div class="gallery-item">
-          <div class="image-container image-container--border-inner">
-            <% if category.name == 'Frutas' %>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/frutas.jpg",size: "1110x240" %>
-            <% else %>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",size: "1110x240" %>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <%= @jalisco.each_slice(3) do | productList | %>
+              <div class="item products-carousel">
+              <% productList.each do | product | %>
+                  <div class="column-sm column-specific">
+                    <div class="widget datepicker">
+                      <br />
+                      <div align="center"><%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",size: "220x170"%></div>
+                      <center style="font-size:26px;"><%= product.name %></center>
+                      <div class="margin-20">
+                        <table style="width:100%">
+                          <tr>
+                            <td><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %></td>
+                            <td>
+                              <% if product.weight > 20 %>
+                                Municipio: Chachapa
+                              <% elsif product.weight < 10 %>
+                                Municipio: Tequila
+                              <% else %>
+                                Municipio: Acatlán de Juárez
+                              <% end %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><i class="fa fa-usd fa-lg" aria-hidden="true"></i><%= product.price %></td>
+                            <td>Empacado: <%= product.packaging %></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
             <% end %>
           </div>
-          <div class="gallery-item__info desktop-middle">
-            <h3 class="gallery-item__heading"><%= category.name %></h3>
-            <%= link_to 'Ver los productos', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-product-generic" role="button" data-slide="prev">
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-product-generic" role="button" data-slide="next">
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+      <section>
+        <h3 class="block-title">Lo mas vendido en Michoacán</h3>
+        <div id="carousel-category-generic" class="carousel slide carousel-products" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-category-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-category-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-category-generic" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <%= @frutas.each_slice(3) do | productList | %>
+              <div class="item categories-carousel">
+              <% productList.each do | product | %>
+                  <div class="column-sm column-specific">
+                    <div class="widget datepicker">
+                      <br />
+                      <div align="center"><%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",size: "220x170"%></div>
+                      <center style="font-size:26px;"><%= product.name %></center>
+                      <div class="margin-20">
+                        <table style="width:100%">
+                          <tr>
+                            <td><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %></td>
+                            <td>
+                              <% if product.weight > 14 %>
+                                Municipio: Angangueo
+                              <% elsif product.weight < 11 %>
+                                Municipio: Tocumbo
+                              <% end %>
+                             </td>
+                          </tr>
+                          <tr>
+                            <td><i class="fa fa-usd fa-lg" aria-hidden="true"></i><%= product.price %></td>
+                            <td>Empacado: <%= product.packaging %></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-category-generic" role="button" data-slide="prev">
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-category-generic" role="button" data-slide="next">
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+      <hr /><br /><br />
+      <section>
+        <%= link_to "mexico",product_search_path("mexico"), :class=>"hidden mapLink"%>
+        <div id="container">
+        </div>
+      </section>
+      <section>
+        <h3 class="block-title">Grupos Agropecuarios</h3>
+        <div class="row">
+          <div class="gallery-wrapper">
+            <% Category.find_each do | category | %>
+              <div class="col-sm-4">
+                <div class="gallery-item">
+                  <div class="image-container image-container--border-inner">
+                    <% if category.name == 'Frutas' %>
+                      <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/frutas.jpg",size: "1110x240" %>
+                    <% else %>
+                      <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",size: "1110x240" %>
+                    <% end %>
+                  </div>
+                  <div class="gallery-item__info desktop-middle">
+                    <h3 class="gallery-item__heading"><%= category.name %></h3>
+                    <%= link_to 'Ver los productos', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </section>
+    </div>
+      <div class="col-lg-2 " style="background-color:#F5F5F5;">
+        <h3 class="block-title">Destacados</h3>
+        <% Provider.all.limit(5).each do | provider | %>
+          <div class="testimonial testimonial--centered" style="background-color:#FFFFFF;">
+            <div class="">
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{provider.name.capitalize}.jpg", size:"100x98",  class:"img-circle"%></i>
+            </div>
+            <p class="testimonial__author"><%= provider %></p>
+            <p class="testimonial__info">Mexico</p>
+            <p>(01 55)5563638147</p>
+            <p><i>"<%= provider.name.capitalize %> es un productor mexicano, dedicado el area Agropecuaria en <%= provider.try(:products).try(:first).try(:origin) %>"</i></p>
+          </div>
+          <br />
+        <% end %>
+        <div class="column-sm column-specific">
+          <div class="widget datepicker">
+            <div class="datepicker datepicker-inline" style="display: block;">
+              <div class="datepicker-days" style="display: block;">
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
-</div>
-
 </section>
-
-
-<section class="page-indecator">
-<div class="container">
-  <h2 class="block-title">Productores destacados</h2>
-</div>
-</section>
-<div class="swiper-container fading-slider">
-  <div class="swiper-wrapper">
-    <%= Provider.find_each do | provider | %>
-      <div class="swiper-slide swiper-no-swiping">
-        <div class="service">
-          <div class="icon icon--strips">
-            <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{provider.name.capitalize}.jpg",size: "100x100" %>
-          </div>
-          <h3 class="service__heading"><%= provider.to_s %></h3>
-          <p>México</p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="fade-slider-control">
-    <a class="prev-arrow" href="#"><i class="fa fa-angle-left"></i></a>
-    <a class="next-arrow" href="#"><i class="fa fa-angle-right"></i></a>
-  </div>
-  <!-- end slider controls-->
-  <div class="clearfix"></div>
-  <div class="product-slider-pagination fade-pagination"></div>
-</div>
