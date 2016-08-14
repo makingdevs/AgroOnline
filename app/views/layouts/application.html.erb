@@ -27,13 +27,13 @@
         <div class="header-line waypoint" data-animate-down="header-up" data-animate-up="header-down"></div>
 
         <div class="fixed-top header-down">
-          <div class="container">
-            <div class="col-md-3">
+          <div class="">
+            <div class="col-md-2">
               <a class="logo" href="/">
                 <img src="http://com.agroonline.s3.amazonaws.com/agroonline/logo-nos-unimos.png" />
               </a>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-8">
               <%= form_tag("/product/category/state", method: "post",class:"form margin-20") do %>
                 <div class="input-group input-group-sm">
                   <input type="text" name="search" class="form-control" placeholder="Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)" aria-describedby="basic-addon2">
@@ -49,6 +49,7 @@
             </div>
           </div>
         </div>
+        <div class="container"></div>
         <div class="divider-color"></div>
       </div>
     </header>
