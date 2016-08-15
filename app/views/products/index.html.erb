@@ -6,73 +6,31 @@
   </div>
 </section>
 <section class="container product-wrapper">
-  <% @products.each do |product| %>
-    <div class="product product--list product--list-sm">
-      <div class="row">
-        <div class="col-sm-8 col-md-9 separate-block">
-          <div class="product__photo product__photo--bordered">
-            <% if product.name == 'Mango' %>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",size: "2500x240" %>
-            <% elsif product.origin == 'michoacán' %>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg", size:"200x150" %></i>
-            <% else %>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.category.name.downcase}.jpg", size:"200x150" %></i>
-            <% end %>
+  <div class="col-md-12">
+    <% @products.each do |product| %>
+      <div class="panel col-md-4">
+        <div class="panel-body product-description">
+          <div class="col-md-12">
+            <center>
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",width:"100%" %>
+            </center>
           </div>
-          <%= link_to "<font size='5'>#{ product.name.capitalize }</font>".html_safe, {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %>
-          <div class="row">
-            <div class="col-md-3">
-              <dl>
-                <dt><i class="fa fa-money" aria-hidden="true"></i> Precio </dt>
-                <dd>$ <%= product.price %> MXN por Tonelada</dd>
-                <dt><i class="fa fa-truck" aria-hidden="true"></i> Orden mínima </dt>
-                <dd><%= product.min_order_quantity %></dd>
-              </dl>
-            </div>
-            <div class="col-md-5">
-              <dl>
-                <dt><i class="fa fa-train" aria-hidden="true"></i> Medios de envío </dt>
-                <dd>Terrestre</dd>
-                <dt><i class="fa fa-square" aria-hidden="true"></i> Empaquetado </dt>
-                <dd>Cajas</dd>
-              </dl>
-            </div>
-          </div>
-          <br />
-        </div>
-        <!-- end col -->
-        <div class="col-sm-4 col-md-3">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <%= product.provider %>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <div class="media">
-                <div class="media-left">
-                  <a href="#">
-                    <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.provider.name.capitalize}.jpg", size:"70x70",  class:"img-rounded media-object"%></i>
-                  </a>
-                </div>
-                <div class="media-body">
-                  <i class="fa fa-location-arrow" aria-hidden="true"></i> México<br>
-                  <i class="fa fa-phone" aria-hidden="true"></i> (01 55)5563638147
-                  <hr>
-                  <i class="fa fa-credit-card" aria-hidden="true"></i> Medios de pago: Transferencia, efectivo
-                  <br>
-                  <br>
-                  <%= link_to "<button class='btn btn-primary'>Contactar</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{product.id}", :email => "email@emial.com"}, {} %>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="title-product"><%= link_to "#{ product.name.capitalize }", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %></p>
+                de <%= product.provider.to_s %><br />
+                <span class="product-price">$<%= product.price %></span>
+                <div class="col-md-10 col-md-offset-1">
+                  <i class="fa fa-check" aria-hidden="true"></i> Producto Nacional <br />
+                  <i class="fa fa-check" aria-hidden="true"></i> Origen <%= product.origin %>
+
                 </div>
               </div>
             </div>
           </div>
-
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </section>
