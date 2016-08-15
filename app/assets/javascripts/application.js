@@ -25,5 +25,6 @@
 //= require AgroOnline-theme/js/form
 //= require highcharts/highmaps
 //= require highcharts/modules/exporting
+//= require cropper/dist/cropper
 //= require_self
 //= require_tree .
