@@ -24,7 +24,8 @@
     "fontawesome": "~4.6.3",
     "jquery-ujs": "~1.2.1",
     "galleriffic": "*",
-    "highcharts": "^4.2.6"
+    "highcharts": "^4.2.6",
+    "cropper": "^2.3.3"
   },
   "resolutions": {
     "jquery": "1.9.1"
