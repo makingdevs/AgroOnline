@@ -108,9 +108,10 @@
                     <div class="widget datepicker">
                       <div align="center" class="image">
                         <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",width:"100%" %>
-                        <center style="font-size:26px;" class="text-over-image"><%= product.name %></center>
+                        <center style="font-size:26px;" class="text-over-image"><%= link_to "#{ product.name.capitalize }", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %></center>
                       </div>
-                        <table width="100%" class="margin-20" style="padding: 8px 8px;">
+                      <div>
+                        <table width="100%"  style="padding: 8px 8px;">
                           <tr>
                             <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %></td>
                             <td style="padding: 8px 8px;text-align: right;">
@@ -128,6 +129,7 @@
                             <td style="padding: 8px 8px;text-align: right;">Empacado: <%= product.packaging %></td>
                           </tr>
                         </table>
+                      </div>
                     </div>
                   </div>
               <% end %>
@@ -164,7 +166,7 @@
                         <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",width:"100%"%>
                         <center style="font-size:26px;" class="text-over-image"><%= product.name %></center>
                       </div>
-                        <table width="100%">
+                        <table width="100%" style="padding: 8px 8px;">
                           <tr>
                             <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %></td>
                             <td style="padding: 8px 8px;text-align: right;">
