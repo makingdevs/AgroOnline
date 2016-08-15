@@ -8,6 +8,9 @@ $(document).ready ->
   $(".categories-carousel").first().addClass('active');
   $('.carousel-principal').carousel interval: 5000
   staffSlider()
+  $('#product-carousel').cropper ->
+     aspectRatio: 16 / 9
+
   $('.achivement-item').one 'inview', (event, visible) ->
     if visible == true
       $('.achivement-item__marker.start-1').addClass 'zoomIn'
