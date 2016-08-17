@@ -10,21 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery/jquery
-//= require jquery-ujs/src/rails
+//= require jquery/dist/jquery
+//= require materialize/dist/js/materialize.min
 //= require welcome
-//= require galleriffic/js/jquery.galleriffic
-//= require AgroOnline-theme/js/waypoints.min
-//= require AgroOnline-theme/js/modernizr.custom
-//= require AgroOnline-theme/js/jquery.mobile.menu
-//= require bootstrap/dist/js/bootstrap
-//= require AgroOnline-theme/js/idangerous.swiper
-//= require rs-plugin/js/jquery.themepunch.revolution.min
-//= require raty/lib/jquery.raty
-//= require AgroOnline-theme/js/custom
-//= require AgroOnline-theme/js/form
-//= require highcharts/highmaps
-//= require highcharts/modules/exporting
-//= require cropper/dist/cropper
 //= require_self
 //= require_tree .
