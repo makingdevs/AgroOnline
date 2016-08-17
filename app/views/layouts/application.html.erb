@@ -1,115 +1,100 @@
 <!doctype html>
 <html lang="en-us">
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta charset="utf-8">
-  <title>Nos Unimos</title>
-  <meta name="description" content="A Template by Congruity Hub team">
-  <meta name="keywords" content="HTML, CSS, JavaScript">
-  <meta name="author" content="Congruity Hub team">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta content="telephone=no" name="format-detection">
-  <link rel="icon" href="favicons/favicon_96x96.png">
-  <link rel="apple-touch-icon-precomposed" href="favicons/favicon_57x57.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicons/favicon_72x72.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicons/favicon_114x114.png">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicons/favicon_144x144.png">
-  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="favicons/favicon_180x180.png">
-  <%= csrf_meta_tags %>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application' %>
-</head>
-<body>
-  <div class="wrapper" id="top">
-    <header class="header header--dark">
-      <div class="header-fixed">
-        <div class="header-line waypoint" data-animate-down="header-up" data-animate-up="header-down"></div>
-
-        <div class="fixed-top header-down">
-          <div class="">
-            <div class="col-md-2">
-              <a class="logo" href="/">
-                <img src="http://com.agroonline.s3.amazonaws.com/agroonline/logo-nos-unimos.png" />
-              </a>
-            </div>
-            <div class="col-md-8">
-              <%= form_tag("/product/category/state", method: "post",class:"form margin-20") do %>
-                <div class="input-group input-group-sm">
-                  <input type="text" name="search" class="form-control" placeholder="Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)" aria-describedby="basic-addon2">
-                  <span class="input-group-btn">
-                      <button class="btn btn-info btn-sm-rect btn-sm" type="submit">Buscar</button>
-                  </span>
-                </div>
-              <% end %>
-            </div>
-            <div class="col-md-2">
-              <p><i class="fa fa-user fa-lg" aria-hidden="true"></i> <small>Bienvenido</small> <b>cJauregui</b></p>
-              <p><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> 0 Carrito</p>
+  <head>
+    <title>Nos Unimos</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  </head>
+  <body>
+      <div class="nav-wrapper  green lighten-5">
+        <div class="row">
+          <div class="col s6">
+            <a class="logo" href="/">
+              <img src="http://com.agroonline.s3.amazonaws.com/agroonline/logo-nos-unimos.png" />
+            </a>
+          </div>
+          <div class="col s6">
+            <div class="right-align">
+              <br />
+              <i class="fa fa-user fa-lg" aria-hidden="true"></i> <small>Bienvenido</small> <b>cJauregui</b>&nbsp;&nbsp;
+              <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> 0 Carrito&nbsp;&nbsp;
             </div>
           </div>
         </div>
-        <div class="container"></div>
-        <div class="divider-color"></div>
       </div>
-    </header>
-  </div>
-    <%= yield %>
-    <footer class="footer">
-            <div class="divider-color"></div>
-      <div class="container">
+      <div class="nav-wrapper">
         <div class="row">
-          <div class="col-sm-5">
-            <h3 class="heading-info heading-info--mobile">Información de Contacto:</h3>
-            <address class="contact-info contact-info--list">
+          <%= form_tag("/product/category/state", method: "post") do %>
+            <div class="col s6 offset-s3 right-align">
               <div class="row">
-                <div class="col-xs-6 col-sm-12 one-column">
-                  <a href="http://maps.google.com/?q=101 West Street, New York, NY 10014" class="contact-info__item" target="_blank">
-                    <i class="fa fa-location-arrow"></i> Monterrey NL. México.
-                  </a>
-                  <a class="contact-info__item" href="tel://1-888-555-5555">
-                    <i class="fa fa-mobile"></i> +1-888-555-5555
-                  </a>
+                <div class="input-field col s8">
+                  <input type="text" name="search">
+                  <label>Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)</label>
                 </div>
+                <div class="input-field col s4">
+                  <button class="btn" type="submit">Buscar</button>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  <%= yield %>
+  <footer class="page-footer green darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h3 class="white-text">Información de Contacto:</h3>
+          <address class="contact-info contact-info--list">
+            <div class="row">
+              <div class="col-xs-6 col-sm-12 ">
+                <a href="http://maps.google.com/?q=101 West Street, New York, NY 10014" class="white-text" target="_blank">
+                  <i class="fa fa-location-arrow"></i> Monterrey NL. México.
+                </a>
+                <a class="white-text" href="tel://1-888-555-5555">
+                  <i class="fa fa-mobile"></i> +1-888-555-5555
+                </a>
+              </div>
                 <div class="col-xs-6 col-sm-12 one-column">
-                  <a class="contact-info__item" href="mailto:info@allec.com,sales@allec.com?subject=Email from website">
+                  <a class="white-text" href="mailto:info@allec.com,sales@allec.com?subject=Email from website">
                     <i class="fa fa-envelope"></i> info@nos-unimos.com / ventas@nos-unimos.com
                   </a>
                 </div>
               </div>
             </address>
           </div>
-          <div class="col-sm-2"></div>
-          <div class="col-sm-5">
-            <h3 class="heading-info heading-info--mobile">Redes Sociales</h3>
+          <div class="col l4 offset-l2 s12">
+            <h3 class="white-text">Redes Sociales</h3>
             <div class="social social--default">
               <ul>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-twitter"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-facebook"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-google-plus"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-pinterest"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-tumblr"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-linkedin"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-youtube"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-github-alt"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-flickr"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-vimeo-square"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-dribbble"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-stumbleupon"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-instagram"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-soundcloud"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-behance"></i></a></li>
-                <li class="social__item"><a class="social__link" href="#" target="_blank"><i class="social__icon fa fa-vine"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-twitter"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-facebook"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-google-plus"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-pinterest"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-tumblr"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-linkedin"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-youtube"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-github-alt"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-flickr"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-vimeo-square"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-dribbble"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-stumbleupon"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-instagram"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-soundcloud"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-behance"></i></a></li>
+                <li class="col s2"><a class="white-text" href="#" target="_blank"><i class="social__icon fa fa-vine"></i></a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="copy">
-          &copy; Ricardo Betancourt, Carlos Jauregui, 2016. All rights reserved. Done by Making Devs / Antena Labs
-        </div>
+      </div>
+      <div class="footer-copyright center-align">
+        &copy; Ricardo Betancourt, Carlos Jauregui, 2016. All rights reserved. Done by Making Devs / Antena Labs
       </div>
     </footer>
-    <div class="top-scroll"><i class="fa fa-angle-up"></i></div>
   </div>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>
