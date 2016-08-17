@@ -14,20 +14,8 @@
     "tests"
   ],
   "dependencies": {
-    "malihu-custom-scrollbar-plugin": "~3.1.5",
-    "rs-plugin": "*",
-    "raty": "~2.7.0",
-    "modernizr": "~3.3.1",
-    "jquery": "1.9.1",
-    "bootstrap": "~3.3.6",
-    "AgroOnline-theme": "https://github.com/makingdevs/AgroOnline-theme.git",
-    "fontawesome": "~4.6.3",
-    "jquery-ujs": "~1.2.1",
-    "galleriffic": "*",
-    "highcharts": "^4.2.6",
-    "cropper": "^2.3.3"
-  },
-  "resolutions": {
-    "jquery": "1.9.1"
+    "jquery": "~2.1.4",
+    "materialize": "~0.97.7",
+    "fontawesome": "~4.6.3"
   }
 }
