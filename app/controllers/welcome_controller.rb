@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
     @michoacan = Product.limit(6).where(:origin => "michoacán")
     @jalisco = Product.limit(6).where(:origin => "jalisco")
     @providers = Provider.limit(8).all()
-    category = Category.find_by name: "materias primas"
+    category = Category.find_by name: "Materias primas"
     @primas = Product.limit(6).where(:category => category.id)
   end
 
