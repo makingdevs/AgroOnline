@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
     Estados.estados.first().each_slice(4) { | estado |
       @estados << estado
     }
-    @michoacan = Product.limit(6).where(:origin => "michoacan")
+    @michoacan = Product.limit(6).where(:origin => "michoacán")
     @jalisco = Product.limit(6).where(:origin => "jalisco")
     @providers = Provider.limit(8).all()
   end
