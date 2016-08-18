@@ -32,14 +32,6 @@
                   </div>
                 </div>
                 <% end %>
-                <% Category.find_each do | category | %>
-                  <div class="card small">
-                    <div class="card-image waves-effect waves-block waves-light z-depth-2">
-                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/frutas.jpg",class: "responsive-img" %>
-                      <span class="card-title"><%= link_to "#{category.name.capitalize}", {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%></span>
-                    </div>
-                  </div>
-                <% end %>
               </div>
             </div>
           </div>
