@@ -114,27 +114,29 @@
     </div>
   </section>
 </div>
-<section>
-  <h3 class="title center">Nuestro Proveedores</h3>
-  <div class="carousel carousel-slider center" data-indicators="true">
-    <% @providers.each do | provider | %>
-      <div class="carousel-item " href='#'>
-        <div class="card horizontal z-depth-4">
-          <div class="card-image">
-            <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{provider.name.capitalize}.jpg"%></i>
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <p class="testimonial__author"><%= provider %></p>
-            <p class="testimonial__info">Mexico</p>
-            <p>(01 55)5563638147</p>
-            <p><i>"<%= provider.name.capitalize %> es un productor mexicano, dedicado el area Agropecuaria en <%= provider.try(:products).try(:first).try(:origin) %>"</i></p>
+<div class="container">
+  <section>
+    <h3 class="title center">Nuestro Proveedores</h3>
+    <div class="carousel carousel-slider center" data-indicators="true">
+      <% @providers.each do | provider | %>
+        <div class="carousel-item " href='#'>
+          <div class="card horizontal z-depth-4">
+            <div class="card-image">
+              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{provider.name.capitalize}.jpg"%></i>
             </div>
-            <div class="card-action">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p class="testimonial__author"><%= provider %></p>
+              <p class="testimonial__info">Mexico</p>
+              <p>(01 55)5563638147</p>
+              <p><i>"<%= provider.name.capitalize %> es un productor mexicano, dedicado el area Agropecuaria en <%= provider.try(:products).try(:first).try(:origin) %>"</i></p>
+              </div>
+              <div class="card-action">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-</section>
+      <% end %>
+    </div>
+  </section>
+</div>
