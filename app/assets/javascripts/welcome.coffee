@@ -4,12 +4,6 @@
 
 $(document).ready ->
   $('.parallax').parallax()
-
-  Materialize.scrollFire [ {
-    selector: '#image-test'
-    offset: 400
-    callback: (el) ->
-      console.log "tu mama"
-      Materialize.showStaggeredList $(el)
-      return
-  } ]
+  $('.carousel.carousel-slider').carousel
+    full_width: true
+    time_constant: 300
