@@ -15,29 +15,26 @@
       <section>
         <br />
         <h4 class="title center">Grupos Agropecuarios</h4>
-        <div class="row">
-          <div class="card medium scrolling-categories" style="transform: translateX(0px); opacity: 1;">
+          <div class="card small scrolling-categories">
             <% Category.find_each do | category | %>
-              <div class="card-image waves-effect waves-block waves-light">
-                <% if category.name == 'Frutas' %>
-                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/frutas.jpg",class: "responsive-img" %>
-                <% else %>
-                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",class: "responsive-img" %>
-                <% end %>
-                <span class="card-title"><%= link_to "#{category.name.capitalize}", {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%></span>
-              </div>
+                <div class="card-image waves-effect waves-block waves-light z-depth-2">
+                  <% if category.name == 'Frutas' %>
+                    <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/frutas.jpg",class: "responsive-img" %>
+                  <% else %>
+                    <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",class: "responsive-img" %>
+                  <% end %>
+                  <span class="card-title"><%= link_to "#{category.name.capitalize}", {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%></span>
+                </div>
             <% end %>
           </div>
-          <br />
-          <img id="image-test" class="responsive-img" src="https://unsplash.imgix.net/reserve/nE6neNVdRPSIasnmePZe_IMG_1950.jpg?dpr=1.25&amp;fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050">
-        </div>
+        <br />
       </section>
     </div>
     <div class="col m8">
-      <section>
+      <section class="">
         <h3 class="title center">Los más vendidos en Jalisco</h3>
         <%= @jalisco.each_slice(3) do | productList | %>
-          <div class="col s12">
+          <div class="col s12 ">
             <% productList.each do | product | %>
               <div class="card medium col s4 ">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -74,5 +71,70 @@
           </div>
         <% end %>
       </section>
-
+      <section>
+        <h3 class="title center">Los más vendidos en Michoacán</h3>
+        <%= @michoacan.each_slice(3) do | productList | %>
+          <div class="col s12">
+            <% productList.each do | product | %>
+              <div class="card medium col s4 ">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",width:"100%",class:"activator" %>
+                  <span class="card-title"><%= product.name.capitalize %></span>
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %><i class="material-icons right">more_vert</i></span>
+                  <p><%= link_to "Explorar", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %></p>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Detalles<i class="material-icons right">close</i></span>
+                  <table width="100%"  style="padding: 8px 8px;">
+                    <tr>
+                      <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %></td>
+                      <td style="padding: 8px 8px;text-align: right;">
+                        <% if product.weight > 20 %>
+                          Municipio: Acuitzio
+                          <% elsif product.weight < 10 %>
+                          Municipio: Morelia
+                          <% else %>
+                          Municipio: Sahuayo
+                          <% end %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-usd fa-lg" aria-hidden="true"></i><%= product.price %></td>
+                        <td style="padding: 8px 8px;text-align: right;">Empacado: <%= product.packaging %></td>
+                      </tr>
+                    </table>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</section>
+<section>
+  <h3 class="title center">Nuestro Proveedores</h3>
+  <div class="carousel carousel-slider center" data-indicators="true">
+    <% @providers.each do | provider | %>
+      <div class="carousel-item " href='#'>
+        <div class="card horizontal z-depth-4">
+          <div class="card-image">
+            <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{provider.name.capitalize}.jpg"%></i>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p class="testimonial__author"><%= provider %></p>
+            <p class="testimonial__info">Mexico</p>
+            <p>(01 55)5563638147</p>
+            <p><i>"<%= provider.name.capitalize %> es un productor mexicano, dedicado el area Agropecuaria en <%= provider.try(:products).try(:first).try(:origin) %>"</i></p>
+            </div>
+            <div class="card-action">
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </section>
