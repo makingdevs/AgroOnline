@@ -13,5 +13,7 @@
 //= require jquery/dist/jquery
 //= require materialize/dist/js/materialize.min
 //= require welcome
+//= require highcharts/highmaps
+//= require highcharts/modules/exporting
 //= require_self
 //= require_tree .
