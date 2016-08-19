@@ -16,6 +16,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "materialize": "~0.97.7",
-    "fontawesome": "~4.6.3"
+    "fontawesome": "~4.6.3",
+    "highcharts": "^4.2.6"
   }
 }
