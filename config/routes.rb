@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :categories
   resources :providers
   resources :products
@@ -15,5 +16,8 @@ Rails.application.routes.draw do
   get "/product/contact", to: 'products#contact', as: 'product_provider_contact'
 
   get "/welcome/our", to: 'welcome#our', as: 'welcome_out'
+
+  get "/login", to: 'users#login', as: 'login'
+  post "/login_attempt", to: 'users#login_attempt', as: 'login_attempt'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
