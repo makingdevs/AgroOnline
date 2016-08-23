@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :users
+  resources :addresses
   resources :categories
   resources :providers
   resources :products
@@ -19,5 +20,6 @@ Rails.application.routes.draw do
 
   get "/login", to: 'users#login', as: 'login'
   post "/login_attempt", to: 'users#login_attempt', as: 'login_attempt'
+  get "/logout", to: 'users#logout', as: 'logout'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
