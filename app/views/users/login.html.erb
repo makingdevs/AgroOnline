@@ -1,0 +1,22 @@
+<% @page_title = "UserAuth | Login" -%>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class= "Sign_Form">
+    <h1>Acceder</h1>
+    <%= form_tag(:action => 'login_attempt') do %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= text_field_tag(:username) %>
+          <label for="username">Usuario</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+       <%= password_field_tag :password %>
+          <label for="password">Contraseña</label>
+        </div>
+      </div>
+      <%= submit_tag("Log In", class: "waves-effect waves-light green darken-2 btn") %>
+    <% end %>
+  </div>
+</div>
