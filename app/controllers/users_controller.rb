@@ -66,11 +66,21 @@ class UsersController < ApplicationController
 
   def login_attempt
     @user = User.find_by username:params['username']
-    if @user.authenticate(params['password'])
-      render json: @user
-    else
-      render :json => {:error => "Unauthorized"}.to_json, :status => 401
+    respond_to do |format|
+      if @user.authenticate(params['password'])
+        session[:user_id] = @user.id
+        format.html { redirect_to root_path }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :login }
+        format.json { render json: @user.errors, status: :Unauthorized }
+      end
     end
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
   private
