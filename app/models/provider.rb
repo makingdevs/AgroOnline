@@ -5,7 +5,8 @@ class Provider < ApplicationRecord
    include Elasticsearch::Model::Callbacks
 
   has_many :products
-
+  belongs_to :user
+  belongs_to :address
   validates :nickname, presence: true
 
   def self.createProvider(params,address)
