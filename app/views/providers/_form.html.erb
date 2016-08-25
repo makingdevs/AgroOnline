@@ -1,3 +1,6 @@
+ <script type="text/javascript"
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYvJjXWSNa98TEQnC8eglCVdtlBoQb_E">
+           </script>
 <%= form_for(provider) do |f| %>
   <% if provider.errors.any? %>
     <div id="error_explanation">
@@ -31,51 +34,51 @@
     <%= f.text_field :telephone %>
   </div>
   <h4>Dirección</h4>
-  <div class="row">
+  <div class="row" id="address">
     <div class="col m12">
       <div class="col m6">
         <label>Calle</label>
-        <input type="text" name="street" />
+        <input type="text" name="street" class="address" />
       </div>
 
       <div class="col m6">
         <label>Numero Exterior</label>
-        <input type="text" name="street_number" />
+        <input type="text" name="street_number" class="address"/>
       </div>
 
       <div class="col m6">
         <label>Numero Interior</label>
-        <input type="text" name="suite" />
+        <input type="text" name="suite"  />
       </div>
 
       <div class="col m6">
         <label>Codigo Postal</label>
-        <input type="text" name="zip_code" />
+        <input type="text" name="zip_code" class="address" />
       </div>
 
       <div class="col m6">
         <label>Colonia/Municipio/Alcaldia</label>
-        <input type="text" name="colony" />
+        <input type="text" name="colony" class="address" />
       </div>
 
       <div class="col m6">
         <label>País</label>
-        <input type="text" name="country" />
+        <input type="text" name="country" class="address" />
       </div>
 
       <div class="col m6">
         <label>Ciudad</label>
-        <input type="text" name="city" />
+        <input type="text" name="city" class="address" />
       </div>
 
       <div class="col m6">
         <label>Poblado</label>
-        <input type="text" name="town" />
+        <input type="text" name="town" class="address"/>
       </div>
 
       <div class="col m6">
         <label>Entidad Federativa</label>
-        <input type="text" name="federal_entity" />
+        <input type="text" name="federal_entity" class="address" />
       </div>
     </div>
   </div>
@@ -84,3 +87,9 @@
     <%= f.submit "Crear", :class => "waves-effect waves-light btn" %>
   </div>
 <% end %>
+<div id="floating-panel">
+  <input id="address" type="textbox" value="Sydney, NSW">
+  <input id="submit" type="button" value="Geocode">
+</div>
+  <div id="map-canvas" style="width:1000px;height:500px"/>
+
