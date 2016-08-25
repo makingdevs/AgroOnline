@@ -17,6 +17,12 @@
     "jquery": "~2.1.4",
     "materialize": "~0.97.7",
     "fontawesome": "~4.6.3",
-    "highcharts": "^4.2.6"
+    "highcharts": "^4.2.6",
+    "markerclustererplus": "gmaps-markerclusterer-plus#^2.1.4",
+    "InfoBox": "^0.6.5",
+    "underscore": "^1.8.3"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4"
   }
 }

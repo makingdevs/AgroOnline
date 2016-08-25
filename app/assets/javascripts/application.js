@@ -15,5 +15,8 @@
 //= require welcome
 //= require highcharts/highmaps
 //= require highcharts/modules/exporting
+//= require markerclustererplus/dist/markerclusterer.min
+//= require InfoBox/js/InfoBox
+//= requiere underscore/underscore
 //= require_self
 //= require_tree .
