@@ -7,8 +7,6 @@
     <tr>
       <th>Name</th>
       <th>Lastname</th>
-      <th>Nickname</th>
-      <th>Country</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,8 +16,8 @@
       <tr>
         <td><%= provider.name %></td>
         <td><%= provider.lastName %></td>
-        <td><%= provider.nickname %></td>
-        <td><%= provider.country %></td>
+        <td><%= provider.telephone %></td>
+        <td><%= provider.user_type %></td>
         <td><%= link_to 'Show', provider %></td>
         <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
         <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
