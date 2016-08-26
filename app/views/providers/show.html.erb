@@ -1,24 +1,35 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYvJjXWSNa98TEQnC8eglCVdtlBoQb_E">
+</script>
 
-<p>
-  <strong>Name:</strong>
-  <%= @provider.name %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col m12">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @provider.lastName %>
-</p>
-
-<p>
-  <strong>Nickname:</strong>
-  <%= @provider.nickname %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @provider.country %>
-</p>
-
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
+      <h3><%= @provider.to_s %></h3>
+      <div class="col s12 m6">
+        <h5 class="header">Datos Personales</h5>
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-content">
+              <p><b>Correo Electronico</b> <%= @provider.user.email %></p>
+              <p><b>Telefono</b> <%= @provider.telephone %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <h5 class="header">Dirección</h5>
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-content">
+              <p class="show_address"><%= @provider.address.to_s %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="map-canvas" style="width:1000px;height:500px"></div>
+    </div>
+  </div>
+</div>
