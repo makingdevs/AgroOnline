@@ -30,6 +30,7 @@ class ProvidersController < ApplicationController
     @providerList
   end
 
+
   # GET /providers/new
   def new
     @provider = Provider.new
@@ -43,12 +44,18 @@ class ProvidersController < ApplicationController
   # POST /providers.json
   def create
     @provider = Provider.new(provider_params)
-
+    @address = Address.new(address_params)
+    @address.save
+    @provider.address = @address
+    @user = User.find(session[:user_id])
+    @provider.user = @user
     respond_to do |format|
       if @provider.save
         format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
         format.json { render :show, status: :created, location: @provider }
       else
+        @address.rollback
+        puts @provider.errors.inspect
         format.html { render :new }
         format.json { render json: @provider.errors, status: :unprocessable_entity }
       end
@@ -87,6 +94,10 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.fetch(:provider, {})
+      params.require(:provider).permit(:name,:lastName,:telephone,:user_type)
+    end
+
+    def address_params
+      params.permit(:street, :street_number, :suite, :zip_code, :colony, :country, :city, :town, :federal_entity)
     end
 end
