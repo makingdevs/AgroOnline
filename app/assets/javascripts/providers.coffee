@@ -20,7 +20,8 @@ set_map = (address) ->
   false
 
 $(document).ready ->
-  set_map 'mexico df mexico'
+  init_value = if $('.show_address').length then $('.show_address').text() else 'mexico df mexico'
+  set_map init_value
   $('.address').on 'change', ->
     getValuesOfClassAddress()
     return
