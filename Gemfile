@@ -20,6 +20,12 @@ gem 'rubyXL', '~> 3.3', '>= 3.3.21'
 #Use the postgres db
 gem 'pg', '~> 0.18.4'
 
+# aws amazon service
+gem 'aws-sdk'
+
+# Paperclip gem for managing file uploads
+gem 'paperclip', '~> 3.0'
+
 # use elastisearch
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'

@@ -39,11 +39,21 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.0.0)
+    aws-sdk (2.5.6)
+      aws-sdk-resources (= 2.5.6)
+    aws-sdk-core (2.5.6)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.5.6)
+      aws-sdk-core (= 2.5.6)
     bcrypt (3.1.11)
     bonsai-elasticsearch-rails (0.0.4)
     builder (3.2.2)
     byebug (9.0.5)
     chunky_png (1.3.6)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -95,6 +105,7 @@ GEM
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jmespath (1.3.1)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -114,6 +125,11 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    paperclip (3.5.4)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.18.4)
     pkg-config (1.1.7)
     puma (3.4.0)
@@ -194,6 +210,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   bcrypt (~> 3.1.7)
   bonsai-elasticsearch-rails
   byebug
@@ -204,6 +221,7 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 2.5)
   listen (~> 3.0.5)
+  paperclip (~> 3.0)
   pg (~> 0.18.4)
   puma (~> 3.0)
   rails (~> 5.0.0)
