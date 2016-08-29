@@ -1,6 +1,7 @@
 require 'readXlsManager/read_xls_manager'
 require 'providerManager/provider_manager'
 require 'productManager/product_manager'
+require 'utilities/s3_asset_service'
 
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
@@ -51,11 +52,12 @@ class ProvidersController < ApplicationController
     @provider.user = @user
     respond_to do |format|
       if @provider.save
+        @user.provider = @provider
+        @user.save
         format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
         format.json { render :show, status: :created, location: @provider }
       else
         @address.rollback
-        puts @provider.errors.inspect
         format.html { render :new }
         format.json { render json: @provider.errors, status: :unprocessable_entity }
       end
@@ -63,7 +65,14 @@ class ProvidersController < ApplicationController
   end
 
   def save_image
-    puts params.inspect
+    @s3AssetService = S3AssetService.instance
+    result_image = @s3AssetService.upload_image_to_s3(params)
+    @s3_asset = @s3AssetService.save_image_s3_asset("http://com.agroonline.s3.amazonaws.com/#{result_image.key}", result_image.key)
+    @provider = Provider.find(params[:id_provider])
+    @provider.s3_asset = @s3_asset
+    @provider.save
+    @provider
+    render "show"
   end
 
   # PATCH/PUT /providers/1
