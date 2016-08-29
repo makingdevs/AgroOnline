@@ -7,6 +7,8 @@ class Provider < ApplicationRecord
   has_many :products
   belongs_to :address
   belongs_to :user
+  belongs_to :s3_asset, optional:true
+
   def to_s
      name.capitalize + " " + lastName.capitalize
    end
