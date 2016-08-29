@@ -62,6 +62,10 @@ class ProvidersController < ApplicationController
     end
   end
 
+  def save_image
+    puts params.inspect
+  end
+
   # PATCH/PUT /providers/1
   # PATCH/PUT /providers/1.json
   def update
