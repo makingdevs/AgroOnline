@@ -6,8 +6,15 @@
   <div class="row">
     <div class="col m12">
       <p id="notice"><%= notice %></p>
-
-      <h3><%= @provider.to_s %></h3>
+      <div class="col s12 m12">
+        <div class="col s12 m6">
+          <h3><%= @provider.to_s %></h3>
+        </div>
+        <div class="col s12 m3">
+          <div class="thumbnail">
+            <%= image_tag "#{@provider.try(:s3_asset).try(:url_file)}" %>
+          </div>
+        </div>
       <div class="col s12 m6">
         <h5 class="header">Datos Personales</h5>
         <div class="card horizontal">
@@ -40,6 +47,7 @@
               <input class="file-path validate col s12 m9" type="text">
             </div>
           </div>
+          <%= hidden_field_tag 'id_provider', @provider.id %>
           <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit col s12 m1" %>
         <% end %>
       </div>
