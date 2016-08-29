@@ -29,6 +29,20 @@
           </div>
         </div>
       </div>
+      <div class="col s12 m12">
+        <%= form_tag(provider_image_path, method:"post",multipart: true ) do %>
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" name="file">
+            </div>
+            <div class="file-path-wrapper col s12 m9">
+              <input class="file-path validate col s12 m9" type="text">
+            </div>
+          </div>
+          <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit col s12 m1" %>
+        <% end %>
+      </div>
       <div id="map-canvas" style="width:1000px;height:500px"></div>
     </div>
   </div>
