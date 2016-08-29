@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   get "/login", to: 'users#login', as: 'login'
   post "/login_attempt", to: 'users#login_attempt', as: 'login_attempt'
   get "/logout", to: 'users#logout', as: 'logout'
+
+  post "/provider/saveImage", to: 'providers#save_image', as: 'provider_image'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
