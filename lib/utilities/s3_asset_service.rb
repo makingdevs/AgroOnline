@@ -1,4 +1,7 @@
+require 'singleton'
+
 class S3AssetService
+  include Singleton
 
   def initialize
     @bucket_region = ENV['aws_bucket_region']
@@ -6,6 +9,7 @@ class S3AssetService
   end
 
   def upload_image_to_s3(params)
+    puts @bucket_region
      Aws.use_bundled_cert!
      s3 = Aws::S3::Resource.new(region: @bucket_region)
      file_to_upload = s3.bucket(@bucket_name).object("#{Time.now()}_#{params['file'].original_filename}")
@@ -14,7 +18,9 @@ class S3AssetService
   end
 
   def save_image_s3_asset(url_photo_s3,name_photo)
-    s3Asset = S3Asset.new(url_photo_s3,name_photo)
+    puts url_photo_s3
+    puts name_photo
+    s3Asset = S3Asset.new(url_file:url_photo_s3,name_file:name_photo)
     s3Asset.save
     s3Asset
   end
