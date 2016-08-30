@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   post "/provider/saveImage", to: 'providers#save_image', as: 'provider_image'
 
   get "/profile/:id", to: 'providers#show', as: 'profile'
+  get "/provider/product/:id", to: 'products#providerProducts', as: 'products_provider'
+  get "/product/new/:id", to: 'products#new', as: 'new_product_provider'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
