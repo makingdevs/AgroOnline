@@ -1,36 +1,37 @@
 <section class="page-indecator">
-  <div class="container">
-    <h2 class="heading">La búsqueda <span class="text-primary"><%= params[:id] ? params[:id] : params[:search] %></span> tiene estos resultados:</h2>
-    <!-- Default one color divider -->
-    <div class="divider divider--bottom-md"></div>
-  </div>
-</section>
-<section class="container product-wrapper">
-  <div class="col-md-12">
-    <% @products.each do |product| %>
-      <div class="panel col-md-4">
-        <div class="panel-body product-description">
-          <div class="col-md-12">
-            <center>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",width:"100%" %>
-            </center>
-          </div>
-          <div class="col-md-12">
-            <div class="row">
-              <div class="col-md-10 col-md-offset-1">
-                <p class="title-product"><%= link_to "#{ product.name.capitalize }", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {} %></p>
-                de <%= product.provider.to_s %><br />
-                <span class="product-price">$<%= product.price %></span>
-                <div class="col-md-10 col-md-offset-1">
-                  <i class="fa fa-check" aria-hidden="true"></i> Producto Nacional <br />
-                  <i class="fa fa-check" aria-hidden="true"></i> Origen <%= product.origin %>
+<div class="container">
+  <h2 class="heading">La búsqueda <span class="text-primary"><%= params[:id] ? params[:id] : params[:search] %></span> tiene estos resultados:</h2>
+  <!-- Default one color divider -->
+  <div class="divider divider--bottom-md"></div>
+</div>
+<div class="col s12 m8 hide-on-small-only">
+  <div class="inner-prducts" style="margin-top: 30px;">
+    <div id="home-top-selling-products-section">
+      <div class="top-selling-content">
+        <div class="container">
+          <div class="all-products-container row">
+            <div class="col s12 m12 l12">
+              <% @products.each do |product| %>
+                <div class="col l4 m6 s12 product-container">
+                  <div class="products-inner-wraper">
+                    <div class="thumbnail-product" align="center">
+                      <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg", :class => "center" %>
+                    </div>
+                    <p><%= link_to "#{ product.name.capitalize }", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {:class => "product-name truncate" } %></p>
+                    <p class="product-price">$ <%= product.price %></p>
+                    <div class="col-md-10 col-md-offset-1">
+                      <i class="fa fa-check" aria-hidden="true"></i> Producto Nacional <br />
+                      <i class="fa fa-check" aria-hidden="true"></i> Origen <%= product.origin %>
 
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           </div>
+          <div class="clear"></div>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
-</section>
+</div>
+  </div>
