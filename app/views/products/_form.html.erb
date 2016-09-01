@@ -11,52 +11,69 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
+  <%= hidden_field_tag 'provider_id', @provider.id %>
+
+  <div class="input-field col s6">
     <%= f.text_field :name %>
+    <label for="name">Nombre</label>
   </div>
 
-  <div class="field">
-    <%= f.label :sku %>
+  <div class="input-field col s6">
     <%= f.text_field :sku %>
+    <label for="sku">SKU</label>
   </div>
 
-  <div class="field">
-    <%= f.label :price %>
+  <div class="input-field col s4">
     <%= f.text_field :price %>
+    <label for="price">Precio</label>
   </div>
 
-  <div class="field">
-    <%= f.label :weight %>
+  <div class="input-field col s4">
     <%= f.text_field :weight %>
+    <label for="weight">Peso por Unidad</label>
   </div>
 
-  <div class="field">
-    <%= f.label :min_order_quantity %>
+
+  <div class="input-field col s4">
     <%= f.text_field :min_order_quantity %>
+    <label for="min_order_quantity">Cantidad de Orden Minima</label>
   </div>
 
-  <div class="field">
-    <%= f.label :origin %>
+  <div class="input-field col s6">
     <%= f.text_field :origin %>
+    <label for="origin">Origen</label>
   </div>
 
-  <div class="field">
-    <%= f.label :packaging %>
+  <div class="input-field col s6">
     <%= f.text_field :packaging %>
+    <label for="packaging">Empacado</label>
   </div>
 
-  <div class="field">
-    <%= f.label :category %>
-    <%= select("", "category", Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %>
+  <div class="input-field col s6">
+    <%= select("", "category", Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'Selecciona una Categoria'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :provider %>
-    <%= f.text_field :provider %>
+  <div class="input-field col s6">
+    <%= f.text_field :cultivation_type %>
+    <label for="cultivation_type">Tipo de Cultivo</label>
+  </div>
+
+  <div class="input-field col s3">
+    <%= f.text_field :style %>
+    <label for="style">Estilo de Producto</label>
+  </div>
+
+  <div class="input-field col s3">
+    <%= f.text_field :color %>
+    <label for="color">Color del Producto</label>
+  </div>
+
+  <div class="input-field col s6">
+    <%= f.text_field :shelf_life %>
+    <label for="shelf_life">Vida util del Producto</label>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Alta", :class => "waves-effect waves-light btn-large"%>
   </div>
 <% end %>
