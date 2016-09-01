@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
+    @provider = Provider.find params[:id]
     @product = Product.new
   end
 
@@ -32,7 +33,6 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    puts @product
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -86,7 +86,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.fetch(:product, {})
+      params.require(:product).permit(:name,:sku,:price,:weight,:min_order_quantity,:origin,:packaging,:cultivation_type,:style,:color,:shelf_life)
     end
 
     def set_unidades
