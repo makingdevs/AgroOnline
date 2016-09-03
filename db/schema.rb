@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718214012) do
+ActiveRecord::Schema.define(version: 20160903173113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street"
+    t.string   "street_number"
+    t.string   "suite"
+    t.string   "zip_code"
+    t.string   "colony"
+    t.string   "country"
+    t.string   "city"
+    t.string   "town"
+    t.string   "federal_entity"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.integer  "subcategory"
@@ -41,13 +55,42 @@ ActiveRecord::Schema.define(version: 20160718214012) do
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.string   "lastName"
-    t.string   "country"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "address_id"
+    t.integer  "telephone"
+    t.string   "user_type"
+    t.integer  "user_id"
+    t.integer  "s3_asset_id"
+    t.index ["address_id"], name: "index_providers_on_address_id", using: :btree
+    t.index ["s3_asset_id"], name: "index_providers_on_s3_asset_id", using: :btree
+    t.index ["user_id"], name: "index_providers_on_user_id", using: :btree
+  end
+
+  create_table "s3_assets", force: :cascade do |t|
+    t.string   "url_file"
+    t.string   "name_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "nickname"
-    t.index ["nickname"], name: "index_providers_on_nickname", unique: true, using: :btree
+    t.integer  "product_id"
+    t.index ["product_id"], name: "index_s3_assets_on_product_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "email"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "provider_id"
+    t.index ["provider_id"], name: "index_users_on_provider_id", using: :btree
   end
 
   add_foreign_key "products", "categories"
   add_foreign_key "products", "providers"
+  add_foreign_key "providers", "addresses"
+  add_foreign_key "providers", "s3_assets"
+  add_foreign_key "providers", "users"
+  add_foreign_key "s3_assets", "products"
+  add_foreign_key "users", "providers"
 end
