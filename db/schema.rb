@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903173113) do
+ActiveRecord::Schema.define(version: 20160826201135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,8 +72,6 @@ ActiveRecord::Schema.define(version: 20160903173113) do
     t.string   "name_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "product_id"
-    t.index ["product_id"], name: "index_s3_assets_on_product_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,6 +89,5 @@ ActiveRecord::Schema.define(version: 20160903173113) do
   add_foreign_key "providers", "addresses"
   add_foreign_key "providers", "s3_assets"
   add_foreign_key "providers", "users"
-  add_foreign_key "s3_assets", "products"
   add_foreign_key "users", "providers"
 end
