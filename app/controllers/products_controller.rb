@@ -1,4 +1,5 @@
 require 'utilities/unidades'
+require 'utilities/s3_asset_service'
 
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
@@ -33,8 +34,11 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.category = Category.find params[:category]
+    @provider = Provider.find params[:provider_id]
     respond_to do |format|
       if @product.save
+        @provider.products << @product
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -66,6 +70,16 @@ class ProductsController < ApplicationController
     @products = Product.where(:origin => params[:id].downcase)
     @products
     render 'index'
+  end
+
+  def image
+    @s3AssetService = S3AssetService.instance
+    result_image = @s3AssetService.upload_image_to_s3(params)
+    @s3_asset = @s3AssetService.save_image_s3_asset("http://com.agroonline.s3.amazonaws.com/#{result_image.key}", result_image.key)
+    @product = Product.find params[:id_product]
+    @product.s3_assets << @s3_asset
+    @product.save
+    redirect_to  action:"show", id: @product.id
   end
 
   # DELETE /products/1
