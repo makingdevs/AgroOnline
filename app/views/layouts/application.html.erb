@@ -94,7 +94,8 @@
         &copy; Ricardo Betancourt, Carlos Jauregui, 2016. All rights reserved. Done by Making Devs / Antena Labs
       </div>
     </footer>
-  <%= javascript_include_tag 'application' %>
-  <script src="https://code.highcharts.com/mapdata/countries/mx/mx-all.js"></script>
+    <%= javascript_include_tag "application", params[:controller] %>
+
+    <script src="https://code.highcharts.com/mapdata/countries/mx/mx-all.js"></script>
 </body>
 </html>
