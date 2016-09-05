@@ -8,4 +8,5 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :provider
 
+  has_many :s3_assets
 end
