@@ -2,8 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
-$('.carousel.carousel-slider').carousel
-  time_constant: 20
-  full_width: true
+$(document).ready ->
+  $('.collapsible').collapsible accordion: false
+  $('.materialboxed').materialbox()
+  $('#unidad').material_select()
 
-$('.collapsible').collapsible accordion: false
+  $('.image-miniature').on 'click': ->
+    imageSource = $(this).attr("value")
+    $('#img-primary').attr 'src', imageSource
+    return
