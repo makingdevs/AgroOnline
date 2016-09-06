@@ -72,3 +72,39 @@
 #home-top-selling-products-section .product-link {
           display: block;
 }
+
+.easyzoom {
+  float: left;
+}
+
+.easyzoom img {
+  display: block;
+}
+
+        /* Shrink wrap strategy 2 */
+.easyzoom {
+  display: inline-block;
+}
+.easyzoom img {
+  vertical-align: bottom;
+}
+
+.product-image-responsive {
+  max-width:100% !important;
+  height: auto !important;
+  display:block !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.price {
+  color: #00BFFF;
+  font-size: 20px;
+}
+
+.price-box-main {
+  border: 1px solid #E0E1E5;
+  padding: 10px 5px
+}
