@@ -20,7 +20,9 @@
     "highcharts": "^4.2.6",
     "markerclustererplus": "gmaps-markerclusterer-plus#^2.1.4",
     "InfoBox": "^0.6.5",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "ez-plus": "^1.2.0",
+    "easyzoom": "^2.4.1"
   },
   "resolutions": {
     "jquery": "~2.1.4"
