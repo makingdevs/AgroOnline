@@ -17,5 +17,6 @@
 //= require highcharts/modules/exporting
 //= require markerclustererplus/dist/markerclusterer.min
 //= require InfoBox/js/InfoBox
-//= requiere underscore/underscore
+//= require underscore/underscore
+//= require ez-plus/src/jquery.ez-plus
 //= require_self
