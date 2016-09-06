@@ -3,6 +3,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   has_secure_password
 
-  belongs_to :provider
+  belongs_to :provider, optional:true
 
 end
