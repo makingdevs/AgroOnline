@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903174511) do
+ActiveRecord::Schema.define(version: 20160906174308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,14 +42,20 @@ ActiveRecord::Schema.define(version: 20160903174511) do
     t.string   "name"
     t.string   "sku"
     t.float    "price"
-    t.float    "weight"
+    t.string   "weight"
     t.string   "min_order_quantity"
     t.string   "origin"
     t.string   "packaging"
     t.integer  "category_id"
     t.integer  "provider_id"
+    t.string   "cultivation_type"
+    t.string   "style"
+    t.string   "color"
+    t.string   "shelf_life"
+    t.integer  "s3_asset_id"
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["provider_id"], name: "index_products_on_provider_id", using: :btree
+    t.index ["s3_asset_id"], name: "index_products_on_s3_asset_id", using: :btree
   end
 
   create_table "providers", force: :cascade do |t|
@@ -88,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160903174511) do
 
   add_foreign_key "products", "categories"
   add_foreign_key "products", "providers"
+  add_foreign_key "products", "s3_assets"
   add_foreign_key "providers", "addresses"
   add_foreign_key "providers", "s3_assets"
   add_foreign_key "providers", "users"
