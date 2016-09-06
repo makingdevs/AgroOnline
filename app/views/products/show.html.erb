@@ -1,307 +1,138 @@
-<section class="page-indecator">
 <div class="container">
-  <h2 class="heading"><span class="text-primary"><%= @product.name.capitalize %></span> de <span class="text-primary"><%= @product.origin.capitalize %></span> producido por <span class="text-primary"><%= @product.provider.to_s %></span></h2>
-  <!-- Breadcrumb pattern -->
-  <ol class="breadcrumb">
-    <li><a href="#">Inicio</a></li>
-    <li class="active">Producto</li>
-  </ol>
-  <!-- Default one color divider -->
-  <div class="divider divider--bottom-md"></div>
-</div>
-</section>
-<section class="container">
-<div class="product product--single">
   <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-3">
-        <% if @product.name == 'Mango' %>
-          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",width: "100%" %>
-        <% elsif @product.origin == 'michoacán' %>
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.name.downcase}.jpg", size:"200x150" %></i>
+    <div class="col s12 m12">
+      <div class="col s12 m6">
+        <% unless @product.s3_assets.empty? %>
+          <img id="img-primary" src="<%= @product.s3_assets.first %>" class="product-image-responsive materialboxed" width="650" />
+          <br />
+          <div id="gal1">
+            <% @product.s3_assets.each_with_index do | asset,index |  %>
+              <img class="image-miniature" src="<%= asset.url_file %>" height="68px" width="100px" value="<%= asset.url_file %>"/>
+            <% end %>
+          </div>
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+            <div class="collapsible-header">Agregar otra Imagen</div>
+            <div class="collapsible-body col m10">
+              <%= form_tag(product_image_path,  method:"post", multipart: true) do %>
+                <div class="file-field input-field">
+                  <div class="btn col m3">
+                    <span>Imagen</span>
+                    <input type="file" name="file" >
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" >
+                  </div>
+                  <%= hidden_field_tag 'id_product', @product.id %>
+                  <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit" %>
+                </div>
+              <% end %>
+            </div>
+            </li>
+          </ul>
         <% else %>
-          <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.category.name.downcase}.jpg", width: "100%" %>
+          <h4>Agrega Fotos a tu Producto</h4>
+          <%= form_tag(product_image_path,  method:"post", multipart: true) do %>
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Imagen</span>
+                <input type="file" name="file" >
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" >
+              </div>
+            </div>
+            <%= hidden_field_tag 'id_product', @product.id %>
+            <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit col s12 m3" %>
+          <% end %>
         <% end %>
       </div>
-      <div class="col-md-6">
-        <font size="5"><%= @product.name %></font>
-        <dl>
-          <dt>Precio:</dt>
-          <dd><font color="#1E90FF"><%= @product.price %></font> / TON</dd>
-          <dt>Cantidad Min por Orden:</dt>
-          <dd><%= @product.min_order_quantity %></dd>
-          <dt>Capacida de Suministro:</dt>
-          <dd>150 Toneladas</dd>
-          <dt>Estado:</dt>
-          <dd><%= @product.origin %></dd>
-          <dt>Metodos de Pago:</dt>
-          <dd>Efec/Transf/TDD/TDC</dd>
-        </dl>
-        <div class="row" style="background-color:#E0E0E0;">
-          <div class="col-md-12">&nbsp;</div>
-          <div class="col-sm-3 col-sm-offset-1">
-            <%= link_to "<button class='btn btn-warning'><i class='fa fa-envelope' aria-hidden='true'></i> Contactar Proveedor</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
+      <div class="col s12 m6">
+        <div class="product-right-col">
+          <div align="center">
+            <h2><%= @product.name.capitalize  %></h2>
           </div>
-          <div class="col-sm-3 col-sm-offset-3">
-            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments-o" aria-hidden="true"></i> Chat</button>
-          </div>
-          <div class="col-md-12">&nbsp;</div>
-        </div>
-        <div class="collapse" id="collapseExample">
-          <div class="well">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="panel panel-primary">
-                    <div class="panel-heading">
-                      <i class="fa fa-comment" aria-hidden="true"></i> Chat
-                    </div>
-                    <div class="panel-body">
-                      <ul class="chat">
-                        <li class="left clearfix"><span class="chat-img pull-left">
-                          <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                          <div class="header">
-                            <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                              <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                          </div>
-                          <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                          dolor, quis ullamcorper ligula sodales.
-                          </p>
-                        </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                          <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                          <div class="header">
-                            <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                          </div>
-                          <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                          dolor, quis ullamcorper ligula sodales.
-                          </p>
-                        </div>
-                        </li>
-                        <li class="left clearfix"><span class="chat-img pull-left">
-                          <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                          <div class="header">
-                            <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                              <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
-                          </div>
-                          <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                          dolor, quis ullamcorper ligula sodales.
-                          </p>
-                        </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                          <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                          <div class="header">
-                            <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                          </div>
-                          <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                          dolor, quis ullamcorper ligula sodales.
-                          </p>
-                        </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="panel-footer">
-                      <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                        <span class="input-group-btn">
-                          <button class="btn btn-warning btn-sm" id="btn-chat">
-                            Send</button>
-                        </span>
-                      </div>
+          <div class="body">
+            <div class="col m12 price-box-main" >
+              <br />
+              <div class="">
+                <div class="col s12 m6 price-info">
+                  <div class="price-box">
+                    <span class="regular-price">
+                      <span class="price" itemprop="price">$ <%= @product.price %></span>
+                    </span>
+                  </div>
+                </div>
+                <div class="col s8 m6">
+                  <div class="extra-info">
+                    <div class="clear"></div>
+                    <div class="write-review-btn">
+                      <a href="#" data-elevio-module="chat" class="live-chat-btn right borderb0" title="Live Chat">
+                        <img src="http://rdxsports.com/skin/frontend/rdxsports/default/chat/live-chat-btn.png" alt="Live Chat">
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
+              <p></p>
             </div>
+            <div class="col s12 price-box-main">
+              <p>
+              <b>Sku Producto: <i> <%= @product.sku %></i></b>
+              </p>
+              <div class="col m12">
+                <div class="col m6">
+                  <dl>
+                    <dt><b>Peso del producto</b></dt>
+                    <dd><%= @product.weight %></dd>
+                    <dt><b>Orden minima</b></dt>
+                    <dd><%= @product.min_order_quantity %></dd>
+                    <dt><b>Origen del Producto</b></dt>
+                    <dd><%= @product.origin.capitalize  %></dd>
+                    <dt><b>Empacado en</b></dt>
+                    <dd><%= @product.packaging.capitalize %></dd>
+                  </dl>
+                </div>
+                <div class="col m6">
+                  <dl>
+                    <dt><b>Tipo de Cultivo</b></dt>
+                    <dd><%= @product.cultivation_type.capitalize %></dd>
+                    <dt><b>Estilo del Producto</b></dt>
+                    <dd><%= @product.style.capitalize %></dd>
+                    <dt><b>Color del Producto</b></dt>
+                    <dd><%= @product.color.capitalize %></dd>
+                    <dt><b>Tiempo de vida del Producto</b></dt>
+                    <dd><%= @product.shelf_life %></dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          </div>
         </div>
       </div>
-      <div class="col-sm-4 col-md-3">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <%= @product.provider %>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <div class="media">
-                <div class="media-left">
-                  <a href="#">
-                <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{@product.provider.name.capitalize}.jpg", size:"70x70",  class:"img-rounded media-object"%></i>
-                  </a>
-                </div>
-                <div class="media-body">
-                  <i class="fa fa-location-arrow" aria-hidden="true"></i>México <br>
-                  <i class="fa fa-phone" aria-hidden="true"></i> (01 55)5563638147
-                  <hr>
-                  <i class="fa fa-credit-card" aria-hidden="true"></i> Medios de pago: Transferencia, efectivo
-                  <br>
-                  <br>
-                  <%= link_to "<button class='btn btn-primary'>Contactar</button>".html_safe, {:controller => "products",:action=> "contact",:id => "#{@product.id}", :email => "email@emial.com"}, {} %>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="col m12"><br/> <hr /><br /></div>
+      <div class="col m12 card horizontal">
+        <h5>Proveedor</h5>
+        <% provider = @product.provider %>
+        <div class="col m8">
+          <dl>
+            <dt><b>Nombre</b></dt>
+            <dd><%= provider.to_s %>
+            <dt><b>Correo Electronico</b></dt>
+            <dd><%= provider.user.email %></dd>
+            <dt><b>Telefono</b></dt>
+            <dd><%= provider.telephone %></dd>
+            <dt><b>Dirección</b></dt>
+            <dd><%= provider.address %></dd>
+          </dl>
+        </div>
+        <div class="col m4 thumbnail">
+            <%= image_tag "#{provider.try(:s3_asset).try(:url_file)}" %>
         </div>
       </div>
-    </div>
-    <div class="tabs tabs--minimal divider--middle">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#details" data-toggle="tab">Detalles</a></li>
-          <li ><a href="#company" data-toggle="tab">Compañía</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div class="tab-pane active" id="details">
-              <div class="col-sm-4">
-                <dl>
-                  <dt>Estilo:	</dt>
-                  <dd>Natural</dd>
-                  <dt>Tipo:	</dt>
-                  <dd>Fruta</dd>
-                  <dt>Forma:	</dt>
-                  <dd>Enteros, Todas las formas disponibles</dd>
-                  <dt>Proceso de preservación:	</dt>
-                  <dd>Agua</dd>
-                </dl>
-              </div>
-              <div class="col-sm-4">
-                <dl>
-                  <dt>Tipo de cultivo:	</dt>
-                  <dd>Común</dd>
-                  <dt>Empacado:	</dt>
-                  <dd>Caja</dd>
-                  <dt>Certificación:	</dt>
-                  <dd>BRC</dd>
-                  <dt>Duración:	</dt>
-                  <dd>2 semanas</dd>
-                </dl>
-              </div>
-              <div class="col-sm-4">
-                <dl>
-                  <dt>Peso (kg):	</dt>
-                  <dd>20</dd>
-                  <dt>Lugar de Origen:	</dt>
-                  <dd><%= @product.origin.capitalize %></dd>
-                  <dt>Nombre de la Marca:	</dt>
-                  <% if @product.name == 'Mango' %>
-                    <dd> Carlos Jauregui </dd>
-                  <% else %>
-                    <dd>Productores Mexicanos</dd>
-                  <% end %>
-                </dl>
-              </div>
-            </div>
-            <div class="tab-pane" id="company">
-              <div class="col-md-6" style="border-right: solid silver;">
-                <dl>
-                  <dt>Tipo de Negocio:</dt>
-                  <dd>Empresa Comercial</dd>
-                  <br>
-                  <dt>Productos Principales:</dt>
-                  <% if @product.name == 'Mango' %>
-                    <dd>Mangos y derivados</dd>
-                  <% else %>
-                    <dd>Productos Alimenticios</dd>
-                  <% end %>
-                  <br>
-                  <dt>Ingresos Anuales:</dt>
-                  <dd>MXN $ 5 Millones - MXN $10 Millones</dd>
-                </dl>
-              </div>
-              <div class="col-md-6">
-                <dl>
-                  <dt>Ubicación:</dt>	<dd><%= @product.origin.capitalize %></dd><br>
-                  <dt>Numeros de Empleados:</dt>	<dd>11 - 50 Personas	</dd><br>
-                  <dt>Año Establecido:</dt>	<dd>2013	</dd>
-                </dl>
-            </div>
-        </div>
-    </div>&nbsp;&nbsp;&nbsp;
+      <div class="col m12"><br/> <hr /><br /></div>
       <%= render 'contact' %>
-
-    <!-- end tabs -->
-    <h2 class="block-title block-title--top-large-s block-title--bottom">Otros Productos del Proveedor</h2>
-
-    <div class="swiper-container fading-slider">
-        <div class="swiper-wrapper">
-          <% @product.provider.products.each do | productProvider |%>
-            <!--Slide-->
-            <div class="swiper-slide swiper-no-swiping">
-                <div class="product product--round product--flow">
-                    <div class="product__marker">nuevo</div>
-                    <div class="product__control">
-                    </div>
-                    <div class="product__photo">
-                      <% if productProvider.category.name == 'Frutas' %>
-                        <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/mango.jpg",width: "100%" %>
-                      <% else %>
-                      <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{productProvider.category.name.downcase}.jpg", width: "100%" %>
-                      <% end %>
-                    </div>
-                    <span class="product__title"><%= productProvider.name %></span>
-                </div>
-            </div>
-          <% end %>
-        </div>
-        <div class="fade-slider-control">
-            <a class="prev-arrow" href="#"><i class="fa fa-angle-left"></i></a>
-            <a class="next-arrow" href="#"><i class="fa fa-angle-right"></i></a>
-        </div>
-        <!-- end slider controls-->
-        <div class="clearfix"></div>
-        <div class="product-slider-pagination fade-pagination"></div>
     </div>
-    <!-- end row -->
-</section>
-<script>
-$(document).ready(function() {
-
-    fadingSlider();
-    staffSlider();
-
-        $('.achivement-item').one('inview', function(event, visible) {
-            if (visible == true) {
-                $('.achivement-item__marker.start-1').addClass('zoomIn');
-                $('.achivement-item__marker.start-2').addClass('zoomIn stage2');
-                $('.achivement-item__marker.start-3').addClass('zoomIn stage3');
-            }
-        });
-
-        $('.promo__btn').one('inview', function(event, visible) {
-            if (visible == true) {
-                $('.promo__btn').addClass('fadeInUp');
-
-                setTimeout(function() {
-                    $('.promo__btn').removeClass('fadeInUpStart');
-                }, 1000);
-            }
-        });
-
-        $('.about ').one('inview', function(event, visible) {
-            if (visible == true) {
-                $('.about-img').addClass('fadeInUp');
-            }
-        });
-
-});
-</script>
+  </div>
+</div>
