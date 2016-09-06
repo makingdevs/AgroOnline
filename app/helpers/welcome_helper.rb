@@ -5,12 +5,16 @@ module WelcomeHelper
       content_tag(:i) do
         concat " <i class='fa fa-user fa-lg' aria-hidden='true'></i>".html_safe
         concat " Bienvenido #{@user.username}  "
-        concat link_to(" <small>cuenta </small> &ensp;".html_safe, profile_path(@user.provider.id))
-        concat link_to("Logout", logout_path, :class => "waves-effect waves-light btn")
+        if @user.provider
+          concat link_to(" <small>Cuenta </small> &ensp;".html_safe, profile_path(@user.try(:provider).try(:id)))
+        end
+        concat link_to("Salir", logout_path, :class => "waves-effect waves-light btn")
       end
     else
       content_tag(:i) do
-        concat link_to("LogIn", login_path, :class => "waves-effect waves-light btn")
+        concat link_to("Crear Cuenta", new_user_path, :class => "waves-effect waves-light btn")
+        concat "  "
+        concat link_to("Acceder", login_path, :class => "waves-effect waves-light btn")
       end
     end
   end
