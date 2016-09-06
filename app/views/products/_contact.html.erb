@@ -1,29 +1,7 @@
-<section class="page-indecator">
-  <div class="container">
-    <h2 class="heading">&nbsp;</h2>
-    <!-- Breadcrumb pattern -->
-    <ol class="breadcrumb heading">
-      <li><a href="#">Inicio</a></li>
-      <li class="active">Contacto</li>
-    </ol>
-    <!-- Default one color divider -->
-    <div class="divider"></div>
-    <div class="form-error form-error--line alert alert-danger">
-      <span class="alert-market">
-        <i class="fa fa-ban"></i>
-      </span>
-      <div class="form-error__holder"></div>
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
-    </div>
-    <div class="divider--bottom-md"></div>
-  </div>
-</section>
-<!-- end section show current page and breadcrumb -->
-<section class="container">
   <div class="row">
-    <div class="one-column col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
+    <div class="col m12">
       <%= form_tag("/provider/contact/#{@product.id}", method: "post", class:"contact contact--clean contact--icon") do %>
-        <h3 class="heading-helper heading-helper--large">Escríbenos si necesitas algo en especial...</h3>
+        <h3 >Escríbenos si necesitas algo en especial...</h3>
         <div class="contact__field-container contact__field--name">
           <%= text_field_tag 'name', nil, class:"contact__field ", placeholder:"Nombre Completo:" %>
         </div>
@@ -34,14 +12,13 @@
           <%= text_field_tag 'phone', nil, class:"contact__field contact__field--email ", placeholder:"Telefono:" %>
         </div>
         <div class="contact__field-container contact__field--area">
-          <%= text_area_tag 'message', nil, class:"contact__field contact__area", placeholder:"Mensaje: " %>
+          <%= text_area_tag 'message', nil, class:"materialize-textarea", placeholder:"Mensaje: " %>
         </div>
         <div class="col-md-12">
-          <div class="col-md-1">Cantidad</div>
-          <div class="col-md-5">
-            <%= text_field_tag 'cantidad', nil, class:"contact__field " %>
+          <div class="col m5">
+            <%= text_field_tag 'cantidad', nil, class:"contact__field ",placeholder: "cantidad" %>
           </div>
-          <div class="col-md-5">
+          <div class="col m5">
             <%= select_tag "unidad", options_for_select(@unidades), {:class => "selectpicker form-control"} %>
           </div>
         </div>
@@ -53,4 +30,3 @@
     <!-- end col -->
   </div>
   <!-- end row -->
-</section>
