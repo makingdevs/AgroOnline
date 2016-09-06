@@ -8,28 +8,35 @@
         <%= link_to "Nuevo Producto", new_product_provider_path, :class => "waves-effect waves-light btn" %>
       </div>
     </div>
-    <div class="row">
-      <div class="col s12 m12">
-        <% if @provider.products %>
-          <div align="center">
-            <h5> Aun no tienes Productos, <%= link_to "Agrega uno a tu Oferta", new_product_provider_path %></h5>
-          </div>
-        <% end %>
-        <% @provider.products.each do | product | %>
-          <div class="col l4 m6 s12 product-container">
-            <div class="products-inner-wraper">
-              <div class="thumbnail-product" align="center">
-                <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg", :class => "center" %>
-              </div>
-              <p><%= link_to "#{ product.name.capitalize }", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {:class => "product-name truncate" } %></p>
-              <p class="product-price">$ <%= product.price %></p>
-              <div class="col-md-10 col-md-offset-1">
-                <i class="fa fa-check" aria-hidden="true"></i> Producto Nacional <br />
-                <i class="fa fa-check" aria-hidden="true"></i> Origen <%= product.origin %>
+    <div class="col s12 m12 hide-on-small-only">
+      <div class="inner-prducts" style="margin-top: 30px;">
+        <div id="home-top-selling-products-section">
+          <div class="top-selling-content">
+            <div class="container">
+              <div class="all-products-container row">
+                <% if !@provider.products %>
+                  <div align="center">
+                    <h5> Aun no tienes Productos, <%= link_to "Agrega uno a tu Oferta", new_product_provider_path %></h5>
+                  </div>
+                <% end %>
+                <% @provider.products.each do | product | %>
+                  <div class="col l6 m6 s12 product-container">
+                    <div class="products-inner-wraper">
+                      <div class="thumbnail-product" align="center">
+                        <%= image_tag "#{product.s3_assets.first}", :class => "center" %>
+                      </div>
+                      <p><%= link_to "#{ product.name.capitalize }", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {:class => "product-name truncate" } %></p>
+                      <p class="product-price">$ <%= product.price %></p>
+                      <div class="col-md-10 col-md-offset-1">
+                        <i class="fa fa-check" aria-hidden="true"></i> Producto Nacional <br />
+                        <i class="fa fa-check" aria-hidden="true"></i> Origen <%= product.origin %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
-      <% end %>
       </div>
     </div>
   </div>
