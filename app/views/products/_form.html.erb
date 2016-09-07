@@ -50,6 +50,11 @@
   </div>
 
   <div class="input-field col s6">
+    <%= f.text_field :municipality %>
+    <label for="municipality">Municipio</label>
+  </div>
+
+  <div class="input-field col s6">
     <%= select("", "category", Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'Selecciona una Categoria'}) %>
   </div>
 
