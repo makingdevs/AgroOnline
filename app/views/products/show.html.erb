@@ -101,8 +101,10 @@
                     <dd><%= @product.style.capitalize %></dd>
                     <dt><b>Color del Producto</b></dt>
                     <dd><%= @product.color.capitalize %></dd>
-                    <dt><b>Tiempo de vida del Producto</b></dt>
+                     <dt><b>Tiempo de vida del Producto</b></dt>
                     <dd><%= @product.shelf_life %></dd>
+                    <dt><b>Municipio</b></dt>
+                    <dd><%= @product.try(:municipality) %></dd>
                   </dl>
                 </div>
               </div>
