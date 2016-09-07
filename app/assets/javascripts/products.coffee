@@ -6,7 +6,7 @@ $(document).ready ->
   $('.collapsible').collapsible accordion: false
   $('.materialboxed').materialbox()
   $('#unidad').material_select()
-
+  $('select').material_select()
   $('.image-miniature').on 'click': ->
     imageSource = $(this).attr("value")
     $('#img-primary').attr 'src', imageSource
