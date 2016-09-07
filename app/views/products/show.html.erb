@@ -10,40 +10,44 @@
               <img class="image-miniature" src="<%= asset.url_file %>" height="68px" width="100px" value="<%= asset.url_file %>"/>
             <% end %>
           </div>
-          <ul class="collapsible" data-collapsible="accordion">
-            <li>
-            <div class="collapsible-header">Agregar otra Imagen</div>
-            <div class="collapsible-body col m10">
-              <%= form_tag(product_image_path,  method:"post", multipart: true) do %>
-                <div class="file-field input-field">
-                  <div class="btn col m3">
-                    <span>Imagen</span>
-                    <input type="file" name="file" >
+          <% if @product.provider.user.id != session[:user_id] %>
+            <ul class="collapsible" data-collapsible="accordion">
+              <li>
+              <div class="collapsible-header">Agregar otra Imagen</div>
+              <div class="collapsible-body col m10">
+                <%= form_tag(product_image_path,  method:"post", multipart: true) do %>
+                  <div class="file-field input-field">
+                    <div class="btn col m3">
+                      <span>Imagen</span>
+                      <input type="file" name="file" >
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text" >
+                    </div>
+                    <%= hidden_field_tag 'id_product', @product.id %>
+                    <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit" %>
                   </div>
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" >
-                  </div>
-                  <%= hidden_field_tag 'id_product', @product.id %>
-                  <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit" %>
-                </div>
-              <% end %>
-            </div>
-            </li>
-          </ul>
+                <% end %>
+              </div>
+              </li>
+            </ul>
+          <% end %>
         <% else %>
-          <h4>Agrega Fotos a tu Producto</h4>
-          <%= form_tag(product_image_path,  method:"post", multipart: true) do %>
-            <div class="file-field input-field">
-              <div class="btn">
-                <span>Imagen</span>
-                <input type="file" name="file" >
+          <% if @product.provider.user.id != session[:user_id] %>
+            <h4>Agrega Fotos a tu Producto</h4>
+            <%= form_tag(product_image_path,  method:"post", multipart: true) do %>
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Imagen</span>
+                  <input type="file" name="file" >
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" >
+                </div>
               </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" >
-              </div>
-            </div>
-            <%= hidden_field_tag 'id_product', @product.id %>
-            <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit col s12 m3" %>
+              <%= hidden_field_tag 'id_product', @product.id %>
+              <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit col s12 m3" %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
