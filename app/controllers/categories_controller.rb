@@ -1,3 +1,5 @@
+require 'utilities/s3_asset_service'
+
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
@@ -24,7 +26,11 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
+    @s3AssetService = S3AssetService.instance
+    result_image = @s3AssetService.upload_image_to_s3(params)
+    @s3_asset = @s3AssetService.save_image_s3_asset("http://com.agroonline.s3.amazonaws.com/#{result_image.key}", result_image.key)
     @category = Category.new(category_params)
+    @category.s3_asset = @s3_asset
 
     respond_to do |format|
       if @category.save
@@ -75,6 +81,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:subcategory, :name)
+      params.require(:category).permit(:subcategory, :name, :s3_asset)
     end
 end
