@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.category = Category.find params[:category]
     @provider = Provider.find params[:provider_id]
+    @product.provider = @provider
     respond_to do |format|
       if @product.save
         @provider.products << @product
