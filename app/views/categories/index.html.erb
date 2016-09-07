@@ -1,26 +1,26 @@
-<section class="page-indecator">
-    <div class="container">
-        <h2 class="block-title block-title--top-larger">Categories</h2>
-    </div>
-</section>
-<section class="container">
-    <div class="row">
-        <div class="gallery-wrapper">
-          <% @categories.each do | category | %>
-            <div class="col-sm-4">
-                <div class="gallery-item">
-                    <div class="image-container image-container--border-inner">
-                      <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{category.name.downcase}.jpg",size: "1110x240" %>
-
-                    </div>
-                    <div class="gallery-item__info desktop-middle">
-                        <h3 class="gallery-item__heading"><%= category.name %></h3>
-                        <%= link_to 'Show', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
-                    </div>
+<div class="container">
+  <div class="row">
+    <h2 class="block-title block-title--top-larger">Categorias</h2>
+    <div class="col m12">
+      <div class="gallery-wrapper">
+        <% @categories.each do | category | %>
+          <div class="col m6">
+            <div class="card horizontal">
+              <div class="thumbnail">
+                <% if category.s3_asset %>
+                  <%= image_tag category.try(:s3_asset) %>
+                <% end %>
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5 class="gallery-item__heading"><%= category.name %></h5>
+                  <%= link_to 'Mostrar', {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
                 </div>
+              </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-</section>
+  </div>
+</div>
