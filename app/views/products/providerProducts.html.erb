@@ -14,7 +14,7 @@
           <div class="top-selling-content">
             <div class="container">
               <div class="all-products-container row">
-                <% if !@provider.products %>
+                <% if @provider.products.empty? %>
                   <div align="center">
                     <h5> Aun no tienes Productos, <%= link_to "Agrega uno a tu Oferta", new_product_provider_path %></h5>
                   </div>
