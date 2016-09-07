@@ -100,7 +100,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name,:sku,:price,:weight,:min_order_quantity,:origin,:packaging,:cultivation_type,:style,:color,:shelf_life)
+      params.require(:product).permit(:name,:sku,:price,:weight,:min_order_quantity,:origin,:packaging,:cultivation_type,:style,:color,:shelf_life,:municipality)
     end
 
     def set_unidades
