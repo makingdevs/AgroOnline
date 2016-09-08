@@ -31,7 +31,7 @@ class WelcomeController < ApplicationController
       @jalisco = Product.limit(6).where(:origin => "jalisco")
       @providers = Provider.limit(4).all()
       @primas = []
-      if Category.all.count
+      if Category.count > 0
         category = Category.find_by name: "materias primas"
         @primas = Product.limit(6).where(:category => category.id)
       end
