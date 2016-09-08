@@ -1,6 +1,11 @@
 <% @page_title = "UserAuth | Login" -%>
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <p id="notice"><% notice %></p>
+  <% flash.each do |key, value| %>
+    <div id="error_explanation">
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    </div>
+  <% end %>
   <div class= "Sign_Form">
     <h1>Acceder</h1>
     <%= form_tag(:action => 'login_attempt') do %>
@@ -12,7 +17,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-       <%= password_field_tag :password %>
+          <%= password_field_tag :password %>
           <label for="password">Contraseña</label>
         </div>
       </div>
