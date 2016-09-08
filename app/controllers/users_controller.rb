@@ -67,14 +67,20 @@ class UsersController < ApplicationController
   def login_attempt
     @user = User.find_by username:params['username']
     respond_to do |format|
-      if @user.authenticate(params['password'])
-        session[:user_id] = @user.id
-        format.html { redirect_to root_path }
-        format.json { render :show, status: :ok, location: @user }
+      if @user
+        if @user.authenticate(params['password'])
+          session[:user_id] = @user.id
+          format.html { redirect_to root_path }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :login }
+          format.json { render json: @user.errors, status: :Unauthorized }
+        end
       else
-        format.html { render :login }
-        format.json { render json: @user.errors, status: :Unauthorized }
-      end
+          flash[:alert] = 'User not exist or not register'
+          format.html { render :login }
+          format.json { render json: @user.error, status: :Unauthorized }
+        end
     end
   end
 
