@@ -61,34 +61,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-  end
-
-  def login_attempt
-    @user = User.find_by username:params['username']
-    respond_to do |format|
-      if @user
-        if @user.authenticate(params['password'])
-          session[:user_id] = @user.id
-          format.html { redirect_to root_path }
-          format.json { render :show, status: :ok, location: @user }
-        else
-          format.html { render :login }
-          format.json { render json: @user.errors, status: :Unauthorized }
-        end
-      else
-          flash[:alert] = 'User not exist or not register'
-          format.html { render :login }
-          format.json { render json: @user.error, status: :Unauthorized }
-        end
-    end
-  end
-
-  def logout
-    session[:user_id] = nil
-    redirect_to root_path
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -97,6 +69,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :email)
+      params.require(:user).permit( :password, :email)
     end
 end
