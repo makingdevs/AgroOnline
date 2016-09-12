@@ -48,12 +48,12 @@ class ProvidersController < ApplicationController
     @address = Address.new(address_params)
     @address.save
     @provider.address = @address
-    @user = User.find(session[:user_id])
-    @provider.user = @user
+    @user = User.find(current_user.id)
+    @provider.user = current_user
     respond_to do |format|
       if @provider.save
-        @user.provider = @provider
-        @user.save
+        current_user.provider = @provider
+        current_user.save
         format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
         format.json { render :show, status: :created, location: @provider }
       else
