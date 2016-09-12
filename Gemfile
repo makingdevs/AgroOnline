@@ -26,6 +26,8 @@ gem 'aws-sdk'
 # Paperclip gem for managing file uploads
 gem 'paperclip', '~> 3.0'
 
+gem 'devise'
+
 # use elastisearch
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
