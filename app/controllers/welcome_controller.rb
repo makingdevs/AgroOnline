@@ -3,8 +3,9 @@ require 'utilities/estados'
 class WelcomeController < ApplicationController
 
   def index
-    if session[:user_id]
-      user = User.find(session[:user_id])
+
+    if current_user
+      user = User.find(current_user.id)
       if !user.provider
         redirect_to new_provider_path
       end
