@@ -108,7 +108,7 @@
                      <dt><b>Tiempo de vida del Producto</b></dt>
                     <dd><%= @product.shelf_life %></dd>
                     <dt><b>Municipio</b></dt>
-                    <dd><%= @product.try(:municipality) %></dd>
+                    <dd><%= @product.municipality ? @product.municipality : "" %></dd>
                   </dl>
                 </div>
               </div>
@@ -134,7 +134,7 @@
           </dl>
         </div>
         <div class="col m4 thumbnail">
-            <%= image_tag "#{provider.try(:s3_asset).try(:url_file)}" %>
+            <%= image_tag "#{provider.s3_asset.to_s}" %>
         </div>
       </div>
       <div class="col m12"><br/> <hr /><br /></div>

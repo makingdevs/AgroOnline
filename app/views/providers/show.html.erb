@@ -12,7 +12,7 @@
         </div>
         <div class="col s12 m3">
           <div class="thumbnail">
-            <%= image_tag "#{@provider.try(:s3_asset).try(:url_file)}" %>
+            <%= image_tag "#{@provider.s3_asset.to_s}" %>
           </div>
         </div>
         <div class="col s12 m3">
