@@ -7,8 +7,8 @@
           <div class="col m6">
             <div class="card horizontal">
               <div class="thumbnail">
-                <% if category.s3_asset %>
-                  <%= image_tag category.try(:s3_asset) %>
+                <% if category.s3_asset  %>
+                  <%= image_tag category.s3_asset %>
                 <% end %>
               </div>
               <div class="card-stacked">
