@@ -15,7 +15,11 @@ set_map = (address) ->
       map.setCenter result[0].geometry.location
       marker = new (google.maps.Marker)(
         map: map
+        draggable: true
         position: result[0].geometry.location)
+      google.maps.event.addListener marker, 'dragend', (event) ->
+        console.log this.getPosition().lat()
+        console.log this.getPosition().lng()
     return
   false
 
