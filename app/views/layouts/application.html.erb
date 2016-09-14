@@ -24,16 +24,15 @@
                   <div class="col s5">
                     Logged in as <strong><%= current_user.email %></strong>.
                   </div>
-                  <div class="col s3"><%= button_to 'Profile', profile_path(current_user.id), :method => :get, :class => 'waves-effect waves-light btn' %> </div>
+                  <div class="col s3"><%= link_to 'Profile', profile_path(current_user.id), :class => 'waves-effect waves-light btn' %> </div>
                   <div class="col s3"><%= button_to "Logout", destroy_user_session_path, :method => :delete, :class => 'waves-effect waves-light btn'  %></div>
               </div>
             <% else %>
               <div class="col s6">
-                <div class="col s6"><%= button_to "Sign up", new_user_registration_path, :class => 'waves-effect waves-light btn'  %></div>
-                <div class="col s6"><%= button_to "Login", new_user_session_path, :class => 'waves-effect waves-light btn'  %></div>
+                <div class="col m6"><%= link_to "Regístrate", new_user_registration_path, :class => 'waves-effect waves-light btn'  %></div>
+                <div class="col m6"><%= link_to "Iniciar sesión", new_user_session_path, :class => 'waves-effect waves-light btn'  %></div>
               </div>
             <% end %>
-            <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> 0 Carrito&nbsp;&nbsp;
           </div>
         </div>
       </div>
