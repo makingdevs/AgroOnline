@@ -55,10 +55,10 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    :address =>              ENV['VARIABLE_HOST'],
-    :port =>                 ENV['VARIABLE_PORT'],
-    :user_name =>            ENV['VARIABLE_USERNAME'],
-    :password =>             ENV['VARIABLE_PASSWORD'],
+    :address =>              Rails.application.secrets.mailer_host,
+    :port =>                 Rails.application.secrets.mailer_port,
+    :user_name =>            Rails.application.secrets.mailer_user,
+    :password =>             Rails.application.secrets.mailer_passwrod,
     :authentication =>       :login,
     :enable_starttls_auto => true
   }
