@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "/categories/search/:id", to: 'categories#search', as: 'categorySearch'
   get "/product/search/:id", to: 'products#search', as: 'product_search'
   post "/provider/contact/:id", to: 'mailer#contact', as: 'provider_contact'
-  post "/product/category/state", to: 'welcome#search', as: 'state_search_categories'
+  post "/search", to: 'welcome#search', as: 'search'
   get "/product/contact", to: 'products#contact', as: 'product_provider_contact'
 
   get "/welcome/our", to: 'welcome#our', as: 'welcome_out'
