@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
 
     if current_user
       user = User.find(current_user.id)
-      if !user.provider
+      unless user.provider
         redirect_to new_provider_path
       end
    end
@@ -31,11 +31,6 @@ class WelcomeController < ApplicationController
       @michoacan = Product.limit(6).where(:origin => "michoacán")
       @jalisco = Product.limit(6).where(:origin => "jalisco")
       @providers = Provider.limit(4).all()
-      @primas = []
-      if Category.count > 0
-        category = Category.find_by name: "materias primas"
-        @primas = Product.limit(6).where(:category => category.id)
-      end
     end
 
 end
