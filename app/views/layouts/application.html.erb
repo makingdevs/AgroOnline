@@ -8,53 +8,52 @@
   rel="stylesheet">
   </head>
   <body>
-      <div class="nav-wrapper  green lighten-5">
-        <div class="row">
-          <div class="col s6">
+    <div class="nav-wrapper  green lighten-5">
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="col s4 m4 l4">
             <a class="logo" href="/">
               <img src="http://com.agroonline.s3.amazonaws.com/agroonline/logo-nos-unimos.png" />
             </a>
           </div>
-          <div class="col s6">
-            <div class="right-align">
-              <br />
-              <p class="navbar-text pull-right">
-              <% if user_signed_in? %>
-                <div class="col s10">
-                  <div class="col s5">
-                    Logged in as <strong><%= current_user.email %></strong>.
+          <div class="col s8 m8 l8">
+            <div class="right col s8 m8 l8" style="padding-top: 2%;">
+              <div class="row">
+                <% if user_signed_in? %>
+                  <div class="col s12 m12 l12 right">
+                    <div class="col s12 m9 l5">
+                      Bienvenido <strong><%= current_user.email %></strong>.
+                    </div>
+                    <div class="col s12 m12 l3"><%= link_to 'Perfil', profile_path(current_user.id), :method => :get, :class => 'waves-effect waves-light btn' %> </div>
+                    <div class="col s12 m12 l3"><%= button_to "Salir", destroy_user_session_path, :method => :delete, :class => 'waves-effect waves-light btn'  %></div>
                   </div>
-                  <div class="col s3"><%= button_to 'Profile', profile_path(current_user.id), :method => :get, :class => 'waves-effect waves-light btn' %> </div>
-                  <div class="col s3"><%= button_to "Logout", destroy_user_session_path, :method => :delete, :class => 'waves-effect waves-light btn'  %></div>
+                <% else %>
+                  <div class="col s12 m12 l12">
+                    <div class="col s12 m6 l4"><%= link_to "Registrate", new_user_registration_path, :class => 'waves-effect waves-light btn'  %></div>
+                    <div class="col s12 m6 l4"><%= link_to "Acceder", new_user_session_path, :class => 'waves-effect waves-light btn'  %></div>
+                  </div>
+                <% end %>
               </div>
-            <% else %>
-              <div class="col s6">
-                <div class="col s6"><%= button_to "Sign up", new_user_registration_path, :class => 'waves-effect waves-light btn'  %></div>
-                <div class="col s6"><%= button_to "Login", new_user_session_path, :class => 'waves-effect waves-light btn'  %></div>
-              </div>
-            <% end %>
-            <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> 0 Carrito&nbsp;&nbsp;
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="nav-wrapper">
-      <div class="row">
+      <div class="row" align="">
         <%= form_tag(search_path, method: "post") do %>
-            <div class="col s6 offset-s3 right-align">
-              <div class="row">
-                <div class="input-field col s9">
-                  <input type="text" name="search">
-                  <label>Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)</label>
-                </div>
-                <div class="input-field col s3">
-                  <button class="btn waves-effect waves-light" type="submit">Buscar</button>
-                </div>
-              </div>
+          <div class="col s12 m12 l12">
+            <div class="input-field col s12 m10 l10">
+              <input type="text" name="search">
+              <label>Palabras clave(Ej.: Mango, Jalisco, Michoacán, Costilla, Bultos)</label>
             </div>
-          <% end %>
+            <div class="input-field col s12 m2 l2">
+              <button class="btn waves-effect waves-light" type="submit">Buscar</button>
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
+    </div>
       <% if notice %>
         <p class="green lighten-2"><%= notice %></p>
       <% end %>
