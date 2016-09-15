@@ -13,7 +13,7 @@
 <div class="row">
   <div class="section">
     <div class="col m4">
-      <h4 class="title center">Grupos Agropecuarios</h4><br />
+      <h4 class="title center">Destacados</h4><br />
       <div class="row">
         <div class="section">
           <div class="col m12">
@@ -111,32 +111,6 @@
   <br /><br /><br />
   <div class="section">
     <h3 class="title center">Materias Primas</h3>
-    <%= @primas.each_slice(3) do | productList | %>
-      <div class="col s12">
-        <% productList.each do | product | %>
-          <div class="card medium col s4 ">
-            <div class="card-image waves-effect waves-block waves-light">
-              <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",width:"100%",class:"activator" %>
-              <span class="card-title"><%= link_to "#{ product.name.capitalize }", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {:class => "link-name-product"} %></span>
-            </div>
-            <div class="card-content">
-              <table width="100%"  style="padding: 8px 8px;">
-                <tr>
-                  <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %></td>
-                  <td style="padding: 8px 8px;text-align: right;">
-                    Municipio: <% product.municipality ? product.municipality : "" %>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-usd fa-lg" aria-hidden="true"></i><%= product.price %></td>
-                  <td style="padding: 8px 8px;text-align: right;">Empacado: <%= product.packaging %></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
   </div>
 </div>
 </div>
