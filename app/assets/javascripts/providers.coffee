@@ -2,6 +2,24 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $('select').material_select()
+$('.modal-trigger').leanModal()
+
+$(document).ready ->
+  init_value = if $('.show_address').length then $('.show_address').text() else 'mexico df mexico'
+  set_map init_value
+
+  $('.address').on 'change', ->
+    getValuesOfClassAddress()
+    return
+  $('#zip_code').on 'change', ->
+    sepomexServiceCp document.getElementsByName("zip_code")[0].value
+    return
+  $('#content-model-address').on 'click','.collection-item', ->
+      id = this.id
+      setArgumentsInForm( getElementsbyLiClick id )
+      $('#model1').closeModal()
+    return
+  return
 
 set_map = (address) ->
   mapOptions =
@@ -23,12 +41,38 @@ set_map = (address) ->
     return
   false
 
-$(document).ready ->
-  init_value = if $('.show_address').length then $('.show_address').text() else 'mexico df mexico'
-  set_map init_value
-  $('.address').on 'change', ->
-    getValuesOfClassAddress()
+
+sepomexServiceCp = (cp) ->
+  Sepomex.where {
+    'cp': cp
+  }, (response) ->
+    if response.length > 1
+      setArgumentsInModalSection response
+      $('#modal1').openModal()
+    else
+      value = response[0]
+      setArgumentsInForm value
+  return
+
+setArgumentsInModalSection = (response) ->
+  $.each response, (key, value) ->
+    colonia = value.d_asenta
+    ciudad = value.d_ciudad
+    estado = value.d_estado
+    municipio = value.d_mnpio
+    id = value.id
+    li = '<li class="collection-item avatar" id="'+id+'"><i class="material-icons circle green">assessment</i><span class="title">Colonia:'+colonia+' </span><p>Ciudad:'+ciudad+'<br> Estado:'+estado+'<br> Municipio: '+municipio+' </p> <input type="hidden" value="'+colonia+'" id="colony-'+id+'" /><input type="hidden" value="'+ciudad+'" id="city-'+id+'" /><input type="hidden" value="'+estado+'" id="federal_entity-'+id+'" /> <input type="hidden" value="'+municipio+'" id="town-'+id+'" /></li>'
+    $("#content-model-address").append(li)
     return
+  return
+
+setArgumentsInForm = (response) ->
+  console.log response.d_asenta
+  $("input[name='colony']").val(response.d_asenta)
+  $("input[name='city']").val(response.d_ciudad)
+  $("input[name='town']").val(response.d_mnpio)
+  $("input[name='federal_entity']").val(response.d_estado)
+  $("input[name='country']").val("México")
   return
 
 getValuesOfClassAddress = ->
@@ -42,5 +86,10 @@ getValuesOfClassAddress = ->
   set_map address
   return
 
-
-
+getElementsbyLiClick = (id) ->
+  colony = $('#colony-'+id).val()
+  city = $('#city-'+id).val()
+  town = $('#town-'+id).val()
+  federal_entity = $('#federal_entity-'+id).val()
+  arr = {d_asenta: colony, d_ciudad: city, d_mnpio: town, d_estado: federal_entity}
+  return arr
