@@ -19,4 +19,5 @@
 //= require InfoBox/js/InfoBox
 //= require underscore/underscore
 //= require ez-plus/src/jquery.ez-plus
+//= require sepomex-js/dist/sepomex
 //= require_self
