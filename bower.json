@@ -22,7 +22,8 @@
     "InfoBox": "^0.6.5",
     "underscore": "^1.8.3",
     "ez-plus": "^1.2.0",
-    "easyzoom": "^2.4.1"
+    "easyzoom": "^2.4.1",
+    "sepomex-js": "^1.0.0"
   },
   "resolutions": {
     "jquery": "~2.1.4"
