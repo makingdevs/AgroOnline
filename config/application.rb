@@ -16,5 +16,6 @@ module AgroOnline
     config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets')
     config.assets.paths << Rails.root.join('app', 'assets', 'images')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+    config.i18n.default_locale = :es
   end
 end
