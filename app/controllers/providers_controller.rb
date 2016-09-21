@@ -35,10 +35,12 @@ class ProvidersController < ApplicationController
   # GET /providers/new
   def new
     @provider = Provider.new
+    @address = Address.new
   end
 
   # GET /providers/1/edit
   def edit
+    @address = @provider.address
   end
 
   # POST /providers
