@@ -12,7 +12,7 @@ $(document).ready ->
     getValuesOfClassAddress()
     return
   $('#zip_code').on 'change', ->
-    sepomexServiceCp document.getElementsByName("zip_code")[0].value
+    sepomexServiceCp $("#zip_code").val()
     return
   $('#content-model-address').on 'click','.collection-item', ->
       id = this.id
@@ -68,21 +68,21 @@ setArgumentsInModalSection = (response) ->
 
 setArgumentsInForm = (response) ->
   console.log response.d_asenta
-  $("input[name='colony']").val(response.d_asenta)
-  $("input[name='city']").val(response.d_ciudad)
-  $("input[name='town']").val(response.d_mnpio)
-  $("input[name='federal_entity']").val(response.d_estado)
-  $("input[name='country']").val("México")
+  $("#colony").val(response.d_asenta)
+  $("#city").val(response.d_ciudad)
+  $("#town").val(response.d_mnpio)
+  $("#federal_entity").val(response.d_estado)
+  $("#country").val("México")
   return
 
 getValuesOfClassAddress = ->
-  address = document.getElementsByName("street")[0].value + ',' +
-            document.getElementsByName("street_number")[0].value + ',' +
-            document.getElementsByName("zip_code")[0].value + ',' +
-            document.getElementsByName("colony")[0].value + ',' +
-            document.getElementsByName("country")[0].value + ',' +
-            document.getElementsByName("city")[0].value + ',' +
-            document.getElementsByName("town")[0].value
+  address = document.getElementById("street").value + ',' +
+            document.getElementById("street_number").value + ',' +
+            document.getElementById("zip_code").value + ',' +
+            document.getElementById("colony").value + ',' +
+            document.getElementById("country").value + ',' +
+            document.getElementById("city").value + ',' +
+            document.getElementById("town").value
   set_map address
   return
 
