@@ -36,50 +36,52 @@
     <h4>Dirección</h4>
     <div class="row" id="address">
       <div class="col m12">
+       <%= fields_for @address do |fa| %>
         <div class="col m6">
           <label>Calle</label>
-          <input type="text" name="street" class="address" required/>
+          <%= fa.text_field :street, :required => true, :class => "address", :id => "street" %>
         </div>
 
         <div class="col m6">
           <label>Numero Exterior</label>
-          <input type="text" name="street_number" class="address" required/>
+          <%= fa.text_field :street_number, :required => true, :class => "address", :id => "street_number"%>
         </div>
 
         <div class="col m6">
           <label>Numero Interior</label>
-          <input type="text" name="suite" required />
+          <%= fa.text_field :suite, :required => true %>
         </div>
 
         <div class="col m6">
           <label>Codigo Postal</label>
-          <input type="text" name="zip_code" class="address" id="zip_code" required/>
+          <%= fa.text_field :zip_code, :required => true, :class => "address", :id => "zip_code" %>
         </div>
 
         <div class="col m6">
           <label>Colonia</label>
-          <input type="text" name="colony" class="address" required />
+          <%= fa.text_field :colony, :required => true, :class => "address", :id => "colony" %>
         </div>
 
         <div class="col m6">
           <label>País</label>
-          <input type="text" name="country" class="address" required/>
+          <%= fa.text_field :country, :required => true, :class => "address", :id => "country" %>
         </div>
 
         <div class="col m6">
           <label>Ciudad</label>
-          <input type="text" name="city" class="address" required/>
+          <%= fa.text_field :city, :required => true, :class => "address", :id => "city" %>
         </div>
 
         <div class="col m6">
           <label>Municipio/Alcaldia</label>
-          <input type="text" name="town" class="address" required/>
+          <%= fa.text_field :town, :required => true, :class => "address", :id => "town" %>
         </div>
 
         <div class="col m6">
           <label>Estado</label>
-          <input type="text" name="federal_entity" class="address" required/>
+          <%= fa.text_field :federal_entity, :required => true, :class => "address", :id => "federal_entity" %>
         </div>
+      <% end %>
       </div>
     </div>
 
