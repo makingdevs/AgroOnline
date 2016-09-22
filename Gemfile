@@ -31,6 +31,9 @@ gem 'paperclip', '~> 3.0'
 gem 'devise'
 gem 'devise-i18n'
 
+# Use of dropzone
+gem 'dropzonejs-rails', '~> 0.5.3'
+
 # use elastisearch
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'

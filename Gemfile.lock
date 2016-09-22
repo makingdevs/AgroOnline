@@ -86,6 +86,8 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-i18n (1.1.0)
+    dropzonejs-rails (0.5.3)
+      rails (> 3.1)
     elasticsearch (2.0.0)
       elasticsearch-api (= 2.0.0)
       elasticsearch-transport (= 2.0.0)
@@ -233,6 +235,7 @@ DEPENDENCIES
   compass-rails
   devise
   devise-i18n
+  dropzonejs-rails (~> 0.5.3)
   elasticsearch-model
   elasticsearch-rails
   gmaps4rails
