@@ -12,6 +12,7 @@
 //
 //= require jquery/dist/jquery
 //= require materialize/dist/js/materialize.min
+//= require dropzone
 //= require welcome
 //= require highcharts/highmaps
 //= require highcharts/modules/exporting
