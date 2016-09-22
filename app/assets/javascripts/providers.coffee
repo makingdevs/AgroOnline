@@ -19,6 +19,13 @@ $(document).ready ->
       setArgumentsInForm( getElementsbyLiClick id )
       $('#model1').closeModal()
     return
+  $('.dropzone').dropzone
+    maxFiles: 1
+    maxfilesexceeded: (file) ->
+      console.log file
+      @removeAllFiles()
+      @addFile file
+      return
   return
 
 set_map = (address) ->
