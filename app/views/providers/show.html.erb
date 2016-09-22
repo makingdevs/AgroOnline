@@ -43,22 +43,17 @@
             </div>
           </div>
         </div>
-        <div class="col s12 m12">
-          <%= form_tag(provider_image_path, method:"post",multipart: true ) do %>
-            <div class="file-field input-field">
-              <div class="btn">
-                <span>File</span>
-                <input type="file" name="file">
-              </div>
-              <div class="file-path-wrapper col s12 m9">
-                <input class="file-path validate col s12 m9" type="text">
-              </div>
-            </div>
-            <%= hidden_field_tag 'id_provider', @provider.id %>
-            <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit col s12 m1" %>
-          <% end %>
+        <div class="row">
+          <div class="col s12 m6">
+            <%= form_tag(provider_image_path, method:"post",multipart: true, class: "dropzone dz-clickable dz-max- files-reached", id: "provider-image" ) do %>
+              <%= hidden_field_tag 'id_provider', @provider.id %>
+            <% end %>
+          </div>
+          <div class="col s12 m6">
+            <div id="map-canvas" style="width:100%;height:500px"></div>
+          </div>
+          <br>
         </div>
-        <div id="map-canvas" style="width:100%;height:500px"></div>
       </div>
     </div>
   </div>
