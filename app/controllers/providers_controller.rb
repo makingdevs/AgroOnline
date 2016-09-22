@@ -113,6 +113,6 @@ class ProvidersController < ApplicationController
     end
 
     def address_params
-      params.permit(:street, :street_number, :suite, :zip_code, :colony, :country, :city, :town, :federal_entity)
+      params.require(:address).permit(:street, :street_number, :suite, :zip_code, :colony, :country, :city, :town, :federal_entity)
     end
 end
