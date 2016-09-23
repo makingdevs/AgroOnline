@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.category = Category.find params[:category]
+    create_tags params[:categorias]
     @provider = Provider.find params[:provider_id]
     @product.provider = @provider
     respond_to do |format|
@@ -106,6 +106,16 @@ class ProductsController < ApplicationController
 
     def set_unidades
       @unidades = Unidades.unidades
+    end
+
+    def create_tags(string_tags)
+      tags = string_tags.split(",")
+      tags.each do | name |
+        tag = Tag.new()
+        tag.name = name
+        tag.save
+        @product.tags << tag
+      end
     end
 
 end
