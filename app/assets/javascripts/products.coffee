@@ -7,7 +7,18 @@ $(document).ready ->
   $('.materialboxed').materialbox()
   $('#unidad').material_select()
   $('select').material_select()
-  $('.image-miniature').on 'click': ->
+  $('.chips').material_chip
+    secondaryPlaceholder: 'Categorias'
+  $('#submit').on 'click', (event) ->
+    event.stopPropagation()
+    list = []
+    $('div.chip').each (i, e) ->
+        list.push $(e).text().replace('close', '')
+        return
+    $('#category_list').val list
+    $('#new_product').submit()
+
+  $('.image-miniature').on 'click', ->
     imageSource = $(this).attr("value")
     $('#img-primary').attr 'src', imageSource
     return
