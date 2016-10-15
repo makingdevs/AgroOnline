@@ -3,55 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "compass";
 $roboto-font-path: 'materialize/fonts/roboto/';
-@import 'materialize/sass/materialize';
 @import "font-awesome";
+@import 'forest-theme/js/vendor/swiper/idangerous.swiper.css';
+@import 'forest-theme/js/vendor/swiper/idangerous.swiper.scrollbar.css';
+@import 'forest-theme/js/vendor/magnific-popup/magnific-popup.css';
+@import 'forest-theme/css/fontello/css/fontello.css';
+@import 'forest-theme/css/fontello/css/animation.css';
+@import 'forest-theme/css/style.css';
+@import 'forest-theme/css/shortcodes.css';
+@import 'forest-theme/css/responsive.css';
 
-.parallax-container {
-  height: 400px;
-}
-
-.link-name-product {
-  color: white !important;
-}
-
-.margin-10 {
-  margin: 5px !important;
-}
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
-
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
-}
-
-@font-face {
-  font-family: 'farm';
-  src: font-url('AgroOnline-theme/font/Farm.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .logo {
-  float: left;
-  margin-bottom: 13px;
-  text-decoration: none;
-  position: relative;
-  z-index: 22;
+  max-width: 50%;
+  height: auto;
 }
 
-.logo img {
-  width: 195px;
-}
-
-.text-farm {
-  font-family: 'farm';
-}
