@@ -4,23 +4,18 @@
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <%= hidden_field_tag 'provider_id', @provider.id %>
 
-  <div class="input-field col s6">
+  <div class="input-field col s12">
     <%= f.text_field :name %>
     <label for="name">Nombre</label>
-  </div>
-
-  <div class="input-field col s6">
-    <%= f.text_field :sku %>
-    <label for="sku">SKU</label>
   </div>
 
   <div class="input-field col s4">
@@ -40,45 +35,12 @@
   </div>
 
   <div class="input-field col s6">
-    <%= f.text_field :origin %>
-    <label for="origin">Origen</label>
+    <div class="chips chips-initial" id="categories"></div>
   </div>
 
-  <div class="input-field col s6">
-    <%= f.text_field :packaging %>
-    <label for="packaging">Empacado</label>
-  </div>
-
-  <div class="input-field col s6">
-    <%= f.text_field :municipality %>
-    <label for="municipality">Municipio</label>
-  </div>
-
-  <div class="input-field col s6">
-    <%= select("", "category", Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'Selecciona una Categoria'}) %>
-  </div>
-
-  <div class="input-field col s6">
-    <%= f.text_field :cultivation_type %>
-    <label for="cultivation_type">Tipo de Cultivo</label>
-  </div>
-
-  <div class="input-field col s3">
-    <%= f.text_field :style %>
-    <label for="style">Estilo de Producto</label>
-  </div>
-
-  <div class="input-field col s3">
-    <%= f.text_field :color %>
-    <label for="color">Color del Producto</label>
-  </div>
-
-  <div class="input-field col s6">
-    <%= f.text_field :shelf_life %>
-    <label for="shelf_life">Vida util del Producto</label>
-  </div>
+  <input type="hidden" id="category_list" name="categorias" value="" />
 
   <div class="actions">
-    <%= f.submit "Alta", :class => "waves-effect waves-light btn-large"%>
+    <%= button_tag "Alta", :id => "submit", :class => "waves-effect waves-light btn-large"%>
   </div>
 <% end %>
