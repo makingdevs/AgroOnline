@@ -21,4 +21,11 @@
 //= require underscore/underscore
 //= require ez-plus/src/jquery.ez-plus
 //= require sepomex-js/dist/sepomex
+//= require forest-theme/js/vendor/jquery-migrate.min.js
+//= require forest-theme/js/vendor/__packed.js
+//= require forest-theme/js/custom/_utils.js
+//= require forest-theme/js/custom/_front.min.js
+//= require forest-theme/js/custom/shortcodes_init.min.js
+//= require forest-theme/js/custom/__main.js
+
 //= require_self
