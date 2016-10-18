@@ -22,6 +22,9 @@ class WelcomeController < ApplicationController
   def our
   end
 
+  def contact
+  end
+
   private
     def get_element_for_index
       @estados = []
