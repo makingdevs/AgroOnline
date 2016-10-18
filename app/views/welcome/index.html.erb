@@ -1,141 +1,253 @@
-<div id="index-banner" class="parallax-container z-depth-5">
-  <div class="section no-pad-bot">
-    <div class="container">
-      <br><br>
-      <h2 class="header center white-text">Creamos los vínculos entre productores y consumidores mexicanos</h2>
-      <h4 class="header center white-text">Encuentra el producto ques estás buscando, encuentra al comprador que estás buscando</h4>
-      <br><br>
-    </div>
-  </div>
-  <div class="parallax"><img src="http://com.agroonline.s3.amazonaws.com/agroonline/mercado.png" alt="Unsplashed background img 1"></div>
-</div>
-<br />
-<div class="row">
-  <div class="section">
-    <div class="col m4">
-      <h4 class="title center">Destacados</h4><br />
-      <div class="row">
-        <div class="section">
-          <div class="col m12">
-            <% Category.find_each do | category | %>
-              <div class="card small">
-                <div class="card-image waves-effect waves-block waves-light z-depth-2">
-                  <% if category.s3_asset %>
-                    <%= image_tag category.s3_asset,class: "responsive-img" %>
-                    <span class="card-title">
-                      <%= link_to "#{category.name.capitalize}", {:controller => "categories",:action=> "search",:id => "#{category.name}"},{ :class=> "btn btn-warning btn--decorated gallery-item__link"  }%>
-                    </span>
-                  <% end %>
-                </div>
-                <div class="card-content">
-                  <ul>
-                    <% Product.limit(3).where(:category => "#{category.id}").each do | product | %>
-                      <li><i class="material-icons tiny">label</i><%= product.name.capitalize %></li>
-                    <% end %>
-                  </ul>
+<div class="wrapContent">
+  <div id="wrapWide" class="wrapWide">
+    <div class="content">
+      <section class="singlePage emptyPostFormatIcon emptyPostTitle emptyPostInfo page">
+        <article class="postContent">
+          <div class="postTextArea">
+
+            <section class="">
+              <div class="container-fluid">
+                <div class="sc_blogger sc_blogger_horizontal style_portfolio_big portfolioWrap sc_blogger_indent">
+                  <div class="masonryWrap">
+                    <section class="masonryStyle isotopeWrap portfolio_big" data-foliosize="600">
+                      <article class="isotopeItem post_format_standard isw_1 odd" data-postid="3629" data-wdh="620" data-hgt="620" data-incw="1" data-inch="1"
+                        >
+                        <div data-url="ajax/block1.html" class="isotopeItemWrap">
+                          <div class="thumb">
+                            <img src="http://com.agroonline.s3.amazonaws.com/agroonline/cereal.jpg" >
+                          </div>
+                          <div class="isotopeRating" title="Rating: 4.5 from 5">
+                            <span class="rInfo"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            <span class="rDelta">
+                              <span class="icon-star"></span>
+                            </span>
+                          </div>
+                          <div class="isotopeMore icon-down-open-big">
+                          </div>
+                          <div class="isotopeContentWrap">
+                            <div class="isotopeContent">
+                              <h4 class="isotopeTitle">
+                              Cereales</h4>
+                              <div class="isotopeExcerpt">Trigo, Frijol, Maiz, Avena, Arroz, etc</div>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                      <article class="isotopeItem post_format_standard isw_1 even" data-postid="3627" data-wdh="620" data-hgt="620" data-incw="1" data-inch="1"
+                        >
+                        <div data-url="ajax/block2.html" class="isotopeItemWrap">
+                          <div class="thumb">
+                            <img src="http://com.agroonline.s3.amazonaws.com/agroonline/market.jpg" >
+                          </div>
+                          <div class="isotopeRating" title="Rating: 4.1 from 5">
+                            <span class="rInfo"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            <span class="rDelta">
+                              <span class="icon-star"></span>
+                            </span>
+                          </div>
+                          <div class="isotopeMore icon-down-open-big">
+                          </div>
+                          <div class="isotopeContentWrap">
+                            <div class="isotopeContent">
+                              <h4 class="isotopeTitle">
+                              Frutas y Vegetales</h4>
+                              <div class="isotopeExcerpt">Mango, Manzana, Platano, Melon, Chiles, Papa, Tomate, Lechuga, etc </div>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                      <article class="isotopeItem post_format_standard isw_1 odd last" data-postid="3625" data-wdh="620" data-hgt="620" data-incw="1" data-inch="1"
+                        >
+                        <div data-url="ajax/block3.html" class="isotopeItemWrap">
+                          <div class="thumb">
+                            <img src="http://com.agroonline.s3.amazonaws.com/agroonline/meat.jpg" >
+                          </div>
+                          <div class="isotopeRating" title="Rating: 3.6 from 5">
+                            <span class="rInfo"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            <span class="rDelta">
+                              <span class="icon-star"></span>
+                            </span>
+                          </div>
+                          <div class="isotopeMore icon-down-open-big">
+                          </div>
+                          <div class="isotopeContentWrap">
+                            <div class="isotopeContent">
+                              <h4 class="isotopeTitle">
+                              Carnes</h4>
+                              <div class="isotopeExcerpt">Pollo, Cerdo, Pescado, Res, etc</div>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </section>
+                  </div>
                 </div>
               </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col m8">
-      <div class="section">
-        <h3 class="title center">Los más vendidos en Jalisco</h3>
-        <%= @jalisco.each_slice(3) do | productList | %>
-          <div class="col s12 ">
-            <% productList.each do | product | %>
-              <div class="card medium col s4">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",width:"100%",class:"activator" %>
-                  <span class="card-title"><%= link_to "#{product.name.capitalize}", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {:class => "link-name-product"} %></span>
+            </section>
+
+            <div class="sc_content mainWrap">
+
+              <section class="section_padding_top_80 section_padding_bottom_50 with_border_bottom">
+                <div class="container">
+                  <h3 class="sc_title sc_title_center sc_title_style_1 margin_bottom_50">
+                  Creamos los vínculos entre productores y consumidores mexicanos</h3>
+                  <div class=" sc_columns  sc_columns_3 sc_columns_indent">
+                    <div class="sc_columns_item  sc_columns_item_coun_1 odd first">
+                      <div class="sc_image sc_image_style_1 margin_bottom_40">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/vector1.png" >
+                      </div>
+                      <h6 class="sc_title sc_title_style_2 sc_title_center">Mejor Calidad de Productos</h6>
+                      <div class="sc_text sc_text_style_1">
+                        <p>“Eliminamos cualquier tipo de contaminante en nuestros suelos con el fin de entregar el producto orgánico puro a nuestros clientes“</p>
+                      </div>
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_2 even">
+                      <div class="sc_image sc_image_style_1 margin_bottom_40">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/vector2.png" >
+                      </div>
+                      <h6 class="sc_title sc_title_style_2 sc_title_center">Nosostros</h6>
+                      <div class="sc_text sc_text_style_1">
+                        <p>
+                        Hemos reunido el mejor equipo cuyos miembros compartirá con gusto su estilo de vida saludable y experiencias con usted.</p>
+                      </div>
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_3 odd">
+                      <div class="sc_image sc_image_style_1 margin_bottom_40">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/vector3.png" >
+                      </div>
+                      <h6 class="sc_title sc_title_style_2 sc_title_center">
+                      Productos Organicos</h6>
+                      <div class="sc_text sc_text_style_1">
+                      <p>
+"En la actualidad, la Unión Europea y los EE.UU. requieren que los productores deban de obtener una certificación especial para el mercado de alimentos orgánicos."</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-content">
-                  <table width="100%"  style="padding: 8px 8px;">
-                    <tr>
-                      <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %></td>
-                      <td style="padding: 8px 8px;text-align: right;">
-                        Municipio: <% product.municipality ? product.municipality : "" %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-usd fa-lg" aria-hidden="true"></i><%= product.price %></td>
-                    <td style="padding: 8px 8px;text-align: right;">Empacado: <%= product.packaging %></td>
-                  </tr>
-                </table>
-                <br/>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <div class="section">
-      <h3 class="title center">Los más vendidos en Michoacán</h3>
-      <%= @michoacan.each_slice(3) do | productList | %>
-        <div class="col s12">
-          <% productList.each do | product | %>
-            <div class="card medium col s4 ">
-              <div class="card-image waves-effect waves-block waves-light">
-                <%= image_tag "http://com.agroonline.s3.amazonaws.com/agroonline/#{product.name.downcase}.jpg",width:"100%",class:"activator" %>
-                <span class="card-title"><%= link_to "#{ product.name.capitalize }", {:controller => "products",:action=> "show",:id => "#{product.id}"}, {:class => "link-name-product"} %></span>
-              </div>
-              <div class="card-content">
-                <table width="100%"  style="padding: 8px 8px;">
-                  <tr>
-                    <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= product.origin.capitalize %></td>
-                    <td style="padding: 8px 8px;text-align: right;">
-                      Municipio: <% product.municipality ? product.municipality : "" %>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 8px;text-align: left;"><i class="fa fa-usd fa-lg" aria-hidden="true"></i><%= product.price %></td>
-                  <td style="padding: 8px 8px;text-align: right;">Empacado: <%= product.packaging %></td>
-                </tr>
-              </table>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Detalles<i class="material-icons right">close</i></span>
+              </section>
+
+              <section class="section_padding_top_80 section_padding_bottom_60">
+                <div class="container-fluid">
+                  <div class="sc_columns sc_columns_style_1 sc_columns_3 sc_columns_indent">
+                    <div class=" sc_columns_item  sc_columns_item_coun_1 odd first" >
+                      <h3 class="sc_title sc_title_style_3 margin_bottom_30">Pescados</h3>
+                      <div class="sc_image sc_image_style_2 margin_bottom_25">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/pescados.jpg" >
+                      </div>
+                      <p>
+                      Pesces y Mariscos exportados desde las costas mexicanas, directamente enviados por los pescadores.</p>
+
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_2 even" >
+                      <h3 class="sc_title sc_title_style_3 margin_bottom_30">Carnes</h3>
+                      <div class="sc_image sc_image_style_2 margin_bottom_25">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/pollos.jpg" >
+                      </div>
+                      <p>
+                      Todos los productos de procedencia animal, son criados bajo altos estandares de calidad.</p>
+
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_3 odd" >
+                      <h3 class="sc_title sc_title_style_3 margin_bottom_30">Frutas y Verduras</h3>
+                      <div class="sc_image sc_image_style_2 margin_bottom_25">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/verduras-mercado.jpg" >
+                      </div>
+                      <p>
+                      Las cosechas de Frutas, Verduras y Legumbres, se utilizan abonos no quimicos, para guardar los nutrientes de dichos productos al maximo.</p>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="">
+                <div class="container-fluid">
+                  <div class="sc_slider sc_slider_style_1 sc_slider_swiper sc_slider_controls swiper-container">
+                    <ul class="slides swiper-wrapper" data-settings="none">
+                      <li class="swiper-slide slider_image_1" data-theme="dark">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/Ganaderos.jpg" >
+                      </li>
+                      <li class="swiper-slide slider_image_2" data-theme="dark">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/pescador.jpg" >
+                      </li>
+                      <li class="swiper-slide slider_image_3" data-theme="dark">
+                        <img src="http://com.agroonline.s3.amazonaws.com/agroonline/agriculltor.jpg" >
+                      </li>
+                    </ul>
+                    <ul class="slider-control-nav">
+                      <li class="slide-prev">
+                        <a class="icon-left-open-big" href="#"></a>
+                      </li>
+                      <li class="slide-next">
+                        <a class="icon-right-open-big" href="#"></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section_padding_top_80">
+                <div class="container">
+                  <h3 class="sc_title sc_title_center sc_title_style_1 margin_bottom_50">
+                  Nuestros Productores</h3>
+                  <div class=" sc_columns  sc_columns_7 sc_columns_indent">
+                    <div class=" sc_columns_item  sc_columns_item_coun_1 odd first" >
+                      <div  class="sc_image">
+                        <a href="#">
+                          <img  src="http://com.agroonline.s3.amazonaws.com/agroonline/J%C3%B3se%20luis.jpg" alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_2 even" >
+                      <div  class="sc_image">
+                        <a href="#">
+                          <img  src="http://com.agroonline.s3.amazonaws.com/agroonline/J%C3%B3se%20juan.jpg" alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_3 odd" >
+                      <div  class="sc_image">
+                        <a href="#">
+                          <img  src="http://com.agroonline.s3.amazonaws.com/agroonline/Alejandro.jpg" alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_4 even" >
+                      <div  class="sc_image">
+                        <a href="#">
+                          <img  src="http://com.agroonline.s3.amazonaws.com/agroonline/Erick.jpg" alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_5 odd" >
+                      <div  class="sc_image">
+                        <a href="#">
+                          <img  src="http://com.agroonline.s3.amazonaws.com/agroonline/Sofia.jpg" alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_6 even" >
+                      <div  class="sc_image">
+                        <a href="#">
+                          <img  src="http://com.agroonline.s3.amazonaws.com/agroonline/Roberto.jpg" alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class=" sc_columns_item  sc_columns_item_coun_7 odd" >
+                      <div  class="sc_image">
+                        <a href="#">
+                          <img  src="http://com.agroonline.s3.amazonaws.com/agroonline/Adriana.jpg" alt="" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <div class="section">
-    <div id="container" class="col m12">
-    </div>
-  </div>
-  <br /><br /><br />
-  <div class="section">
-    <h3 class="title center">Materias Primas</h3>
-  </div>
-</div>
-</div>
-  </div>
-  <div class="row">
-    <div class="section">
-      <div class="col m12">
-        <h3 class="title center">Nuestro Proveedores</h3>
-        <% @providers.each do | provider | %>
-          <div class="col s12 m3">
-            <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="<%= provider.try(:s3_asset).try(:url_file) %>">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4"><%= provider.to_s %></span>
-                <div>
-                  <p>Correo: <%= provider.try(:user).try(:email) %></p>
-                  <p>Telefono: <%= provider.try(:telephone) %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+        </article>
+      </section>
     </div>
   </div>
 </div>
