@@ -1,21 +1,28 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "compass";
-$roboto-font-path: 'materialize/fonts/roboto/';
-@import "font-awesome";
+//
 @import 'forest-theme/js/vendor/swiper/idangerous.swiper.css';
 @import 'forest-theme/js/vendor/swiper/idangerous.swiper.scrollbar.css';
 @import 'forest-theme/js/vendor/magnific-popup/magnific-popup.css';
+
+@import 'forest-theme/js/vendor/woocommerce/css/select2.css';
+@import 'forest-theme/js/vendor/woocommerce/css/woocommerce-layout.css';
+
+@import 'forest-theme/js/vendor/woocommerce/css/woocommerce.css';
+
 @import 'forest-theme/css/fontello/css/fontello.css';
 @import 'forest-theme/css/fontello/css/animation.css';
 @import 'forest-theme/css/style.css';
 @import 'forest-theme/css/shortcodes.css';
 @import 'forest-theme/css/responsive.css';
+@import 'forest-theme/css/woo-style.css';
+$roboto-font-path: 'materialize/fonts/roboto/';
+@import "font-awesome";
 
+@import "compass";
 
 .logo {
   max-width: 50%;
   height: auto;
 }
-
