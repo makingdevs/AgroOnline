@@ -86,8 +86,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'nosunimos.herokuapp.com' }
 
-  puts Rails.application.mailer_user
-  puts Rails.application.mailer_host
+  puts Rails.application.secrets.inspect
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
