@@ -1,32 +1,32 @@
 <div class="container">
   <div class="row">
-    <h2>Crea un acceso</h2>
+    <h2 align="center">Crea un acceso</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name, class: "contact_1")) do |f| %>
       <%= devise_error_messages! %>
+      <div class="sc_columns_3 sc_columns_indent">
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <%= f.email_field :email, autofocus: "off", class:"formUser", style:"font-size: 16px; display: block; outline:none; color:#888888; border-width: 1px; border-style: solid; border-color: #ddd;  background-color: #fff; margin: 0px; width: 100%; font-weight: 300;-moz-box-sizing: border-box;box-sizing: border-box;"%>
+        </div>
 
-      <div class="field">
-        <label for="email">Correo electrónico</label>
-        <%= f.email_field :email, autofocus: true %>
+        <div class="field">
+          <label for="password">Establece una contraseña</label>
+          <% if @minimum_password_length %>
+            <em><%= @minimum_password_length %> carácteres al menos</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <label for="password_confirmation">Confirma tu contraseña</label>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
       </div>
-
-      <div class="field">
-        <label for="password">Establece una contraseña</label>
-        <% if @minimum_password_length %>
-          <em><%= @minimum_password_length %> carácteres al menos</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <label for="password_confirmation">Confirma tu contraseña</label>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Crea tu registro", :class => "waves-effect waves-light btn" %>
+      <div class="actions" align="center">
+        <%= f.submit "Crea tu registro", :class => "sc_button sc_button_style_2 sc_button_skin_global sc_button_style_bg sc_button_size_medium" %>
       </div>
     <% end %>
-
+    <%= render "devise/shared/links" %>
   </div>
 </div>
