@@ -5,7 +5,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
-Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "third-party")
+Rails.application.config.assets.paths << Rails.root.join("vendor", "assets")
 
 %w( welcome products providers categories users).each do |controller|
     Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller}.css"]
