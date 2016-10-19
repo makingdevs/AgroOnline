@@ -9,7 +9,7 @@ gem 'rails-i18n'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'compass-rails'
+gem 'compass', '~> 1.0', '>= 1.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
