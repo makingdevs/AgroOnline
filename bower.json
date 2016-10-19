@@ -14,19 +14,15 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4",
-    "materialize": "~0.97.7",
-    "fontawesome": "~4.6.3",
-    "highcharts": "^4.2.6",
+    "jquery": "~1.11.2",
     "markerclustererplus": "gmaps-markerclusterer-plus#^2.1.4",
     "InfoBox": "^0.6.5",
     "underscore": "^1.8.3",
     "ez-plus": "^1.2.0",
-    "easyzoom": "^2.4.1",
     "sepomex-js": "^1.0.0",
     "forest-theme": "https://github.com/makingdevs/forest-theme.git"
   },
   "resolutions": {
-    "jquery": "~2.1.4"
+    "jquery": "~1.11.2"
   }
 }
