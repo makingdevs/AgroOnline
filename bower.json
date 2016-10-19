@@ -20,7 +20,8 @@
     "underscore": "^1.8.3",
     "ez-plus": "^1.2.0",
     "sepomex-js": "^1.0.0",
-    "forest-theme": "https://github.com/makingdevs/forest-theme.git"
+    "forest-theme": "https://github.com/makingdevs/forest-theme.git",
+    "agroonline": "https://github.com/makingdevs/AgroOnline-theme.git"
   },
   "resolutions": {
     "jquery": "~1.11.2"
