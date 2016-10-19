@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <h2>Log in</h2>
+    <h2 align="center">Acceder</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, autofocus: true,style:"font-size: 16px; display: block; outline:none; color:#888888; border-width: 1px; border-style: solid; border-color: #ddd;  background-color: #fff; margin: 0px; width: 100%; font-weight: 300;-moz-box-sizing: border-box;box-sizing: border-box;" %>
       </div>
 
       <div class="field">
@@ -20,8 +20,8 @@
         </div>
       <% end -%>
 
-      <div class="actions">
-        <%= f.submit "Acceder", :class => "btn" %>
+      <div class="actions" align="center">
+        <%= f.submit "Acceder", :class => "sc_button sc_button_style_2 sc_button_skin_global sc_button_style_bg sc_button_size_medium" %>
       </div>
     <% end %>
 
