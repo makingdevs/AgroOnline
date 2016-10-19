@@ -1,144 +1,180 @@
-<div class="container">
-  <div class="row">
-    <div class="col s12 m12">
-      <div class="col s12 m6">
-        <% unless @product.s3_assets.empty? %>
-          <img id="img-primary" src="<%= @product.s3_assets.first %>" class="product-image-responsive materialboxed" width="650" />
-          <br />
-          <div id="gal1">
-            <% @product.s3_assets.each_with_index do | asset,index |  %>
-              <img class="image-miniature" src="<%= asset.url_file %>" height="68px" width="100px" value="<%= asset.url_file %>"/>
-            <% end %>
-          </div>
-          <% if @product.provider.user.id != session[:user_id] %>
-            <ul class="collapsible" data-collapsible="accordion">
-              <li>
-              <div class="collapsible-header">Agregar otra Imagen</div>
-              <div class="collapsible-body col m10">
-                <%= form_tag(product_image_path,  method:"post", multipart: true) do %>
-                  <div class="file-field input-field">
-                    <div class="btn col m3">
-                      <span>Imagen</span>
-                      <input type="file" name="file" >
-                    </div>
-                    <div class="file-path-wrapper">
-                      <input class="file-path validate" type="text" >
-                    </div>
-                    <%= hidden_field_tag 'id_product', @product.id %>
-                    <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit" %>
-                  </div>
-                <% end %>
-              </div>
-              </li>
-            </ul>
-          <% end %>
-        <% else %>
-          <% if @product.provider.user.id != session[:user_id] %>
-            <h4>Agrega Fotos a tu Producto</h4>
-            <%= form_tag(product_image_path,  method:"post", multipart: true) do %>
-              <div class="file-field input-field">
-                <div class="btn">
-                  <span>Imagen</span>
-                  <input type="file" name="file" >
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" >
-                </div>
-              </div>
-              <%= hidden_field_tag 'id_product', @product.id %>
-              <%= submit_tag 'Subir', class:"btn btn--decorated btn-warning btn-submit col s12 m3" %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="col s12 m6">
-        <div class="product-right-col">
-          <div align="center">
-            <h2><%= @product.name.capitalize  %></h2>
-          </div>
-          <div class="body">
-            <div class="col m12 price-box-main" >
-              <br />
-              <div class="">
-                <div class="col s12 m6 price-info">
-                  <div class="price-box">
-                    <span class="regular-price">
-                      <span class="price" itemprop="price">$ <%= @product.price %></span>
-                    </span>
-                  </div>
-                </div>
-                <div class="col s8 m6">
-                  <div class="extra-info">
-                    <div class="clear"></div>
-                    <div class="write-review-btn">
-                      <a href="#" data-elevio-module="chat" class="live-chat-btn right borderb0" title="Live Chat">
-                        <img src="http://rdxsports.com/skin/frontend/rdxsports/default/chat/live-chat-btn.png" alt="Live Chat">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p></p>
-            </div>
-            <div class="col s12 price-box-main">
-              <p>
-              <b>Sku Producto: <i> <%= @product.sku %></i></b>
-              </p>
-              <div class="col m12">
-                <div class="col m6">
-                  <dl>
-                    <dt><b>Peso del producto</b></dt>
-                    <dd><%= @product.weight %></dd>
-                    <dt><b>Orden minima</b></dt>
-                    <dd><%= @product.min_order_quantity %></dd>
-                    <dt><b>Origen del Producto</b></dt>
-                    <dd><%= @product.origin.capitalize  %></dd>
-                    <dt><b>Empacado en</b></dt>
-                    <dd><%= @product.packaging.capitalize %></dd>
-                  </dl>
-                </div>
-                <div class="col m6">
-                  <dl>
-                    <dt><b>Tipo de Cultivo</b></dt>
-                    <dd><%= @product.cultivation_type.capitalize %></dd>
-                    <dt><b>Estilo del Producto</b></dt>
-                    <dd><%= @product.style.capitalize %></dd>
-                    <dt><b>Color del Producto</b></dt>
-                    <dd><%= @product.color.capitalize %></dd>
-                     <dt><b>Tiempo de vida del Producto</b></dt>
-                    <dd><%= @product.shelf_life %></dd>
-                    <dt><b>Municipio</b></dt>
-                    <dd><%= @product.municipality ? @product.municipality : "" %></dd>
-                  </dl>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="single single-product woocommerce woocommerce-page">
 
-        </div>
-      </div>
-      <div class="col m12"><br/> <hr /><br /></div>
-      <div class="col m12 card horizontal">
-        <h5>Proveedor</h5>
-        <% provider = @product.provider %>
-        <div class="col m8">
-          <dl>
-            <dt><b>Nombre</b></dt>
-            <dd><%= provider.to_s %>
-            <dt><b>Correo Electronico</b></dt>
-            <dd><%= provider.user.email %></dd>
-            <dt><b>Telefono</b></dt>
-            <dd><%= provider.telephone %></dd>
-            <dt><b>Dirección</b></dt>
-            <dd><%= provider.address %></dd>
-          </dl>
-        </div>
-        <div class="col m4 thumbnail">
-            <%= image_tag "#{provider.s3_asset.to_s}" %>
-        </div>
-      </div>
-      <div class="col m12"><br/> <hr /><br /></div>
-      <%= render 'contact' %>
+	<div id="wrap" class="wrap sideBarRight sideBarShow menuStyle1 menuSmartScrollShow blogStyleExcerpt bodyStyleWide menuStyleFixed visibleMenuDisplay logoImageStyle logoStyleBG">
+		<div id="wrapBox" class="wrapBox">
+
+			<div class="wrapContent">
+				<div id="wrapWide" class="wrapWide">
+					<div class="content">
+
+						<section class="">
+							<div class="container">
+								<section class="post shop_mode_thumbs">
+									<article class="post_content">
+
+										<div class="product">
+
+
+											<span class="onsale">Oferta!</span>
+											<div class="images">
+												<a href="" class="woocommerce-main-image zoom" title="">
+													<img src="http://com.agroonline.s3.amazonaws.com/agroonline/fresas-ecologicas.jpg" class="attachment-shop_single" alt="apetito1" title="apetito1" />
+												</a>
+												<div class="thumbnails columns-5">
+													<a href="" class="zoom first" title="">
+														<img src="http://com.agroonline.s3.amazonaws.com/agroonline/fresa180.jpg" class="attachment-shop_thumbnail" alt="0-massa-pene" title="0-massa-pene" />
+													</a>
+													<a href="" class="zoom" title="">
+														<img src="http://com.agroonline.s3.amazonaws.com/agroonline/fresa180-1.jpg" class="attachment-shop_thumbnail" alt="apetito1" title="apetito1" />
+													</a>
+												</div>
+											</div>
+
+											<div class="summary entry-summary">
+												<h1 class="product_title entry-title">Fresas ecologicas</h1>
+												<div>
+													<p class="price">
+														<del>
+														<span class="amount">$ 9.00</span>
+														</del>
+														<ins>
+														<span class="amount">$ 7.20</span>
+														</ins>
+													</p>
+												</div>
+												<form class="cart" method="post" enctype='multipart/form-data'>
+													<div class="quantity">
+														<input type="number" step="1" min="1"  name="quantity" value="1" title="Qty" class="input-text qty text" size="4" />
+													</div>
+													<input type="hidden" name="add-to-cart" value="4015" />
+													<button type="submit" class="single_add_to_cart_button button alt">Agregar</button>
+												</form>
+												<div class="product_meta">
+													<span class="posted_in">
+														Categorias:
+														<a href="#" rel="tag">Organico</a>,
+														<a href="#" rel="tag">Fruta</a>
+													</span>
+													<span class="product_id">Product ID:
+														<span>4015</span>
+													</span>
+												</div>
+											</div>
+
+
+											<div class="woocommerce-tabs wc-tabs-wrapper sc_tabs">
+												<ul class="tabs wc-tabs sc_tabs_titles">
+													<li class="tab_names description_tab">
+														<a href="#tab-description">Descripción</a>
+													</li>
+												</ul>
+												<div class="panel entry-content wc-tab" id="tab-description">
+													<h2>Descripción de Producto</h2>
+													<div class="sc_section  sc_float_right sc_columns_1_2 margin_bottom_0">
+														<div class="sc_skills  sc_skills_bar sc_skills_horizontal" data-type="bar" data-dir="horizontal">
+															<div class="sc_skills_item sc_skills_style_1 odd first">
+																<div class="sc_skills_count">
+																	<div class="sc_skills_total" data-start="0" data-stop="98" data-step="1" data-max="100" data-speed="19" data-duration="1862" data-ed="%">
+																		<span>0%</span>
+																	</div>
+																</div>
+															</div>
+															<div class="sc_skills_info">Frescura</div>
+															<div class="sc_skills_item sc_skills_style_1 even">
+																<div class="sc_skills_count">
+																	<div class="sc_skills_total" data-start="0" data-stop="26" data-step="1" data-max="100" data-speed="39" data-duration="1014" data-ed="%">
+																		<span>0%</span>
+																	</div>
+																</div>
+															</div>
+															<div class="sc_skills_info">Limpieza</div>
+															<div class="sc_skills_item sc_skills_style_1 odd">
+																<div class="sc_skills_count">
+																	<div class="sc_skills_total" data-start="0" data-stop="87" data-step="1" data-max="100" data-speed="25" data-duration="2175" data-ed="%">
+																		<span>0%</span>
+																	</div>
+																</div>
+															</div>
+															<div class="sc_skills_info">Dulzura</div>
+														</div>
+													</div>
+													<p>
+                            La fresa es un fruto de color rojo brillante, suculento y fragante que se obtiene de la planta que recibe su mismo nombre. En Occidente es considerada la "reina de las frutas". Además de poderse comer cruda se puede consumir como compota, mermelada,... Es empleada con fines medicinales ya que posee excelentes propiedades que ayudan a preservar la salud.
+                          </p>
+													<div class="sc_tabs sc_tabs_style_1 margin_top_20" data-active="0">
+														<ul class="sc_tabs_titles">
+															<li class="tab_names first">
+																<a href="#sc_tab_10_1" class="theme_button" id="sc_tab_10_1_tab">Empaque y Embalaje</a>
+															</li>
+														</ul>
+														<div class="sc_tabs_array">
+															<div id="sc_tab_10_1" class="sc_tabs_content odd first">
+																<div class="sc_section sc_float_right sc_columns_1_2 margin_bottom_0">
+																	<ul class="sc_list sc_list_style_iconed">
+																		<li class="sc_list_item  icon-ok-1 odd first sc_list_marked_no">
+																			<span> Contener: Separando las fresas del medio ambiente y permitiendo manejarlas fácilmente.</span>
+																		</li>
+																		<li class="sc_list_item  icon-lock-open-alt even sc_list_marked_yes">
+																			<span>Proteger: Manteniéndolas completamente separadas de factores externos que puedan afectarlas.</span>
+																		</li>
+																		<li class="sc_list_item  icon-rocket odd sc_list_marked_no">
+																			<span>Conservar: La vida útil de la fresa durante el periodo de tiempo establecido para transporte y venta.</span>
+																		</li>
+																		<li class="sc_list_item  icon-briefcase even sc_list_marked_no">
+																			<span>Vender: El empaque es atractivo y diferencia el producto, ayudándolo a su venta.</span>
+																		</li>
+																	</ul>
+																</div>
+																<p>
+                                  <b>TRANSPORTE</b><br>
+                                  El transporte aéreo resulta necesario para la movilización de productos perecederos que exigen velocidad en su desplazamiento.
+                                  Este modo de transporte ofrece una serie de ventajas como la rapidez en la entrega, una mayor cobertura geográfica y mayores frecuencias de transporte.
+                                </p>
+																<blockquote class="sc_quote sc_quote_style_1">
+																	<p>
+                                    "La agricultura se moderniza y su reconversión es inminente. Es tiempo de oportunidades."
+                                  </p>
+																</blockquote>
+															</div>
+														</div>
+													</div>
+
+									</article>
+								</section>
+							</div>
+						</section>
+
+					</div>
+          <div id="sidebar_main" class="widget_area sideBar">
+            <aside class="widget-first widgetWrap widget_search">
+              <form method="get" id="searchform" class="searchform" action="#">
+                <div class="searchFormWrap">
+                  <div class="searchSubmit">
+                    <input class="sc_button sc_button_skin_dark sc_button_style_bg sc_button_size_mini" type="submit" id="searchsubmit" value="Busqueda" />
+                  </div>
+                  <div class="searchField">
+                    <input class="" type="search" name="s" value="" id="s" placeholder="Busqueda &hellip;" />
+                  </div>
+                </div>
+              </form>
+            </aside>
+            <aside class="widget-first widgetWrap widget_tag_cloud">
+              <h4 class="title">Tags</h4>
+              <div class="tagcloud">
+                <a href='#' title='1 topic'>Carne</a>
+                <a href='#' title='4 topics'>Manzanas</a>
+                <a href='#' title='1 topic'>Aguacate</a>
+                <a href='#' title='8 topics'>Res</a>
+                <a href='#' title='3 topics'>Pescado</a>
+                <a href='#' title='7 topics'>Platana</a>
+                <a href='#' title='1 topic'>Mango</a>
+                <a href='#' title='12 topics'>Caña</a>
+                <a href='#' title='1 topic'>Pollo</a>
+              </div>
+            </aside>
+          </div>
+				</div>
+			</div>
     </div>
   </div>
 </div>
