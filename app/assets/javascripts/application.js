@@ -11,16 +11,6 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery
-//= require materialize/dist/js/materialize.min
-//= require dropzone
-//= require welcome
-//= require highcharts/highmaps
-//= require highcharts/modules/exporting
-//= require markerclustererplus/dist/markerclusterer.min
-//= require InfoBox/js/InfoBox
-//= require underscore/underscore
-//= require ez-plus/src/jquery.ez-plus
-//= require sepomex-js/dist/sepomex
 //= require forest-theme/js/vendor/jquery-migrate.min
 //= require forest-theme/js/vendor/__packed
 //= require forest-theme/js/custom/_utils
@@ -28,5 +18,13 @@
 //= require forest-theme/js/custom/shortcodes_init.min
 //= require forest-theme/js/custom/__main
 //= require forest-theme/js/custom/_googlemap_init
+//= require dropzone
+//= require welcome
+//= require markerclustererplus/dist/markerclusterer.min
+//= require InfoBox/js/InfoBox
+//= require underscore/underscore
+//= require ez-plus/src/jquery.ez-plus
+//= require sepomex-js/dist/sepomex
+
 
 //= require_self
