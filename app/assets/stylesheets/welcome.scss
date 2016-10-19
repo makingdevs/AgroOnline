@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //
+@import "compass";
 @import 'easyzoom/css/easyzoom.css';
 @import 'forest-theme/js/vendor/swiper/idangerous.swiper.css';
 @import 'forest-theme/js/vendor/swiper/idangerous.swiper.scrollbar.css';
@@ -19,7 +20,6 @@
 @import 'forest-theme/css/responsive.css';
 @import 'forest-theme/css/woo-style.css';
 
-@import "compass";
 
 .logo {
   max-width: 50%;
