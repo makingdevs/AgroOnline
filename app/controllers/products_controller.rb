@@ -2,7 +2,7 @@ require 'utilities/unidades'
 require 'utilities/s3_asset_service'
 
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [ :edit, :update, :destroy]
   before_action :set_unidades, only: [:show, :contact]
 
   # GET /products
