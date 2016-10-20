@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //
 @import "compass";
-
+$roboto-font-path: 'materialize/fonts/roboto/';
+@import "font-awesome";
 .logo {
   max-width: 50%;
   height: auto;
